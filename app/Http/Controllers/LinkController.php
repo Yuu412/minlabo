@@ -373,8 +373,9 @@ class LinkController extends Controller
       $lab_details = [$lab_details_univ, $lab_details_lab];
 
       $lab_evaluation = lab_evaluation::find($lab_details[0]);
-
       $laboratory = Laboratory::where('lab_univ', $lab_details[0])->where('lab_name', $lab_details[1])->first();
+
+      $token = uniqid(rand(100, 999));
 
       $faculty_lib_array = [
                             "文学部", "教育学部", "経済学部", "経営学部", "商学部",
@@ -468,6 +469,7 @@ class LinkController extends Controller
       $eachtitle_array = ["教授について", "就活について", "研究室について", "その他"];
 
       return view('add_evaluation',[
+        'token' => $token,
         'lab_details' => $lab_details,
         'lab_evaluation' => $lab_evaluation,
         'evaluation_array' => $evaluation_array,
@@ -631,7 +633,6 @@ class LinkController extends Controller
 
       $lib = in_array($laboratory->lab_faculty , $faculty_lib_array);
       $sci = in_array($laboratory->lab_faculty , $faculty_sci_array);
-
 
       if($lib)
       {

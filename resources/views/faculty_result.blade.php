@@ -7,7 +7,6 @@
   @include('components.botton_add_reviews')
 
     <table class="table table-striped task-table">
-      <!--テーブルヘッダ-->
       <thead>
         <th>{{ $keyword }}の研究室一覧</th>
       </thead>
