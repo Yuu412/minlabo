@@ -46,8 +46,8 @@
       <!--研究室の評価 登録ボタン-->
       <div class="form-groupe">
         <div class="col-offset-3 col-sm-6">
-          <input type="hidden" name="lab_univ" value="{{ $lab_details[0] }}" class="form-control">
-          <input type="hidden" name="lab_name" value="{{ $lab_details[1] }}" class="form-control">
+          <input type="hidden" name="lab_univ" value="{{ $lab_details[0] }}" >
+          <input type="hidden" name="lab_name" value="{{ $lab_details[1] }}" >
           <input type="hidden" name="token" value="{{ $token }}">
           <button type="submit" class="btn btn-primary">送信する</button>
         </div>

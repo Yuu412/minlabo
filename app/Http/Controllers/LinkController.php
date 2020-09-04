@@ -298,6 +298,7 @@ class LinkController extends Controller
 
      $lab_evaluation->lab_name = $request->lab_name;
      $lab_evaluation->lab_univ = $request->lab_univ;
+
      /*教授について*/
      $lab_evaluation->prof_care = $request->prof_care;
      $lab_evaluation->prof_friendly = $request->prof_friendly;

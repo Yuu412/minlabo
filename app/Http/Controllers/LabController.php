@@ -64,7 +64,7 @@ class LabController extends Controller
         ];
 
       /* ↓↓ 新着口コミ ↓↓ */
-      $univ_names = \App\Laboratory::select('lab_univ')->orderBy('created_at', 'asc')->groupBy('lab_univ')->get();
+      $univ_names = Laboratory::select('lab_univ')->groupBy('lab_univ')->latest()->get();
 
       /* ↓↓ 総合評価ランキング ↓↓ */
       $ranking_evaluations = lab_evaluation::orderBy('all_average', 'desc')->get();
