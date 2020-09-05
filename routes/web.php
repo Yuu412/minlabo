@@ -66,6 +66,8 @@ Route::group(['middleware' => ['web']], function ()
 });
 
 //========ログインしなくてもアクセスできるページ========================================
+//研究室サイトダッシュボード表示
+Route::get('toppage', 'LinkController@preindex')->name('toppage');
 
 //本会員登録用URLがクリックされると本会員登録フォームに遷移
 Route::get('register/verify/{token}', 'Auth\RegisterController@showForm');
