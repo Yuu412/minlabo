@@ -9,7 +9,6 @@
   <!--↓↓ 検索フォーム ↓↓-->
   <h2>研究室・ゼミ探す</h2>
   @include('components.search-form', ['keyword'=>$keyword])
-  <!--↑↑ 検索フォーム ↑↑-->
 
   <h2>エリアから探す</h2>
   <!--↓↓ 主要都道府県 ↓↓-->
@@ -18,13 +17,11 @@
       @include('components.area', ['i'=>$i])
     @endforeach
   </div>
-  <!--↑↑ 主要都道府県 ↑↑-->
 
   <!--↓↓ 各エリアごとの都道府県 ↓↓-->
   @for ($i = 1; $i <= 6; $i++)
     @include('components.area', ['i'=>$i])
   @endfor
-  <!--↑↑ 各エリアごとの都道府県 ↑↑-->
 
   <!--↓↓ 学部ごと表示部 ↓↓-->
   <h2>学部から探す</h2>
@@ -45,7 +42,6 @@
         @endforeach
       </div>
   @endfor
-  <!--↑↑ 学部ごと表示部 ↑↑-->
 
   <!--↓↓ 新着口コミ表示 ↓↓-->
     <table class="table table-striped task-table">

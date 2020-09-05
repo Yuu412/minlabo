@@ -14,6 +14,7 @@
   @php
     $flag = 1;
   @endphp
+  
   @include('components.botton_add_reviews', ['flag' => $flag])
 
   @foreach($array_average as $item_average)

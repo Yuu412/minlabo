@@ -20,6 +20,14 @@ use Auth;
 
 class LinkController extends Controller
 {
+    public function preindex(){
+      $amount_reviews
+
+      return view('toppage',[
+        'tmp' => $tmp
+      ]);
+    }
+
     //トップページに戻る
     public function to_index(){return view('laboratories');}
 
