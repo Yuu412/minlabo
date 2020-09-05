@@ -21,10 +21,36 @@ use Auth;
 class LinkController extends Controller
 {
     public function preindex(){
-      $amount_reviews
+      $pre_array = [
+          ["北海道", "青森県", "秋田県", "山形県", "岩手県", "宮城県", "福島県"],
+          ["東京都", "神奈川県", "埼玉県", "千葉県", "栃木県", "茨城県","群馬県",
+           "愛知県", "岐阜県", "静岡県", "三重県", "新潟県", "山梨県", "長野県", "石川県", "富山県", "福井県"],
+          ["大阪府", "兵庫県", "京都府", "滋賀県", "奈良県", "和歌山県"],
+          ["岡山県", "広島県", "鳥取県", "島根県", "山口県", "香川県", "徳島県", "愛媛県", "高知県"],
+          ["福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"],
+        ];
+      $region_array = ["北海道・東北", "関東・中部", "近畿", "中国・四国", "九州"];
+      $hokkaido = $kanto = $kinki = $chugoku = $kyushu = 0;
+      $amount_reviews_array =[$hokkaido, $kanto, $kinki, $chugoku, $kyushu];
+
+      $amount_lab_evaluation = lab_evaluation::get();
+      foreach ($amount_lab_evaluation as $lab_evaluation)
+      {
+        $lab_evaluation_pre = Univ_data::where('univ_name', $lab_evaluation->lab_univ)->get();
+        foreach ($lab_evaluation_pre as $pre) {
+          for($i=0;  $i<5; $i++){
+            if(in_array($pre->pre_name, $pre_array[$i])){
+              $amount_reviews_array[$i]++;
+            }
+          }
+        }
+      }
 
       return view('toppage',[
-        'tmp' => $tmp
+        'lab_evaluation_pre' => $lab_evaluation_pre,
+
+        'amount_reviews_array' => $amount_reviews_array,
+        'region_array' => $region_array
       ]);
     }
 
