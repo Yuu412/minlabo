@@ -6,15 +6,12 @@
   </li>
 
   <!--研究室登録フォーム-->
-  <li class="nav-item">
-    <a class="nav-link" href="{{ action('LinkController@to_add') }}">研究室の追加</a>
-  </li>
+  @include('components.botton_add_reviews')
+
   @if(count($user_datas) > 0)
-  <!--Bootstrapの定形コード-->
 
   <!--バリテーションエラーの表示に使用-->
   @include('common.errors')
-  <!--end:バリテーションエラーの表示に使用-->
 
 <div class="card-body">
   <div class="card-body">

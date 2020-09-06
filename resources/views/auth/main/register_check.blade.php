@@ -43,15 +43,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="lab_name" class="col-md-4 col-form-label text-md-right">研究室名</label>
-                            <div class="col-md-6">
-                                <span class="">{{$user->lab_name}}</span>
-                                <input type="hidden" name="lab_name" value="{{$user->lab_name}}">
-                            </div>
-                        </div>
-
-
                         <input type="hidden" name="email_token" value="{{$email_token}}">
 
                         <div class="form-group row mb-0">

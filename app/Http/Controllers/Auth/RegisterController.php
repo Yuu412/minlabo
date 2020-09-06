@@ -145,7 +145,6 @@ class RegisterController extends Controller
         $user->univ_name = $request->univ_name;
         $user->faculty_name = $request->faculty_name;
         $user->department_name = $request->department_name;
-        $user->lab_name = $request->lab_name;
 
         return view('auth.main.register_check', compact('user','email_token'));
       }
@@ -158,8 +157,6 @@ class RegisterController extends Controller
       $user->univ_name = $request->univ_name;
       $user->faculty_name = $request->faculty_name;
       $user->department_name = $request->department_name;
-      $user->lab_name = $request->lab_name;
-
       $user->token = uniqid(rand(100, 999));
       $user->save();
 

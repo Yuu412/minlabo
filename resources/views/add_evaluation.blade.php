@@ -39,6 +39,10 @@
           <input type="checkbox" name="objobtype[]" value="{{ $i }}"> {{ $i }}
         @endfor
 
+    <h3>ゼミ・研究室に入るためのＧＰＡや条件</h3>
+      <label for="terms" class="control-label">このゼミ・研究室に入るための基準となるＧＰＡや条件などがあれば教えてください</label>
+      <input type="text" name="terms">
+
     <h3>口コミ</h3>
       <label for="content" class="control-label">上記の評価をつけた理由など研究室に関する口コミを記入してください(50文字以上1000文字以内)</label>
       <input type="text" name="content" class="form-control @error('content') is-invalid @enderror" required autocomplete="content">

@@ -22,7 +22,6 @@ class CreateUsersTable extends Migration
             $table->string('univ_name')->default('default');
             $table->string('faculty_name')->default('default');
             $table->string('department_name')->default('default');
-            $table->string('lab_name')->default('default');
             $table->string('token')->default('default');
             $table->rememberToken();
             $table->timestamps();
