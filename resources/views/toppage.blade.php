@@ -11,7 +11,6 @@
     {{ $region_array[$key] }} ： {{ $amount_reviews_item }}件 <br>
   @endforeach
 
-
   <a class="nav-link" href="{{ route('register') }}">今すぐユーザー登録</a>
 
 @endsection

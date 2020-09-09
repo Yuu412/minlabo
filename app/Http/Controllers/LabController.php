@@ -22,7 +22,6 @@ use Auth;
 
 class LabController extends Controller
 {
-
     //ログイン認証後にのみ表示
     public function __construct()
     {
@@ -39,7 +38,6 @@ class LabController extends Controller
       $laboratories = Laboratory::latest()->get();
       $lab_evaluations = lab_evaluation::latest()->get();
       $univ_datas = Univ_data::get();
-      /* ↑↑ 検索フォーム ↑↑ */
 
       /* ↓↓ 都道府県 配列 ↓↓ */
       $pre_images = Pre_image::orderBy('created_at', 'asc')->get();
@@ -503,6 +501,15 @@ class LabController extends Controller
         {
           $tmp = "";
         }
+        if(isset($request->terms))
+        {
+          $tmp2 = $request->terms;
+        }
+        else
+        {
+          $tmp2 = "";
+        }
+
         \DB::table('lab_evaluation')->where('id', $request->id)->update([
           /*教授について*/
           'prof_care'=>$request->prof_care,
@@ -546,6 +553,7 @@ class LabController extends Controller
                         ) / 4.0,
 
           'objobtype'=>$tmp,
+          'terms' => $tmp2,
           'content'=>$request->content,
 
           'add_time'=>$today,

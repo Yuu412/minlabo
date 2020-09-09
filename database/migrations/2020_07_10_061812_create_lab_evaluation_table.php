@@ -48,6 +48,7 @@ class CreateLabEvaluationTable extends Migration
             $table->integer('other_gender');
             $table->double('other_average',2,1);
             /*他*/
+            $table->string('terms');
             $table->string('content', 2000);
             $table->string('objobtype');
             $table->double('all_average',2,1);

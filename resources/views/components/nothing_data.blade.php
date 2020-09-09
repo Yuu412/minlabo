@@ -6,4 +6,4 @@
 
 <!--↓↓ 研究室登録フォーム ↓↓-->
   <a class="nav-link" href="/">トップページに戻る</a>
-  <a class="nav-link" href="{{ action('LinkController@to_add') }}">研究室の追加</a>
+  @include('components.botton_add_reviews')

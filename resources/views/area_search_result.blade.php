@@ -33,9 +33,6 @@
       </div>
 
       <!--↓↓ 研究室登録フォーム ↓↓-->
-      <li class="nav-item">
-        <a class="nav-link" href="{{ action('LinkController@to_add') }}">研究室の追加</a>
-      </li>
-      <!--↑↑ 研究室登録フォーム ↑↑-->
+        @include('components.botton_add_reviews')
     @endif
   @endsection

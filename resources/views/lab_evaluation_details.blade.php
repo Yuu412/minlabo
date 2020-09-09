@@ -25,9 +25,12 @@
   <div>
     <img src="{{ asset('img/others/jobtype.jpg') }}" alt="業界リスト" width="600" height="300">
   </div>
-    {{ $lab_evaluation -> objobtype}}
+    {{ $lab_evaluation->objobtype}}
   <div>
-    {{ $lab_evaluation -> content }}
+    {{ $lab_evaluation->terms }}
+  </div>
+  <div>
+    {{ $lab_evaluation->content }}
   </div>
 
   <!--現在登録済みの研究室一覧-->
