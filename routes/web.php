@@ -9,9 +9,6 @@ Auth::routes(); //認証機能を使用する。
 Route::group(['middleware' => ['web']], function ()
 {
 
-  Route::post('register/pre_check', 'Auth\RegisterController@pre_check')->name('register.pre_check');
-
-
   //研究室サイトダッシュボード表示
   Route::get('/', 'LabController@index');
   Route::post('/', 'LabController@index');
@@ -69,11 +66,14 @@ Route::group(['middleware' => ['web']], function ()
 //研究室サイトダッシュボード表示
 Route::get('toppage', 'LinkController@preindex')->name('toppage');
 
-//本会員登録用URLがクリックされると本会員登録フォームに遷移
+/*====== 会員登録関係 ===================*/
+Route::post('register/pre_check', 'Auth\RegisterController@pre_check')->name('register.pre_check');
+
 Route::get('register/verify/{token}', 'Auth\RegisterController@showForm');
 
 Route::post('register/main_check', 'Auth\RegisterController@mainCheck')->name('register.main.check');
 Route::post('register/main_register', 'Auth\RegisterController@mainRegister')->name('register.main.registered');
+/*=======================================*/
 
 Route::get('/home', 'LabController@index')->name('home');
 

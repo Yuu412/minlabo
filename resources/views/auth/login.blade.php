@@ -45,7 +45,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('ログイン状態を維持する') }}
+                                        {{ __('ログイン状態を保持する') }}
                                     </label>
                                 </div>
                             </div>
@@ -53,23 +53,32 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                    {{ __('ログイン') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('パスワードを忘れた方はコチラ') }}
+                                        {{ __('パスワードをお忘れになった方はコチラ') }}
                                     </a>
                                 @endif
                             </div>
                         </div>
                     </form>
-                    @if(isset($flag))
-                      おはよう世界
-                    @endif
+                    ユーザー登録をされてない方は
+                    <div>
+                      <a class="nav-link" href="{{ route('register') }}">今すぐユーザー登録（１分・無料）</a>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <h3>注意</h3>
+    <p>
+      本登録が終了していても、本登録終了後に配布されたQRコードを先輩・兄弟に送信し、口コミを投稿してもらうまではログインすることができません。
+      現在の登録状況が知りたい方は、<a class="nav-link" href="{{ route('register') }}">コチラ</a>にアクセスして、登録時に使用したメールアドレスを記入してください。
+    </p>
+    <div>
+
     </div>
 </div>
 @endsection
