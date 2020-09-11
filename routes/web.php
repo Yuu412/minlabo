@@ -17,13 +17,13 @@ Route::group(['middleware' => ['web']], function ()
   Route::post('/', 'LabController@index');
 
   //検索結果表示
-  Route::get('/search_result', 'LabController@search');
+  Route::post('/search_result', 'LabController@search')->name('search');
 
   //エリアごとに探すページ
-  Route::get('/area/{pre_name}','LabController@area_search');
+  Route::get('/area/{pre_name}','LabController@area_search')->name('area');
 
   //学部ごとに探すページ
-  Route::get('/faculty_result/{faculty}', 'LabController@faculty_result');
+  Route::get('/faculty-result/{faculty}', 'LabController@faculty_result');
 
   Route::post('/', 'LabController@mv_add');
 

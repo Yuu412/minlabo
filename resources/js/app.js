@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import TopHeader from './components/TopHeader'
 import Footer from './components/MyFooter'
-import Top from './views/Top'
+import Laboratories from './views/Laboratories'
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
@@ -19,7 +19,7 @@ library.add(faFacebookF)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('top-header', TopHeader)
 Vue.component('my-footer', Footer)
-Vue.component('top', Top)
+Vue.component('laboratories', Laboratories)
 
 Vue.config.productionTip = false
 
