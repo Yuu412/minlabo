@@ -1,40 +1,29 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 import './bootstrap'
 import Vue from 'vue'
-import FooBar from './components/FooBar'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faInstagram, faTwitter, faFacebookF } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-require('./bootstrap');
+import TopHeader from './components/TopHeader'
+import Footer from './components/MyFooter'
+import Laboratories from './views/Laboratories'
 
-window.Vue = require('vue');
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+library.add(faInstagram)
+library.add(faTwitter)
+library.add(faFacebookF)
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('top-header', TopHeader)
+Vue.component('my-footer', Footer)
+Vue.component('laboratories', Laboratories)
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('foo-bar', require('./components/FooBar.vue').default);
+Vue.config.productionTip = false
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
+// eslint-disable-next-line no-unused-vars
 const app = new Vue({
-    el: '#app',
-    components: {
-      FooBar,
-    }
-});
+  el: '#app',
+})

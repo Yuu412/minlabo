@@ -10,23 +10,31 @@
     <title>{{ config('app.name', 'みんラボ') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+<div id="app">
+    @if(\Request::is('/'))
+        <top-header :endpoint-search='@json(route('search'))' :link-regist='@json(route('register'))'
+                    :link-login='@json(route('login'))'
+                    :link-post='@json(action('LinkController@to_add'))'></top-header>
+    @else
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'みんラボ') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -46,40 +54,41 @@
                                 </li>
                             @endif
                             <li>
-                              <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+                                <a class="nav-link" href="{{ route('login') }}">ログイン</a>
                             </li>
                         @else
                             <li>
-                              <a class="nav-link" href="{{ action('LinkController@to_add') }}">
-                                研究室の口コミを追加する
-                              </a>
+                                <a class="nav-link" href="{{ action('LinkController@to_add') }}">
+                                    研究室の口コミを追加する
+                                </a>
                             </li>
 
                             @php
-                            $user = Auth::user();
+                                $user = Auth::user();
                             @endphp
                             <li>
-                              <a　class="nav-link" href="{{ url('mypage')}} ">
-                                  {{ __('マイページ') }}
-                              </a>
+                                <a class="nav-link" href="{{ url('mypage')}} ">
+                                    {{ __('マイページ') }}
+                                </a>
                             </li>
-                              <a class="nav-link" href="{{ route('logout') }}"
-                                 onclick="event.preventDefault();
+                            <a class="nav-link" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
                                                document.getElementById('logout-form').submit();">
-                                  ログアウト
-                              </a>
-                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                  @csrf
-                              </form>
+                                ログアウト
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+    @endif
+    <main class="py-4">
+        @yield('content')
+    </main>
+    <my-footer :year='@json($year)'></my-footer>
+</div>
 </body>
 </html>
