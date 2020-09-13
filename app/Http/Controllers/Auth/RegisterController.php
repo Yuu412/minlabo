@@ -65,11 +65,29 @@ class RegisterController extends Controller
       //flash data
       $request->flashOnly( 'email');
 
-      $bridge_request = $request->all();
-      // password マスキング
-      $bridge_request['password_mask'] = '*********';
+      $email_flag = User::where('email', $request->email)->first();
+      if(isset($email_flag)){
+        $token = $email_flag->token;
+        if($token=="default"){
+          $error_msg = "すでに仮会員登録は完了しております。
+                  本登録がまだの方は登録に使ったメールアドレスをご確認ください。
+                  本登録が終了されている方は、以下からログインしてください。";
+          return view('auth.register',[
+            'error_msg' => $error_msg,
+          ]);
+        }
+        else{
+          return view('auth.register',[
+            'token' => $token,
+          ]);
+        }
+      }
+      else{
+        $bridge_request = $request->all();
+        $bridge_request['password_mask'] = '*********';
 
-      return view('auth.register_check')->with($bridge_request);
+        return view('auth.register_check')->with($bridge_request);
+      }
     }
 
 
