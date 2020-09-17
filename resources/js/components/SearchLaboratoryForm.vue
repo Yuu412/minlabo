@@ -1,14 +1,16 @@
 <template>
-  <b-form class="search-laboratory-form " @submit="handleSubmit">
+  <b-form class="search-laboratory-form" :action="endpoint" method="post">
     <b-form-group class="form-input-group mb-0">
       <b-form-input
         v-model="form.keyword"
+        name="keyword"
         type="search"
         required
         placeholder="キーワードで検索する （〇〇研究室、東京都、工学部）"
         class="d-inline-block input"
       ></b-form-input>
     </b-form-group>
+    <input type="hidden" name="_token" :value="csrf" />
     <b-button type="submit" class="search-button px-4">
       <b-icon icon="search" variant="primary" />
     </b-button>
@@ -23,6 +25,10 @@ export default {
       type: String,
       default: '',
     },
+    csrf: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
@@ -30,14 +36,6 @@ export default {
         keyword: '',
       },
     }
-  },
-  methods: {
-    async handleSubmit() {
-      const params = new URLSearchParams()
-      params.append('keyword', this.keyword)
-
-      await window.axios.post(this.endpoint, params)
-    },
   },
 }
 </script>

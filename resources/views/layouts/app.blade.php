@@ -22,7 +22,7 @@
 <body>
 <div id="app">
     @if(\Request::is('/'))
-        <laboratory-header :endpoint-search='@json(route('search'))' :link-regist='@json(route('register'))'
+        <laboratory-header :endpoint-search='@json(route('search'))' :csrf="{{json_encode(csrf_token())}}" :link-regist='@json(route('register'))'
                     :link-login='@json(route('login'))'
                     :link-post='@json(action('LinkController@to_add'))'></laboratory-header>
     @else
