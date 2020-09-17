@@ -2,7 +2,7 @@
   <header class="pt-3 pb-5">
     <b-navbar toggleable="lg" type="dark" class=" mb-3">
       <b-navbar-brand href="/" class="ml-5">
-        <img src="/img/logo.png" alt="みんラボ" />
+        <img src="" alt="みんラボ" />
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
@@ -25,7 +25,7 @@
 import SearchLaboratoryForm from './SearchLaboratoryForm'
 
 export default {
-  name: 'TopHeader',
+  name: 'LaboratoryHeader',
   components: { SearchLaboratoryForm },
   props: {
     endpointSearch: {

@@ -22,9 +22,9 @@
 <body>
 <div id="app">
     @if(\Request::is('/'))
-        <top-header :endpoint-search='@json(route('search'))' :link-regist='@json(route('register'))'
+        <laboratory-header :endpoint-search='@json(route('search'))' :link-regist='@json(route('register'))'
                     :link-login='@json(route('login'))'
-                    :link-post='@json(action('LinkController@to_add'))'></top-header>
+                    :link-post='@json(action('LinkController@to_add'))'></laboratory-header>
     @else
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
