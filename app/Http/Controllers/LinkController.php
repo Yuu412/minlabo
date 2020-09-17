@@ -46,7 +46,7 @@ class LinkController extends Controller
         }
       }
 
-      return view('toppage',[
+      return view('top',[
         'amount_reviews_array' => $amount_reviews_array,
         'region_array' => $region_array
       ]);

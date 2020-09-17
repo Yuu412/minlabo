@@ -69,7 +69,7 @@ Route::group(['middleware' => ['web']], function ()
 
 //========ログインしなくてもアクセスできるページ========================================
 //研究室サイトダッシュボード表示
-Route::get('toppage', 'LinkController@preindex')->name('toppage');
+Route::get('top', 'LinkController@preindex')->name('top');
 
 
 
