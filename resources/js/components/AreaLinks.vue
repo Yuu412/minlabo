@@ -2,7 +2,9 @@
   <div class="area-links">
     <h3 class="area-name">【{{ areaName }}】</h3>
     <div class="prefectures">
-      <b-link v-for="prefecture in prefectures" :key="prefecture" class="prefecture mr-3">{{ prefecture }}</b-link>
+      <b-link v-for="prefecture in prefectures" :key="prefecture" :href="link(prefecture)" class="prefecture mr-3">{{
+        prefecture
+      }}</b-link>
     </div>
   </div>
 </template>
@@ -18,6 +20,11 @@ export default {
     prefectures: {
       type: Array,
       default: null,
+    },
+  },
+  methods: {
+    link(prefectureName) {
+      return '/area/' + prefectureName
     },
   },
 }

@@ -5,7 +5,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faInstagram, faTwitter, faFacebookF } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import TopHeader from './components/TopHeader'
+import LaboratoryHeader from './components/LaboratoryHeader'
 import Footer from './components/MyFooter'
 import Laboratories from './views/Laboratories'
 
@@ -17,7 +17,7 @@ library.add(faTwitter)
 library.add(faFacebookF)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
-Vue.component('top-header', TopHeader)
+Vue.component('laboratory-header', LaboratoryHeader)
 Vue.component('my-footer', Footer)
 Vue.component('laboratories', Laboratories)
 

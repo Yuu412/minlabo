@@ -24,7 +24,7 @@ module.exports = {
         bracketSpacing: true,
         arrowParens: 'avoid',
         semi: false,
-        endOfLine: 'lf',
+        endOfLine: 'auto',
       },
     ],
   },

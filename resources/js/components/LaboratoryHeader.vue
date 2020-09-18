@@ -2,7 +2,7 @@
   <header class="pt-3 pb-5">
     <b-navbar toggleable="lg" type="dark" class=" mb-3">
       <b-navbar-brand href="/" class="ml-5">
-        <img src="/img/logo.png" alt="みんラボ" />
+        <img src="" alt="みんラボ" />
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
@@ -16,7 +16,7 @@
     <h1 class="py-5">「研究室・ゼミ」選びの不安を、ゼロに。</h1>
     <section id="search" class="mx-auto mb-5 pt-5 pb-4">
       <h2 class="caption mx-auto mb-3 px-4 pb-2">研究室・ゼミを探す</h2>
-      <search-laboratory-form :endpoint="endpointSearch" class="mx-auto"></search-laboratory-form>
+      <search-laboratory-form :endpoint="endpointSearch" :csrf="csrf" class="mx-auto"></search-laboratory-form>
     </section>
   </header>
 </template>
@@ -25,10 +25,14 @@
 import SearchLaboratoryForm from './SearchLaboratoryForm'
 
 export default {
-  name: 'TopHeader',
+  name: 'LaboratoryHeader',
   components: { SearchLaboratoryForm },
   props: {
     endpointSearch: {
+      type: String,
+      default: '',
+    },
+    csrf: {
       type: String,
       default: '',
     },
