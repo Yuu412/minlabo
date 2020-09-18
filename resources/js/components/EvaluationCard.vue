@@ -2,9 +2,9 @@
   <b-link :href="link" class="evaluation-card">
     <b-card no-body>
       <b-card overlay :img-src="src" :img-alt="laboratoryName" text-variant="white" class="header">
-        <b-card-text>{{ universityName }}</b-card-text>
-        <b-card-text>{{ facultyName }}</b-card-text>
-        <b-card-text>{{ laboratoryName }}</b-card-text>
+        <b-card-text class="text">{{ universityName }}</b-card-text>
+        <b-card-text class="text">{{ facultyName }}</b-card-text>
+        <b-card-text class="text">{{ laboratoryName }}</b-card-text>
       </b-card>
       <div class="evaluation-items">
         <evaluation-item v-for="(value, key) in evaluationItems" :key="key" :title="key" :value="value">
@@ -58,9 +58,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.evaluation-card {
-  color: #444;
+@import 'resources/sass/app';
 
+.evaluation-card {
   &:hover {
     opacity: 0.8;
     text-decoration: none;
@@ -75,6 +75,10 @@ export default {
     font-size: 20px;
     font-weight: bold;
     text-shadow: 2px 2px 0 #000;
+
+    .text {
+      color: $white;
+    }
   }
 }
 </style>

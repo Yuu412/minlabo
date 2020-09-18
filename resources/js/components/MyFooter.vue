@@ -28,12 +28,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import 'resources/sass/app';
+
 footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 20px 0;
-  background-color: #1d93e9;
+  background-color: $sky-blue;
   text-align: center;
 
   .copyright {
