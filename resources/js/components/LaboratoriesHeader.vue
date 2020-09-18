@@ -1,18 +1,12 @@
 <template>
-  <header class="pt-3 pb-5">
-    <b-navbar toggleable="lg" type="dark" class=" mb-3">
-      <b-navbar-brand href="/" class="ml-5">
-        <img src="" alt="みんラボ" />
-      </b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav class="ml-auto mr-5">
-          <b-nav-text class="mr-5"><a :href="linkRegist">ユーザー登録(無料)</a></b-nav-text>
-          <b-nav-text class="mr-5"><a :href="linkLogin">ログイン</a></b-nav-text>
-          <b-nav-text class="mr-5"><a :href="linkPost">口コミ投稿</a></b-nav-text>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
+  <header class="pb-5">
+    <logged-in-nav
+      :route-post="routePost"
+      :route-my-page="routeMyPage"
+      :route-log-out="routePost"
+      :endpoint-logout="endpointLogout"
+      :csrf="csrf"
+    />
     <h1 class="py-5">「研究室・ゼミ」選びの不安を、ゼロに。</h1>
     <section id="search" class="mx-auto mb-5 pt-5 pb-4">
       <h2 class="caption mx-auto mb-3 px-4 pb-2">研究室・ゼミを探す</h2>
@@ -23,10 +17,11 @@
 
 <script>
 import SearchLaboratoryForm from './SearchLaboratoryForm'
+import LoggedInNav from './LoggedInNav'
 
 export default {
-  name: 'LaboratoryHeader',
-  components: { SearchLaboratoryForm },
+  name: 'LaboratoriesHeader',
+  components: { SearchLaboratoryForm, LoggedInNav },
   props: {
     endpointSearch: {
       type: String,
@@ -36,15 +31,23 @@ export default {
       type: String,
       default: '',
     },
-    linkRegist: {
+    routeRegister: {
       type: String,
       default: '',
     },
-    linkLogin: {
+    routeLogin: {
       type: String,
       default: '',
     },
-    linkPost: {
+    routePost: {
+      type: String,
+      default: '',
+    },
+    routeMyPage: {
+      type: String,
+      default: '',
+    },
+    endpointLogout: {
       type: String,
       default: '',
     },
@@ -53,18 +56,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import 'resources/sass/app';
+
 header {
-  background-color: #1d93e9;
-  color: #eee;
+  background-color: $sky-blue;
 
   h1 {
     text-align: center;
     font-weight: bold;
+    color: $white;
   }
 
   #search {
     width: 80%;
-    background-color: #65b3fc;
+    background-color: $light-blue;
     border-radius: 1.5em;
 
     > * {
@@ -74,6 +79,7 @@ header {
     .caption {
       border-bottom: 1px solid #eee;
       font-size: 18px;
+      color: $white;
     }
   }
 }
