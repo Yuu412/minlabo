@@ -88,7 +88,7 @@ class LabController extends Controller
                     ["name" => "法学部"],
                     ["name" => "経済学部"],
                     ["name" => "文学部"],
-                    ["name" => "教育部"],
+                    ["name" => "教育学部"],
                     ["name" => "外国語学部"],
                     ["name" => "その他"]
                 ]
@@ -98,7 +98,7 @@ class LabController extends Controller
                 "faculty_names" => [
                     ["name" => "理学部"],
                     ["name" => "工学部"],
-                    ["name" => "能楽部"],
+                    ["name" => "農学部"],
                     ["name" => "医学部"],
                     ["name" => "薬学部"],
                     ["name" => "その他"]
@@ -457,11 +457,20 @@ class LabController extends Controller
         return redirect('/');
     }
 
-
     //研究室追加画面へ移動
     public function mv_add()
     {
-        return view('add');
+      $all_prefectures = [
+              "北海道", "青森県", "秋田県", "山形県", "岩手県", "宮城県", "福島県",
+              "東京都", "神奈川県", "埼玉県", "千葉県", "栃木県", "茨城県", "群馬県",
+              "愛知県", "岐阜県", "静岡県", "三重県", "新潟県", "山梨県", "長野県", "石川県", "富山県", "福井県",
+              "大阪府", "兵庫県", "京都府", "滋賀県", "奈良県", "和歌山県",
+              "岡山県", "広島県", "鳥取県", "島根県", "山口県", "香川県", "徳島県", "愛媛県", "高知県",
+              "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県",
+      ];
+      return view('add', [
+          'all_prefectures' => $all_prefectures,
+      ]);
     }
 
     //更新画面へ移動
