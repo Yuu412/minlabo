@@ -1,6 +1,14 @@
 <template>
   <header class="top-header">
-    <not-logged-in-nav :route-register="routeRegister" :route-login="routeLogin" :route-post="routePost" />
+    <logged-in-nav
+      v-if="isLogin"
+      :route-post="routePost"
+      :route-my-page="routeMyPage"
+      :route-log-out="routePost"
+      :endpoint-logout="endpointLogout"
+      :csrf="csrf"
+    />
+    <not-logged-in-nav v-else :route-register="routeRegister" :route-login="routeLogin" :route-post="routePost" />
   </header>
 </template>
 
@@ -22,6 +30,22 @@ export default {
     routePost: {
       type: String,
       default: '',
+    },
+    routeMyPage: {
+      type: String,
+      default: '',
+    },
+    endpointLogout: {
+      type: String,
+      default: '',
+    },
+    csrf: {
+      type: String,
+      default: '',
+    },
+    isLogin: {
+      type: Boolean,
+      default: false,
     },
   },
 }

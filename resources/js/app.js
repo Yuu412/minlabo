@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import TopHeader from './components/TopHeader'
 import LaboratoriesHeader from './components/LaboratoriesHeader'
+import LoggedInNav from './components/LoggedInNav'
+import NotLoggedInNav from './components/NotLoggedInNav'
 import Footer from './components/MyFooter'
 import Laboratories from './views/Laboratories'
 import Top from './views/Top'
@@ -24,6 +26,8 @@ library.add(faFacebookF)
 
 Vue.component('top-header', TopHeader)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('logged-in-nav', LoggedInNav)
+Vue.component('not-logged-in-nav', NotLoggedInNav)
 Vue.component('laboratories-header', LaboratoriesHeader)
 Vue.component('my-footer', Footer)
 Vue.component('laboratories', Laboratories)
