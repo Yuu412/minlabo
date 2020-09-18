@@ -54,7 +54,7 @@ Route::group(['middleware' => ['web']], function ()
   Route::get('/lab-evaluation/{lab_evaluation_details}','LinkController@to_lab_evaluation_details');
 
   //TO: マイページ
-  Route::get('/mypage','LinkController@to_mypage');
+  Route::get('/my-page','LinkController@to_mypage')->name('my-page');
 
   //TO: 登録情報の確認画面
   Route::get('/confirm_user',[
