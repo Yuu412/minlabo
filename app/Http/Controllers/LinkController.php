@@ -58,18 +58,35 @@ class LinkController extends Controller
     //研究室の追加ページ１へ
     public function to_add(){
       $token = uniqid(rand(100, 999));
-
+      $all_prefectures = [
+              "北海道", "青森県", "秋田県", "山形県", "岩手県", "宮城県", "福島県",
+              "東京都", "神奈川県", "埼玉県", "千葉県", "栃木県", "茨城県", "群馬県",
+              "愛知県", "岐阜県", "静岡県", "三重県", "新潟県", "山梨県", "長野県", "石川県", "富山県", "福井県",
+              "大阪府", "兵庫県", "京都府", "滋賀県", "奈良県", "和歌山県",
+              "岡山県", "広島県", "鳥取県", "島根県", "山口県", "香川県", "徳島県", "愛媛県", "高知県",
+              "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県",
+      ];
       return view('add',[
-        'token' => $token
+        'token' => $token,
+        'all_prefectures' => $all_prefectures,
       ]);
     }
 
     //QRコードから研究室の追加ページ１へ
     public function qr_to_add($qr_token){
       $token = $qr_token;
+      $all_prefectures = [
+              "北海道", "青森県", "秋田県", "山形県", "岩手県", "宮城県", "福島県",
+              "東京都", "神奈川県", "埼玉県", "千葉県", "栃木県", "茨城県", "群馬県",
+              "愛知県", "岐阜県", "静岡県", "三重県", "新潟県", "山梨県", "長野県", "石川県", "富山県", "福井県",
+              "大阪府", "兵庫県", "京都府", "滋賀県", "奈良県", "和歌山県",
+              "岡山県", "広島県", "鳥取県", "島根県", "山口県", "香川県", "徳島県", "愛媛県", "高知県",
+              "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県",
+      ];
 
       return view('add',[
-        'token' => $token
+        'token' => $token,
+        'all_prefectures' => $all_prefectures,
       ]);
     }
 
@@ -367,7 +384,9 @@ class LinkController extends Controller
      /*他*/
      $lab_evaluation->all_average = ($lab_evaluation->prof_average + $lab_evaluation->job_average + $lab_evaluation->lab_average + $lab_evaluation->other_average) / 4.0;
      $lab_evaluation->objobtype = $request->objobtype;
-     $lab_evaluation->terms = $request->terms;
+     if(!empty($request->terms)){
+       $lab_evaluation->terms = $request->terms;
+     }
      $lab_evaluation->content = $request->content;
 
      $lab_evaluation->token = $request->token;
@@ -635,6 +654,8 @@ class LinkController extends Controller
         $array_average[] = round(lab_evaluation::orderBy('created_at', 'asc')->where('lab_name', $evaluation_item->lab_name)->where('lab_univ', $evaluation_item->lab_univ)->avg('other_average'), 2);
       }
 
+      $flag = 1;
+
       return view('lab_details',[
         'count' => $count,
         'average_item_jp' => $average_item_jp,
@@ -644,6 +665,7 @@ class LinkController extends Controller
         'laboratories' => $laboratories,
         'evaluation_array' => $evaluation_array,
         'array_average' => $array_average,
+        'flag' => $flag,
       ]);
     }
 
