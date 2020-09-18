@@ -88,7 +88,7 @@ class LabController extends Controller
                     ["name" => "法学部"],
                     ["name" => "経済学部"],
                     ["name" => "文学部"],
-                    ["name" => "教育部"],
+                    ["name" => "教育学部"],
                     ["name" => "外国語学部"],
                     ["name" => "その他"]
                 ]
@@ -98,7 +98,7 @@ class LabController extends Controller
                 "faculty_names" => [
                     ["name" => "理学部"],
                     ["name" => "工学部"],
-                    ["name" => "能楽部"],
+                    ["name" => "農学部"],
                     ["name" => "医学部"],
                     ["name" => "薬学部"],
                     ["name" => "その他"]
