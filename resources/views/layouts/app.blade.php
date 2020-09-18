@@ -85,7 +85,7 @@
             </div>
         </nav>
     @endif
-    <main class="py-4">
+    <main>
         @yield('content')
     </main>
     <my-footer :year='@json($year)'></my-footer>

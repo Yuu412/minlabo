@@ -35,11 +35,11 @@ footer {
   padding: 20px 0;
   background-color: #1d93e9;
   text-align: center;
-  color: #eee;
 
   .copyright {
     flex: 1;
     margin-left: 15%;
+    color: #eee;
   }
 
   .icons {
