@@ -21,8 +21,8 @@ export default {
       default: '',
     },
     count: {
-      type: String,
-      default: '',
+      type: Number,
+      default: 0,
     },
     // todo: 引き数のcolorによってborder, text-colorを変える
     color: {
