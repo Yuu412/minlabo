@@ -53,6 +53,10 @@ export default {
       type: String,
       default: '',
     },
+    isLogin: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
