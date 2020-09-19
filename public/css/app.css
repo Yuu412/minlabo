@@ -10923,6 +10923,10 @@ a.text-dark:focus {
   }
 }
 
+main {
+  min-height: 100vh;
+}
+
 p,
 h1,
 h2,
