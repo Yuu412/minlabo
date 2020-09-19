@@ -20,10 +20,11 @@
 <script>
 import SearchLaboratoryForm from './SearchLaboratoryForm'
 import LoggedInNav from './LoggedInNav'
+import NotLoggedInNav from './NotLoggedInNav'
 
 export default {
   name: 'LaboratoriesHeader',
-  components: { SearchLaboratoryForm, LoggedInNav },
+  components: { SearchLaboratoryForm, LoggedInNav, NotLoggedInNav },
   props: {
     endpointSearch: {
       type: String,

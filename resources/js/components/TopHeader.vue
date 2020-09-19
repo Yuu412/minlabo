@@ -13,11 +13,12 @@
 </template>
 
 <script>
+import LoggedInNav from './LoggedInNav'
 import NotLoggedInNav from './NotLoggedInNav'
 
 export default {
   name: 'TopHeader',
-  components: { NotLoggedInNav },
+  components: { LoggedInNav, NotLoggedInNav },
   props: {
     routeRegister: {
       type: String,
