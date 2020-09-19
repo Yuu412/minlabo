@@ -10,6 +10,7 @@ import Footer from './components/MyFooter'
 import Laboratories from './views/Laboratories'
 import Registered from './views/Registered'
 import RegisterPreCheck from './views/RegisterPreCheck'
+import Login from './views/Login'
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
@@ -24,6 +25,7 @@ Vue.component('my-footer', Footer)
 Vue.component('laboratories', Laboratories)
 Vue.component('registered', Registered)
 Vue.component('register-pre-check', RegisterPreCheck)
+Vue.component('login', Login)
 
 Vue.config.productionTip = false
 
