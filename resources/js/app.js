@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import LaboratoryHeader from './components/LaboratoryHeader'
 import Footer from './components/MyFooter'
 import Laboratories from './views/Laboratories'
+import Login from './views/Login'
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
@@ -20,6 +21,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('laboratory-header', LaboratoryHeader)
 Vue.component('my-footer', Footer)
 Vue.component('laboratories', Laboratories)
+Vue.component('login', Login)
 
 Vue.config.productionTip = false
 
