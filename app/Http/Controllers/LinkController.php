@@ -634,7 +634,28 @@ class LinkController extends Controller
       $count = 0;
       $average_item_jp = ["総合評価", "教授", "就活", "研究室", "その他"];
       $laboratories = Laboratory::latest()->get();
-      $lab_evaluation = lab_evaluation::latest()->get();
+      $lab_evaluations = lab_evaluation::latest()->get();
+
+      $lab_evaluation = array();
+
+      foreach($lab_evaluations as $lab_evaluation_item)
+      {
+          //32文字以上を･･･に置き換える関数
+          //整形したい文字列
+          $text = $lab_evaluation_item->content;
+          //文字数の上限
+          $limit = 50;
+
+          if(mb_strlen($text) > $limit) {
+            $title = mb_substr($text,0,$limit);
+            $text = "$title ... ";
+          }
+
+          $lab_evaluation_item->content = $text;
+
+          array_push($lab_evaluation, $lab_evaluation_item);
+      }
+
       $evaluation_array = array();
       foreach($lab_evaluation as $index => $evaluation)
       {
