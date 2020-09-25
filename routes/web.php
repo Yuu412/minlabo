@@ -4,6 +4,11 @@ use App\Laboratory;
 use Illuminate\Http\Request;
 
 Auth::routes(); //認証機能を使用する。
+/*====== 会員登録関係 ===================*/
+Route::post('register/pre_check', 'Auth\RegisterController@pre_check')->name('register.pre_check');
+
+Route::get('register/verify/{token}', 'Auth\RegisterController@mainRegister');
+/*=======================================*/
 
 //認証を必須にするミドルウェア
 Route::group(['middleware' => ['web']], function ()
@@ -66,14 +71,7 @@ Route::group(['middleware' => ['web']], function ()
 //研究室サイトダッシュボード表示
 Route::get('toppage', 'LinkController@preindex')->name('toppage');
 
-/*====== 会員登録関係 ===================*/
-Route::post('register/pre_check', 'Auth\RegisterController@pre_check')->name('register.pre_check');
 
-Route::get('register/verify/{token}', 'Auth\RegisterController@showForm');
-
-Route::post('register/main_check', 'Auth\RegisterController@mainCheck')->name('register.main.check');
-Route::post('register/main_register', 'Auth\RegisterController@mainRegister')->name('register.main.registered');
-/*=======================================*/
 
 Route::get('/home', 'LabController@index')->name('home');
 
