@@ -48,7 +48,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class User extends Authenticatable 
+class User extends Authenticatable
 {
     use Notifiable;
 
@@ -58,8 +58,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'univ_name', 'faculty_name', 'department_name', 'lab_name',
-        'email_verified', 'email_verify_token',
+        'name', 'email', 'password', 'role', 'email_verified', 'email_verify_token',
     ];
 
     /**

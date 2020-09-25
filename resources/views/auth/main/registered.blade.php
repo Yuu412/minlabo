@@ -18,7 +18,7 @@
                              QrCode::format('svg')->size(300)
                                 ->generate('http://127.0.0.1:8080/review/'.$token);
                           !!}
-                          
+
                         </div>
                     </div>
                 </div>

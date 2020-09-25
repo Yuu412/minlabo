@@ -19,9 +19,6 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->tinyInteger('role');
-            $table->string('univ_name')->default('default');
-            $table->string('faculty_name')->default('default');
-            $table->string('department_name')->default('default');
             $table->string('token')->default('default');
             $table->rememberToken();
             $table->timestamps();
