@@ -124,9 +124,6 @@ class RegisterController extends Controller
             return view('auth.main.register')->with('message', 'すでに本登録されています。ログインして利用してください。');
           }
 
-          // ユーザーステータス更新
-          $user->status = config('const.USER_STATUS.MAIL_AUTHED');
-
           if ($user->save()) {
             $user = User::where('email_verify_token', $email_token)->first();
             $user->status = config('const.USER_STATUS.MAIL_AUTHED');
