@@ -65,7 +65,7 @@ class Pre_imagesTableSeeder extends Seeder
           DB::table('pre_images')->insert([
             [
               'pre_name'     => $key,
-              'pre_image'    => $pre_data,
+              'pre_image'    => $pre_imgname,
               'created_at'   => new DateTime(),
               'updated_at'   => new DateTime(),
             ],

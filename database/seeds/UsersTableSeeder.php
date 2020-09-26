@@ -4,11 +4,7 @@ use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         $univ_array = [
@@ -31,6 +27,10 @@ class UsersTableSeeder extends Seeder
         for ($i = 1; $i < 21; $i++)
         {
           $random_date = [rand(2017, 2019), rand(1, 12), rand(1,31)];
+
+          if(checkdate($random_date[1], $random_date[2], $random_date[0])){
+            $random_date = [rand(2017, 2019), rand(1, 12), 1];
+          }
 
           DB::table('users')->insert([
               [

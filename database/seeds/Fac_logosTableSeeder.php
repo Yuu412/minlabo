@@ -20,12 +20,12 @@ class Fac_logosTableSeeder extends Seeder
           'その他' => "other.png",
         ];
 
-        foreach ($fac_array as $key => $fac_data)
+        foreach ($fac_array as $key => $fac_imgname)
         {
           DB::table('fac_logos')->insert([
             [
               'fac_name'     => $key,
-              'fac_logo'     => $fac_data,
+              'fac_logo'     => $fac_imgname,
               'created_at'   => new DateTime(),
               'updated_at'   => new DateTime(),
             ],
