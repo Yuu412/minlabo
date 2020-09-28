@@ -43,6 +43,8 @@ class LinkController extends Controller
         foreach ($lab_evaluation_universities as $lab_evaluation_university) {
             $lab_evaluation_prefecture = Univ_data::where('univ_name', $lab_evaluation_university->lab_univ)->first(["pre_name"]);
 
+            if(is_null($lab_evaluation_prefecture)) continue;
+
             foreach ($prefectures_array as $area => $prefectures) {
                 if (in_array($lab_evaluation_prefecture->pre_name, $prefectures)) {
                     $index = array_search($area, array_column($areas, "name"));
