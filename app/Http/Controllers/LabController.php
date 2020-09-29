@@ -298,51 +298,74 @@ class LabController extends Controller
 
     public function area_search($pre_name)
     {
-        $count1 = $count2 = 0;
-        $average_item_jp = ["総合評価", "教授", "就活", "研究室", "その他"];
+        $categories = [
+            [
+                'name' => '総合評価',
+                'key' => 'all_average'
+            ],
+            [
+                'name' => '教授',
+                'key' => 'prof_average'
+            ],
+            [
+                'name' => '就活',
+                'key' => 'job_average'
+            ],
+            [
+                'name' => '雰囲気',
+                'key' => 'lab_average'
+            ],
+            [
+                'name' => 'その他',
+                'key' => 'other_average'
+            ],
+        ];
 
-        #キーワード受け取り
-        $keyword = $pre_name;
+        //検索された文字列をpre_nameカラムに含む大学名の一覧を取得
+        $university_names = Univ_data::where('pre_name', 'like', "%$pre_name%")->get('univ_name');
 
-        #クエリ生成
-        $query = univ_data::query();
-        $lab_univ_name = Laboratory::orderBy('created_at', 'asc')->select('lab_univ')->get();
+        //検索条件に当てはまる大学の研究室評価の平均値を取得
+        $average_evaluations = lab_evaluation::selectRaw('lab_univ, AVG(all_average) as all_average, AVG(prof_average) as prof_average, AVG(job_average) as job_average, AVG(lab_average) as lab_average, AVG(other_average) as other_average')->whereIn('lab_univ', $university_names)->groupBy('lab_univ')->get()->toArray();
 
-        $data = array();
-        /*該当する県名に属する大学データを取得*/
-        $datas = $query->where('pre_name', 'like', '%' . $keyword . '%')
-            ->whereIn('univ_name', $lab_univ_name)
-            ->select('univ_name')
-            ->get();
+        //大学ごとに評価を取得
+        $universities = array_map(
+            function ($average_evaluation) use ($categories) {
+                $university_name = $average_evaluation['lab_univ'];
 
-        /*全平均値を格納した配列（2次元配列）*/
-        $array_average = array();
-        foreach ($datas as $data) {
-            /*空の一時的な配列を定義して、そこに各平均値を格納していく*/
-            $tmp_array_average = array();
-            $tmp_array_average[] = round(lab_evaluation::orderBy('created_at', 'asc')->where('lab_univ', $data->univ_name)->avg('all_average'), 2);
-            $tmp_array_average[] = round(lab_evaluation::orderBy('created_at', 'asc')->where('lab_univ', $data->univ_name)->avg('prof_average'), 2);
-            $tmp_array_average[] = round(lab_evaluation::orderBy('created_at', 'asc')->where('lab_univ', $data->univ_name)->avg('job_average'), 2);
-            $tmp_array_average[] = round(lab_evaluation::orderBy('created_at', 'asc')->where('lab_univ', $data->univ_name)->avg('lab_average'), 2);
-            $tmp_array_average[] = round(lab_evaluation::orderBy('created_at', 'asc')->where('lab_univ', $data->univ_name)->avg('other_average'), 2);
-            array_push($array_average, $tmp_array_average);
-        }
+                //note: ここで改めてクエリを発行しているが、$average_evaluationsを取得するときに同時に取得した方がデータベースへのアクセスが1回で済むのでいいかも。
+                //新着口コミを取得
+                $latest_evaluation = lab_evaluation::latest()->where('lab_univ', $university_name)->first()->toArray();
+                $laboratory_name = $latest_evaluation['lab_name'];
 
-        $array_latest_evaluation = array();
-        /*各大学の最新口コミを格納する配列を生成*/
-        foreach ($datas as $data) {
-            $each_univ_name = lab_evaluation::latest()->where('lab_univ', $data->univ_name)->first();
-            array_push($array_latest_evaluation, $each_univ_name);
-        }
+                return [
+                    'name' => $university_name,
+                    'averageTotalEvaluation' => [
+                        'category' => $categories[0]['name'],
+                        'value' => round($average_evaluation[$categories[0]['key']], 2)
+                    ],
+                    'averageEvaluations' => array_map(function ($category) use ($average_evaluation) {
+                        return [
+                            'category' => $category['name'],
+                            'value' => round($average_evaluation[$category['key']], 2)
+                        ];
+                    }, array_slice($categories, 1)),
+                    'latestEvaluation' => [
+                        'laboratoryName' => $laboratory_name,
+                        'facultyName' => Laboratory::where('lab_univ', $university_name)->where('lab_name', $laboratory_name)->value('lab_faculty'),
+                        'evaluationValues' =>
+                            array_map(function ($category) use ($latest_evaluation) {
+                                return [
+                                    'category' => $category['name'],
+                                    'value' => round($latest_evaluation[$category['key']], 2)
+                                ];
+                            }, $categories),
+                    ]
+                ];
+            }, $average_evaluations);
 
         return view('area_search_result', [
-            'count1' => $count1, 'count2' => $count2,
-            'average_item_jp' => $average_item_jp,
-
-            'keyword' => $keyword,
-            'datas' => $datas,
-            'array_average' => $array_average,
-            'array_latest_evaluation' => $array_latest_evaluation,
+            'prefectureName' => $pre_name,
+            'universities' => $universities
         ]);
     }
 
@@ -460,17 +483,17 @@ class LabController extends Controller
     //研究室追加画面へ移動
     public function mv_add()
     {
-      $all_prefectures = [
-              "北海道", "青森県", "秋田県", "山形県", "岩手県", "宮城県", "福島県",
-              "東京都", "神奈川県", "埼玉県", "千葉県", "栃木県", "茨城県", "群馬県",
-              "愛知県", "岐阜県", "静岡県", "三重県", "新潟県", "山梨県", "長野県", "石川県", "富山県", "福井県",
-              "大阪府", "兵庫県", "京都府", "滋賀県", "奈良県", "和歌山県",
-              "岡山県", "広島県", "鳥取県", "島根県", "山口県", "香川県", "徳島県", "愛媛県", "高知県",
-              "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県",
-      ];
-      return view('add', [
-          'all_prefectures' => $all_prefectures,
-      ]);
+        $all_prefectures = [
+            "北海道", "青森県", "秋田県", "山形県", "岩手県", "宮城県", "福島県",
+            "東京都", "神奈川県", "埼玉県", "千葉県", "栃木県", "茨城県", "群馬県",
+            "愛知県", "岐阜県", "静岡県", "三重県", "新潟県", "山梨県", "長野県", "石川県", "富山県", "福井県",
+            "大阪府", "兵庫県", "京都府", "滋賀県", "奈良県", "和歌山県",
+            "岡山県", "広島県", "鳥取県", "島根県", "山口県", "香川県", "徳島県", "愛媛県", "高知県",
+            "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県",
+        ];
+        return view('add', [
+            'all_prefectures' => $all_prefectures,
+        ]);
     }
 
     //更新画面へ移動
