@@ -22,70 +22,37 @@
 <body>
 <div id="app">
     @if(\Request::is('/'))
-        <laboratory-header :endpoint-search='@json(route('search'))' :csrf="{{json_encode(csrf_token())}}" :link-regist='@json(route('register'))'
-                    :link-login='@json(route('login'))'
-                    :link-post='@json(action('LinkController@to_add'))'></laboratory-header>
+        <laboratories-header :endpoint-search='@json(route('search'))'
+                             :csrf="{{json_encode(csrf_token())}}"
+                             :route-register='@json(route('register'))'
+                             :route-login='@json(route('login'))'
+                             :route-post='@json(action('LinkController@to_add'))'
+                             :route-my-page='@json(route('my-page'))'
+                             :endpoint-logout='@json(route('logout'))'
+                             :is-login='@json(\Auth::check())'>
+        </laboratories-header>
+    @elseif(\Request::is('top'))
+        <top-header :route-register='@json(route('register'))'
+                    :route-login='@json(route('login'))'
+                    :route-post='@json(action('LinkController@to_add'))'
+                    :route-my-page='@json(route('my-page'))'
+                    :endpoint-logout='@json(route('logout'))'
+                    :csrf="{{json_encode(csrf_token())}}"
+                    :is-login='@json(\Auth::check())'>
+        </top-header>
+    @elseif(\Auth::check())
+        <logged-in-nav :route-post='@json(action('LinkController@to_add'))'
+                       :route-my-page='@json(route('my-page'))'
+                       :endpoint-logout='@json(route('logout'))'
+                       :csrf="{{json_encode(csrf_token())}}">
+        </logged-in-nav>
     @else
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'みんラボ') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('register'))
-                                <li>
-                                    <a class="nav-link" href="{{ route('register') }}">ユーザー登録(1分)</a>
-                                </li>
-                            @endif
-                            <li>
-                                <a class="nav-link" href="{{ route('login') }}">ログイン</a>
-                            </li>
-                        @else
-                            <li>
-                                <a class="nav-link" href="{{ action('LinkController@to_add') }}">
-                                    研究室の口コミを追加する
-                                </a>
-                            </li>
-
-                            @php
-                                $user = Auth::user();
-                            @endphp
-                            <li>
-                                <a class="nav-link" href="{{ url('mypage')}} ">
-                                    {{ __('マイページ') }}
-                                </a>
-                            </li>
-                            <a class="nav-link" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                               document.getElementById('logout-form').submit();">
-                                ログアウト
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <not-logged-in-nav :route-register='@json(route('register'))'
+                           :route-login='@json(route('login'))'
+                           :route-post='@json(action('LinkController@to_add'))'>
+        </not-logged-in-nav>
     @endif
-    <main class="py-4">
+    <main>
         @yield('content')
     </main>
     <my-footer :year='@json($year)'></my-footer>
