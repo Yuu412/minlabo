@@ -113,37 +113,39 @@ class RegisterController extends Controller
     public function mainRegister($email_token)
     {
         // 使用可能なトークンか
-        if (User::where('email_verify_token', $email_token)->exists())
-        {
-          $user = User::where('email_verify_token', $email_token)->first();
-
-          // 本登録済みユーザーか
-          if ($user->status == config('const.USER_STATUS.REGISTER')) //REGISTER=1
-          {
-            logger("status" . $user->status);
-            return view('auth.main.register')->with('message', 'すでに本登録されています。ログインして利用してください。');
-          }
-
-          // ユーザーステータス更新
-          $user->status = config('const.USER_STATUS.MAIL_AUTHED');
-
-          if ($user->save()) {
+        if (User::where('email_verify_token', $email_token)->exists()) {
             $user = User::where('email_verify_token', $email_token)->first();
-            $user->status = config('const.USER_STATUS.MAIL_AUTHED');
-            $user->role = 5;
-            $user->token = uniqid(rand(100, 999));
-            $user->save();
-            $token = $user->token;
 
-            return view('auth.main.registered', [
-              'token' => $token,
-            ]);
-          }
-          else{
-            return view('auth.main.register')->with('message', 'メール認証に失敗しました。再度、メールからリンクをクリックしてください。');
-          }
-        }
-        else{
+            // 本登録済みユーザーか
+            if ($user->status == config('const.USER_STATUS.REGISTER')) //REGISTER=1
+            {
+                logger("status" . $user->status);
+//                todo: 認証失敗時に表示するページを作る
+                return view('auth.main.register')->with('message', 'すでに本登録されています。ログインして利用してください。');
+            }
+
+            // ユーザーステータス更新
+            $user->status = config('const.USER_STATUS.MAIL_AUTHED');
+
+            if ($user->save()) {
+                $user = User::where('email_verify_token', $email_token)->first();
+                $user->status = config('const.USER_STATUS.MAIL_AUTHED');
+                $user->role = 5;
+                $user->token = uniqid(rand(100, 999));
+                $user->save();
+                $token = $user->token;
+
+                $qr = \QrCode::format('svg')->size(300)->generate(config('app.url') . "/review/" . $token);
+
+                return view('auth.main.registered', [
+                    "qr" => $qr
+                ]);
+            } else {
+//                todo: 認証失敗時に表示するページを作る
+                return view('auth.main.register')->with('message', 'メール認証に失敗しました。再度、メールからリンクをクリックしてください。');
+            }
+        } else {
+//                todo: 認証失敗時に表示するページを作る
             return view('auth.main.register')->with('message', '無効なトークンです。');
         }
     }

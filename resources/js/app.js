@@ -11,6 +11,7 @@ import Laboratories from './views/Laboratories'
 import Registered from './views/Registered'
 import RegisterPreCheck from './views/RegisterPreCheck'
 import Login from './views/Login'
+import MainRegistered from './views/auth/main/MainRegistered'
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
@@ -26,6 +27,7 @@ Vue.component('laboratories', Laboratories)
 Vue.component('registered', Registered)
 Vue.component('register-pre-check', RegisterPreCheck)
 Vue.component('login', Login)
+Vue.component('main-registered', MainRegistered)
 
 Vue.config.productionTip = false
 
