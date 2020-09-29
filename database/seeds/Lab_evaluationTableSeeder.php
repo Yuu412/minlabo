@@ -39,11 +39,7 @@ class Lab_evaluationTableSeeder extends Seeder
 
       for ($i = 0; $i < 1000; $i++)
       {
-          $count = $i;
-          if($count > 24){
-            $count = $count % 24;
-          }
-
+          $count = $i % 24;
           $random_date = [rand(2017, 2019), rand(1, 12), rand(1,31)];
 
           $data = [
