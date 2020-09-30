@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" class="logged-in-nav pt-3 pb-3">
+  <b-navbar toggleable="lg" type="dark" class="logged-in-nav py-3">
     <b-navbar-brand href="/" class="ml-5">
       <img src="" alt="みんラボ" />
     </b-navbar-brand>
