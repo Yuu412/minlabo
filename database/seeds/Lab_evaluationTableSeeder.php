@@ -39,9 +39,20 @@ class Lab_evaluationTableSeeder extends Seeder
 
       for ($i = 0; $i < 1000; $i++)
       {
+<<<<<<< Updated upstream
           $count = $i % 24;
           $random_date = [rand(2017, 2019), rand(1, 12), rand(1,31)];
 
+=======
+          $count = $i % 25;
+          $random_date = [rand(2017, 2019), rand(1, 12), rand(1,31)];
+
+          if(!checkdate($random_date[1], $random_date[2], $random_date[0])){
+            $random_date = [rand(2017, 2019), rand(1, 12), 1];
+          }
+
+
+>>>>>>> Stashed changes
           $data = [
             'lab_name'       => $lab_array[$count],
             'lab_univ'       => $univ_array[$count],

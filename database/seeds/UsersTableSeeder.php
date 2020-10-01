@@ -7,6 +7,7 @@ class UsersTableSeeder extends Seeder
 
     public function run()
     {
+<<<<<<< Updated upstream
         $univ_array = [
           "東京大学","山形大学","北海道大学","徳島大学","島根大学","東北大学",
           "岡山大学","鳥取大学","新潟大学","熊本大学","佐賀大学","九州大学",
@@ -23,12 +24,18 @@ class UsersTableSeeder extends Seeder
           "物理学科","数学科","情報系学科","土木工学科","電気工学科","化学科","医学科","機械システム系学科","天文学科",
           "英語学科","ドイツ語学科","教養学科","国際法学科","政治学科","経営学科","マーケティング学科","商学科","法学科",
         ];
+=======
+>>>>>>> Stashed changes
 
         for ($i = 1; $i < 21; $i++)
         {
           $random_date = [rand(2017, 2019), rand(1, 12), rand(1,31)];
 
+<<<<<<< Updated upstream
           if(checkdate($random_date[1], $random_date[2], $random_date[0])){
+=======
+          if(!checkdate($random_date[1], $random_date[2], $random_date[0])){
+>>>>>>> Stashed changes
             $random_date = [rand(2017, 2019), rand(1, 12), 1];
           }
 
@@ -37,9 +44,12 @@ class UsersTableSeeder extends Seeder
                   'email'              => $i.'wakabayashi@example.com',
                   'password'           => Hash::make('password'),
                   'role'               => 10,
+<<<<<<< Updated upstream
                   'univ_name'          => $univ_array[rand(0, 23)],
                   'faculty_name'       => $fac_array[rand(0, 13)],
                   'department_name'    => $department_array[rand(0, 17)],
+=======
+>>>>>>> Stashed changes
                   'created_at'         => new DateTime($random_date[0].'-'.$random_date[1].'-'.$random_date[2]),
                   'updated_at'         => new DateTime($random_date[0].'-'.$random_date[1].'-'.$random_date[2]),
                   'token'              => str_random(15),
@@ -48,6 +58,7 @@ class UsersTableSeeder extends Seeder
               ],
           ]);
       }
+<<<<<<< Updated upstream
       DB::table('users')->insert([
           [
               'email'              => 'test@test.com',
@@ -56,6 +67,14 @@ class UsersTableSeeder extends Seeder
               'univ_name'          => $univ_array[rand(0, 23)],
               'faculty_name'       => $fac_array[rand(0, 13)],
               'department_name'    => $department_array[rand(0, 17)],
+=======
+      //テストユーザーの作成
+      DB::table('users')->insert([
+          [
+              'email'              => 'test@test.com',
+              'password'           => Hash::make('password'),
+              'role'               => 10,
+>>>>>>> Stashed changes
               'created_at'         => new DateTime(),
               'updated_at'         => new DateTime(),
               'token'              => str_random(15),

@@ -19,7 +19,11 @@ class LaboratoriesTableSeeder extends Seeder
         "東北大学","近畿大学","九州大学","早稲田大学","甲南大学",
       ];
 
+<<<<<<< Updated upstream
       $fac_array = [
+=======
+      $faculty_array = [
+>>>>>>> Stashed changes
         "工学部","理学部","医学部","薬学部","環境理工学部",
         "文学部","経済学部","経営学部","法学部","GDP学部",
         "看護学部","理工学部","国際教養学部","国際学部","理学部",
@@ -45,15 +49,30 @@ class LaboratoriesTableSeeder extends Seeder
 
       for ($i = 0; $i < 50; $i++)
       {
+<<<<<<< Updated upstream
         $count = $i % 24;
 
         $random_date = [rand(2017, 2019), rand(1, 12), rand(1,31)];
 
+=======
+        $count = $i % 25;
+        $random_date = [rand(2017, 2019), rand(1, 12), rand(1,31)];
+
+        if(!checkdate($random_date[1], $random_date[2], $random_date[0])){
+          $random_date = [rand(2017, 2019), rand(1, 12), 1];
+        }
+
+
+>>>>>>> Stashed changes
         DB::table('laboratories')->insert([
           [
             'user_id'        =>  rand(1, 19),
             'lab_univ'       => $univ_array[$count],
+<<<<<<< Updated upstream
             'lab_faculty'    => $fac_array[$count],
+=======
+            'lab_faculty'    => $faculty_array[$count],
+>>>>>>> Stashed changes
             'lab_department' => $department_array[$count],
             'lab_name'       => $lab_array[$count],
             'add_time'       => new DateTime($random_date[0].'-'.$random_date[1].'-'.$random_date[2]),

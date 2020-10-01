@@ -7,6 +7,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
       $this->call([
+<<<<<<< Updated upstream
         UsersTableSeeder::class,
         LaboratoriesTableSeeder::class,
         Lab_evaluationTableSeeder::class,
@@ -14,5 +15,14 @@ class DatabaseSeeder extends Seeder
         Fac_logosTableSeeder::class,
         Pre_imagesTableSeeder::class,
       ]);
+=======
+       UsersTableSeeder::class,
+       LaboratoriesTableSeeder::class,
+       Lab_evaluationTableSeeder::class,
+       Univ_dataTableSeeder::class,
+       Fac_logosTableSeeder::class,
+       Pre_imagesTableSeeder::class,
+     ]);
+>>>>>>> Stashed changes
     }
 }

@@ -61,11 +61,19 @@ class Pre_imagesTableSeeder extends Seeder
         '沖縄県' => "okinawa.jpg",
       ];
 
+<<<<<<< Updated upstream
       foreach ($pre_array as $key => $pre_data) {
           DB::table('pre_images')->insert([
             [
               'pre_name'     => $key,
               'pre_image'    => $pre_imgname,
+=======
+      foreach ($pre_array as $key => $pre_img_name) {
+          DB::table('pre_images')->insert([
+            [
+              'pre_name'     => $key,
+              'pre_image'    => $pre_img_name,
+>>>>>>> Stashed changes
               'created_at'   => new DateTime(),
               'updated_at'   => new DateTime(),
             ],
