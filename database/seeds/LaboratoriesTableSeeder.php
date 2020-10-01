@@ -45,7 +45,7 @@ class LaboratoriesTableSeeder extends Seeder
 
       for ($i = 0; $i < 50; $i++)
       {
-        $count = $i % 24;
+        $count = $i % 25;
         $random_date = [rand(2017, 2019), rand(1, 12), rand(1,31)];
 
         if(!checkdate($random_date[1], $random_date[2], $random_date[0])){
