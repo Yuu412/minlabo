@@ -55,7 +55,9 @@
     <main>
         @yield('content')
     </main>
-    <my-footer :year='@json($year)' :route-term='@json(route('term'))' :route-policy='@json(route('policy'))'></my-footer>
+    <my-footer :year='@json($year)' :route-top='@json(route('top'))'
+               :route-term='@json(route('term'))'
+               :route-policy='@json(route('policy'))'></my-footer>
 </div>
 </body>
 </html>

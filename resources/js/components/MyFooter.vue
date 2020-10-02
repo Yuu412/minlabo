@@ -6,8 +6,7 @@
         <img src="/img/minlabo_logo/logo_1.png" alt="みんラボ ロゴ" />
       </div>
       <div class="menu">
-        <!--todo: ホームのリンクをどこにするか確認する-->
-        <a href="">ホーム</a>
+        <a :href="routeTop">トップ</a>
         <a :href="routeTerm">利用規約</a>
         <a :href="routePolicy">プライバシーポリシー</a>
       </div>
@@ -34,6 +33,10 @@ export default {
   name: 'Footer',
   props: {
     year: {
+      type: String,
+      default: '',
+    },
+    routeTop: {
       type: String,
       default: '',
     },
