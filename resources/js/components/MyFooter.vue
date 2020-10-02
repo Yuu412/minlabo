@@ -3,7 +3,7 @@
     <b-icon class="to-page-top" icon="arrow-up-short" @click="toPageTop" />
     <div class="logo-and-menu">
       <div class="logo">
-        <img src="/img/minlabo_logo/logo_1.jpg" alt="みんラボ ロゴ" />
+        <img src="/img/minlabo_logo/logo_1.png" alt="みんラボ ロゴ" />
       </div>
       <div class="menu">
         <!--todo: ホームのリンクをどこにするか確認する-->
