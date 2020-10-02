@@ -69,7 +69,7 @@ footer {
 
   .to-page-top {
     position: absolute;
-    right: 0;
+    right: 30px;
     color: $sky-blue;
     font-size: 100px;
 
