@@ -15,6 +15,7 @@ import Top from './views/Top'
 import Registered from './views/Registered'
 import RegisterPreCheck from './views/RegisterPreCheck'
 import Login from './views/Login'
+import SearchArea from './views/SearchArea'
 import Register from './views/Register'
 import MainRegistered from './views/auth/main/MainRegistered'
 
@@ -37,6 +38,7 @@ Vue.component('top', Top)
 Vue.component('registered', Registered)
 Vue.component('register-pre-check', RegisterPreCheck)
 Vue.component('login', Login)
+Vue.component('search-area', SearchArea)
 Vue.component('main-registered', MainRegistered)
 
 Vue.config.productionTip = false

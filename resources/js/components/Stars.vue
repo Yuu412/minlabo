@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="stars">
     <filled-star v-for="n of numberOfFilledStar" :key="'filled-' + n"></filled-star>
     <half-filled-star v-for="n of numberOfHalfFilledStar" :key="'half' + n"></half-filled-star>
     <stroke-star v-for="n of numberOfStrokeStar" :key="'stroke' + n"></stroke-star>
@@ -36,4 +36,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.stars {
+  display: flex;
+}
+</style>
