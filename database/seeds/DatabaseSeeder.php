@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
        Lab_evaluationTableSeeder::class,
        Univ_dataTableSeeder::class,
        Fac_logosTableSeeder::class,
-       Pre_imagesTableSeeder::class,
+       Prefecture_imagesTableSeeder::class,
      ]);
     }
 }

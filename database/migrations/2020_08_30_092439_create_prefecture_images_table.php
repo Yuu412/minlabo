@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePreImagesTable extends Migration
+class CreatePrefectureImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePreImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pre_images', function (Blueprint $table) {
+        Schema::create('prefecture_images', function (Blueprint $table) {
             $table->id();
-            $table->string('pre_name');
-            $table->string('pre_image');
+            $table->string('prefecture_name');
+            $table->string('prefecture_image');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreatePreImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pre_images');
+        Schema::dropIfExists('prefecture_images');
     }
 }

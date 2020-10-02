@@ -41,12 +41,12 @@ class LinkController extends Controller
 
         $lab_evaluation_universities = lab_evaluation::get(["lab_univ"]);
         foreach ($lab_evaluation_universities as $lab_evaluation_university) {
-            $lab_evaluation_prefecture = Univ_data::where('univ_name', $lab_evaluation_university->lab_univ)->first(["pre_name"]);
+            $lab_evaluation_prefecture = Univ_data::where('univ_name', $lab_evaluation_university->lab_univ)->first(["prefecture_name"]);
 
             if(is_null($lab_evaluation_prefecture)) continue;
 
             foreach ($prefectures_array as $area => $prefectures) {
-                if (in_array($lab_evaluation_prefecture->pre_name, $prefectures)) {
+                if (in_array($lab_evaluation_prefecture->prefecture_name, $prefectures)) {
                     $index = array_search($area, array_column($areas, "name"));
                     $areas[$index]["count"]++;
                 }
@@ -130,11 +130,11 @@ class LinkController extends Controller
             "スポーツ健康科学部", "芸術工学部", "生命科学部", "理系その他"
         ];
 
-        $pre_input = $request->input('pref_name');
+        $prefecture_input = $request->input('pref_name');
         $token = $request->input('token');
-        $pre_univ_data = Univ_data::orderBy('created_at', 'asc')->where('pre_name', $pre_input)->get();
+        $prefecture_univ_data = Univ_data::orderBy('created_at', 'asc')->where('prefecture_name', $prefecture_input)->get();
         return view('add2', [
-            'pre_univ_data' => $pre_univ_data,
+            'prefecture_univ_data' => $prefecture_univ_data,
             'faculty_lib_array' => $faculty_lib_array,
             'faculty_sci_array' => $faculty_sci_array,
             'token' => $token

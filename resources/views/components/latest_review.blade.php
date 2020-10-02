@@ -2,7 +2,7 @@
   新着口コミ：
 
   @foreach($array_latest_evaluation as $item_latest_evaluation)
-    @if($item_latest_evaluation->$tmp1 == $pre_data->$tmp2)
+    @if($item_latest_evaluation->$tmp1 == $prefecture_data->$tmp2)
       【{{ $item_latest_evaluation->all_average }}】,
       教授：{{ $item_latest_evaluation->prof_average }},
       就活：{{ $item_latest_evaluation->job_average }},

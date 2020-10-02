@@ -23,19 +23,19 @@ class ScrapingController extends Controller
                            "鹿児島県","沖縄県" );
       for($j=0; $j<47; $j++){
         if(strcmp($prefecture[$j], $input_prefecture) == 0){
-          $pre_num = $j + 1;
+          $prefecture_num = $j + 1;
         }
       }
       //URLがhttps://〇〇〇/pre(数字)の形
-      //$pre_numを使って任意の都道府県のurlを設定する
-      if($pre_num < 10){
-        $each_univ_url = '0'.$pre_num.'/';
+      //$prefecture_numを使って任意の都道府県のurlを設定する
+      if($prefecture_num < 10){
+        $each_univ_url = '0'.$prefecture_num.'/';
       }
       else{
-        $each_univ_url = $pre_num.'/';
+        $each_univ_url = $prefecture_num.'/';
       }
 
-      $url = 'https://passnavi.evidus.com/search_univ/list/pre_'.$each_univ_url;
+      $url = 'https://passnavi.evidus.com/search_univ/list/prefecture_'.$each_univ_url;
       $goutte = GoutteFacade::request('GET', $url);
 
       //テキストを取得するための配列を準備

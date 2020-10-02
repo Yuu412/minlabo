@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Pre_image whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Pre_image extends Model
+class Prefecture_image extends Model
 {
-  protected $table = 'pre_images';
+  protected $table = 'prefecture_images';
 }

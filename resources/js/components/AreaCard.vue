@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     src() {
-      return '/img/pre_image/' + this.prefectureImage
+      return '/img/prefecture_image/' + this.prefectureImage
     },
     link() {
       return '/area/' + this.prefectureName

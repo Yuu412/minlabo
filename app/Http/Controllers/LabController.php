@@ -16,7 +16,7 @@ use App\Laboratory;
 use App\Univ_data;
 use App\lab_evaluation;
 use App\Fac_logo;
-use App\Pre_image;
+use App\Prefecture_image;
 use Validator;
 use Auth;
 
@@ -32,7 +32,7 @@ class LabController extends Controller
     public function index()
     {
         //県の画像を取得
-        $prefecture_images = Pre_image::get();
+        $prefecture_images = Prefecture_image::get();
 
         //メインの県名を定義し、その画像名を取得
         $main_prefectures = [
@@ -45,8 +45,8 @@ class LabController extends Controller
         ];
         for ($i = 0; $i < count($main_prefectures); $i++) {
             $main_prefecture = $main_prefectures[$i];
-            $index = array_search($main_prefecture["name"], array_column($prefecture_images->toArray(), "pre_name"));
-            $main_prefectures[$i]["image"] = $prefecture_images[$index]->pre_image;
+            $index = array_search($main_prefecture["name"], array_column($prefecture_images->toArray(), "prefecture_name"));
+            $main_prefectures[$i]["image"] = $prefecture_images[$index]->prefecture_image;
         }
 
         //全県名を定義
@@ -140,11 +140,11 @@ class LabController extends Controller
 
             //研究室の県を取得
             $index = array_search($university_name, array_column($universities->toArray(), "univ_name"));
-            $prefecture_name = $universities[$index]->pre_name;
+            $prefecture_name = $universities[$index]->prefecture_name;
 
             //県の画像を取得
-            $index = array_search($prefecture_name, array_column($prefecture_images->toArray(), "pre_name"));
-            $prefecture_image = $prefecture_images[$index]->pre_image;
+            $index = array_search($prefecture_name, array_column($prefecture_images->toArray(), "prefecture_name"));
+            $prefecture_image = $prefecture_images[$index]->prefecture_image;
 
             //研究室の評価を取得
             $evaluation_items = [
@@ -189,11 +189,11 @@ class LabController extends Controller
 
             //研究室の県を取得
             $index = array_search($university_name, array_column($universities->toArray(), "univ_name"));
-            $prefecture_name = $universities[$index]->pre_name;
+            $prefecture_name = $universities[$index]->prefecture_name;
 
             //県の画像を取得
-            $index = array_search($prefecture_name, array_column($prefecture_images->toArray(), "pre_name"));
-            $prefecture_image = $prefecture_images[$index]->pre_image;
+            $index = array_search($prefecture_name, array_column($prefecture_images->toArray(), "prefecture_name"));
+            $prefecture_image = $prefecture_images[$index]->prefecture_image;
 
             //研究室の評価を取得
             $evaluation_items = [
@@ -296,7 +296,7 @@ class LabController extends Controller
         }
     }
 
-    public function area_search($pre_name)
+    public function area_search($prefecture_name)
     {
         $categories = [
             [
@@ -321,8 +321,8 @@ class LabController extends Controller
             ],
         ];
 
-        //検索された文字列をpre_nameカラムに含む大学名の一覧を取得
-        $university_names = Univ_data::where('pre_name', 'like', "%$pre_name%")->get('univ_name');
+        //検索された文字列をprefecture_nameカラムに含む大学名の一覧を取得
+        $university_names = Univ_data::where('prefecture_name', 'like', "%$prefecture_name%")->get('univ_name');
 
         //検索条件に当てはまる大学の研究室評価の平均値を取得
         $average_evaluations = lab_evaluation::selectRaw('lab_univ, AVG(all_average) as all_average, AVG(prof_average) as prof_average, AVG(job_average) as job_average, AVG(lab_average) as lab_average, AVG(other_average) as other_average')->whereIn('lab_univ', $university_names)->groupBy('lab_univ')->get()->toArray();
@@ -364,7 +364,7 @@ class LabController extends Controller
             }, $average_evaluations);
 
         return view('area_search_result', [
-            'prefectureName' => $pre_name,
+            'prefectureName' => $prefecture_name,
             'universities' => $universities
         ]);
     }

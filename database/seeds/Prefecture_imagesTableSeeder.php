@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class Pre_imagesTableSeeder extends Seeder
+class Prefecture_imagesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class Pre_imagesTableSeeder extends Seeder
      */
     public function run()
     {
-      $pre_array = [
+      $prefecture_array = [
         '北海道' => "hokkaido.jpg",
         '青森県' => "aomori.jpg",
         '秋田県' => "akita.jpg",
@@ -61,11 +61,11 @@ class Pre_imagesTableSeeder extends Seeder
         '沖縄県' => "okinawa.jpg",
       ];
 
-      foreach ($pre_array as $key => $pre_img_name) {
-          DB::table('pre_images')->insert([
+      foreach ($prefecture_array as $key => $prefecture_img_name) {
+          DB::table('prefecture_images')->insert([
             [
-              'pre_name'     => $key,
-              'pre_image'    => $pre_img_name,
+              'prefecture_name'     => $key,
+              'prefecture_image'    => $prefecture_img_name,
               'created_at'   => new DateTime(),
               'updated_at'   => new DateTime(),
             ],
