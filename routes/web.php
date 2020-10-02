@@ -2,6 +2,8 @@
 
 use App\Laboratory;
 use Illuminate\Http\Request;
+use App\Http\Controllers\TermController;
+use App\Http\Controllers\PolicyController;
 
 Auth::routes(); //認証機能を使用する。
 /*====== 会員登録関係 ===================*/
@@ -104,3 +106,9 @@ Route::get('/add_evaluation/{lab_details_univ}/{lab_details_lab}', 'LinkControll
 
 //TO:研究室の情報追加ページ
 Route::get('/add', 'LinkController@to_add');
+
+//利用規約ページ
+Route::get('term', [TermController::class, 'index'])->name('term');
+
+//プライバシーポリシーページ
+Route::get('policy', [PolicyController::class, 'index'])->name('policy');

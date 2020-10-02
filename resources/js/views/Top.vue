@@ -51,9 +51,6 @@
       </div>
     </section>
     <register-button :link="routeRegister" class="regsiter-button" />
-    <div class="logo">
-      <img src="/img/minlabo_logo/logo_1.jpg" alt="みんラボ ロゴ" />
-    </div>
   </div>
 </template>
 
@@ -227,17 +224,6 @@ export default {
     width: 400px;
     margin: 0 auto 200px auto;
     font-size: 24px;
-  }
-
-  .logo {
-    padding: 20px 0;
-    text-align: center;
-    background-color: white;
-
-    img {
-      max-width: 300px;
-      height: auto;
-    }
   }
 }
 </style>
