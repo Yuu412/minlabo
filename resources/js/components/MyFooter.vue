@@ -117,7 +117,7 @@ footer {
     }
 
     .sns {
-      font-size: 20px;
+      font-size: 28px;
 
       a {
         color: #eee;
