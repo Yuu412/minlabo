@@ -128,8 +128,6 @@ class RegisterController extends Controller
             $user->status = config('const.USER_STATUS.MAIL_AUTHED');
 
             if ($user->save()) {
-                $user = User::where('email_verify_token', $email_token)->first();
-                $user->status = config('const.USER_STATUS.MAIL_AUTHED');
                 $user->role = 5;
                 $user->token = uniqid(rand(100, 999));
                 $user->save();
