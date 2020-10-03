@@ -14,7 +14,7 @@ use App\User;
 use App\Laboratory;
 use App\Univ_data;
 use App\lab_evaluation;
-use App\Fac_logo;
+use App\Faculty_logo;
 use Validator;
 use Auth;
 
@@ -25,7 +25,7 @@ class LinkController extends Controller
         $prefectures_array = [
             "北海道・東北" => ["北海道", "青森県", "秋田県", "山形県", "岩手県", "宮城県", "福島県"],
             "関東・中部" => ["東京都", "神奈川県", "埼玉県", "千葉県", "栃木県", "茨城県", "群馬県",
-                "愛知県", "岐阜県", "静岡県", "三重県", "新潟県", "山梨県", "長野県", "石川県", "富山県", "福井県"],
+                            "愛知県", "岐阜県", "静岡県", "三重県", "新潟県", "山梨県", "長野県", "石川県", "富山県", "福井県"],
             "近畿" => ["大阪府", "兵庫県", "京都府", "滋賀県", "奈良県", "和歌山県"],
             "中国・四国" => ["岡山県", "広島県", "鳥取県", "島根県", "山口県", "香川県", "徳島県", "愛媛県", "高知県"],
             "九州" => ["福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"],
@@ -538,7 +538,7 @@ class LinkController extends Controller
         $laboratories = Laboratory::orderBy('created_at', 'asc')->where('lab_univ', $univ_name)->get();
 
         /*=== 学部ロゴ画像 設定部=========================*/
-        $fac_logos = Fac_logo::orderBy('created_at', 'asc')->get();
+        $faculty_logos = Faculty_logo::orderBy('created_at', 'asc')->get();
 
         $lab_evaluations = lab_evaluation::orderBy('created_at', 'asc')->where('lab_univ', $univ_name)->get();
         $lab_name = array();
@@ -614,7 +614,7 @@ class LinkController extends Controller
             'count1' => $count1, 'count2' => $count2,
             'average_item_jp' => $average_item_jp,
 
-            'fac_logos' => $fac_logos,
+            'faculty_logos' => $faculty_logos,
             'array_count_evaluations' => $array_count_evaluations,
             'lab_name' => $lab_name,
             'array_average' => $array_average,

@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     src() {
-      return '/img/fac_logo/' + this.facultyImage
+      return '/img/faculty_logo/' + this.facultyImage
     },
     link() {
       return 'faculty-result/' + this.facultyName

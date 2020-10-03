@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFacLogosTable extends Migration
+class CreateFacultyLogosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateFacLogosTable extends Migration
      */
     public function up()
     {
-        Schema::create('fac_logos', function (Blueprint $table) {
+        Schema::create('faculty_logos', function (Blueprint $table) {
             $table->id();
-            $table->string('fac_name');
-            $table->string('fac_logo');
+            $table->string('faculty_name');
+            $table->string('faculty_logo');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateFacLogosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fac_logos');
+        Schema::dropIfExists('faculty_logos');
     }
 }

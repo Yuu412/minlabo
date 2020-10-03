@@ -15,7 +15,7 @@ use App\User;
 use App\Laboratory;
 use App\Univ_data;
 use App\lab_evaluation;
-use App\Fac_logo;
+use App\Faculty_logo;
 use App\Prefecture_image;
 use Validator;
 use Auth;
@@ -78,7 +78,7 @@ class LabController extends Controller
         ];
 
         //学部のロゴを取得
-        $faculty_logos = Fac_logo::get();
+        $faculty_logos = Faculty_logo::get();
 
         //学部名を定義し、そのロゴ画像を取得
         $faculties = [
@@ -109,8 +109,8 @@ class LabController extends Controller
             $faculty_names = $faculties[$i]["faculty_names"];
             for ($j = 0; $j < count($faculty_names); $j++) {
                 $faculty = $faculty_names[$j];
-                $index = array_search($faculty["name"], array_column($faculty_logos->toArray(), "fac_name"));
-                $faculties[$i]["faculty_names"][$j]["image"] = $faculty_logos[$index]->fac_logo;
+                $index = array_search($faculty["name"], array_column($faculty_logos->toArray(), "faculty_name"));
+                $faculties[$i]["faculty_names"][$j]["image"] = $faculty_logos[$index]->faculty_logo;
             }
         }
 
@@ -242,7 +242,7 @@ class LabController extends Controller
 
             /*=== 学部ロゴ画像 設定部=========================*/
             $count1 = 0;
-            $fac_logos = Fac_logo::orderBy('created_at', 'asc')->get();
+            $faculty_logos = Faculty_logo::orderBy('created_at', 'asc')->get();
 
             $average_item_jp = ["総合評価", "教授", "就活", "研究室", "その他"];
             $average_item = ['all_average', 'prof_average', 'job_average', 'lab_average', 'other_average'];
@@ -282,7 +282,7 @@ class LabController extends Controller
                 'laboratories' => $laboratories,
 
                 'count1' => $count1,
-                'fac_logos' => $fac_logos,
+                'faculty_logos' => $faculty_logos,
                 'average_item_jp' => $average_item_jp,
                 'array_average' => $array_average,
                 'array_latest_evaluation' => $array_latest_evaluation,
@@ -374,18 +374,18 @@ class LabController extends Controller
     {
         $keyword = $faculty;
 
-        $fac_logos = Fac_logo::orderBy('created_at', 'asc')->get();
+        $faculty_logos = faculty_logo::orderBy('created_at', 'asc')->get();
         $average_item_jp = ["総合評価", "教授", "就活", "研究室", "その他"];
 
         $data = array();
 
         if ($keyword == "その他") {
-            $fac_array = [
+            $faculty_array = [
                 ["法学部", "経済学部", "文学部", "教育学部", "外国語学部"],
                 ["理学部", "工学部", "農学部", "医学部", "薬学部",],
             ];
-            $laboratories = Laboratory::latest()->whereNotIn('lab_faculty', $fac_array[0])->whereNotIn('lab_faculty', $fac_array[1])->get();
-            $isLab = Laboratory::latest()->whereNotIn('lab_faculty', $fac_array[0])->whereNotIn('lab_faculty', $fac_array[1])->count();
+            $laboratories = Laboratory::latest()->whereNotIn('lab_faculty', $faculty_array[0])->whereNotIn('lab_faculty', $faculty_array[1])->get();
+            $isLab = Laboratory::latest()->whereNotIn('lab_faculty', $faculty_array[0])->whereNotIn('lab_faculty', $faculty_array[1])->count();
 
         } else {
             $laboratories = Laboratory::latest()->where('lab_faculty', $faculty)->get();
@@ -427,7 +427,7 @@ class LabController extends Controller
             return view('faculty_result', [
                 'keyword' => $keyword,
                 'laboratories' => $laboratories,
-                'fac_logos' => $fac_logos,
+                'faculty_logos' => $faculty_logos,
                 'average_item_jp' => $average_item_jp,
                 'faculty' => $faculty,
                 'array_average' => $array_average,

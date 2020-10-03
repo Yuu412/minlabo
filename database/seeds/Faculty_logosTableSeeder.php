@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class Fac_logosTableSeeder extends Seeder
+class Faculty_logosTableSeeder extends Seeder
 {
     public function run()
     {
@@ -22,10 +22,10 @@ class Fac_logosTableSeeder extends Seeder
 
         foreach ($faculty_array as $key => $faculty_img_name)
         {
-          DB::table('fac_logos')->insert([
+          DB::table('faculty_logos')->insert([
             [
-              'fac_name'     => $key,
-              'fac_logo'     => $faculty_img_name,
+              'faculty_name'     => $key,
+              'faculty_logo'     => $faculty_img_name,
               'created_at'   => new DateTime(),
               'updated_at'   => new DateTime(),
             ],

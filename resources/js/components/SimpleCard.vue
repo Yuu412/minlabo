@@ -1,7 +1,7 @@
 <template>
   <div class="simple-card">
     <!--     todo:  画像がないのでとりあえず適当な画像を配置している-->
-    <img src="/img/fac_logo/other.png" alt="" />
+    <img src="/img/faculty_logo/other.png" alt="" />
     <p>{{ text }}</p>
   </div>
 </template>
