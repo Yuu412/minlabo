@@ -46,7 +46,7 @@ class LabController extends Controller
         for ($i = 0; $i < count($main_prefectures); $i++) {
             $main_prefecture = $main_prefectures[$i];
             $index = array_search($main_prefecture["name"], array_column($prefecture_images->toArray(), "prefecture_name"));
-            $main_prefectures[$i]["image"] = $prefecture_images[$index]->prefecture_image;
+            $main_prefectures[$i]["image"] = $prefecture_images[$index]->prefecture_filename;
         }
 
         //全県名を定義
@@ -110,7 +110,7 @@ class LabController extends Controller
             for ($j = 0; $j < count($faculty_names); $j++) {
                 $faculty = $faculty_names[$j];
                 $index = array_search($faculty["name"], array_column($faculty_logos->toArray(), "faculty_name"));
-                $faculties[$i]["faculty_names"][$j]["image"] = $faculty_logos[$index]->faculty_logo;
+                $faculties[$i]["faculty_names"][$j]["image"] = $faculty_logos[$index]->faculty_filename;
             }
         }
 
@@ -144,7 +144,7 @@ class LabController extends Controller
 
             //県の画像を取得
             $index = array_search($prefecture_name, array_column($prefecture_images->toArray(), "prefecture_name"));
-            $prefecture_image = $prefecture_images[$index]->prefecture_image;
+            $prefecture_image = $prefecture_images[$index]->prefecture_filename;
 
             //研究室の評価を取得
             $evaluation_items = [
@@ -193,7 +193,7 @@ class LabController extends Controller
 
             //県の画像を取得
             $index = array_search($prefecture_name, array_column($prefecture_images->toArray(), "prefecture_name"));
-            $prefecture_image = $prefecture_images[$index]->prefecture_image;
+            $prefecture_image = $prefecture_images[$index]->prefecture_filename;
 
             //研究室の評価を取得
             $evaluation_items = [
