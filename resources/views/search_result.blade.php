@@ -19,7 +19,7 @@
           </td>
 
           <!--↓↓ 研究室の評価平均 表示部分 ↓↓-->
-          @include('components.univ_data', ['pre_data'=>$laboratory, 'array_tmp1'=>$average_item_jp, 'count1'=>$laboratory->id, 'count2'=>'0'])
+          @include('components.univ_data', ['prefecture_data'=>$laboratory, 'array_tmp1'=>$average_item_jp, 'count1'=>$laboratory->id, 'count2'=>'0'])
 
           <td>
             新着口コミ：

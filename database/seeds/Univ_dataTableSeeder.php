@@ -201,7 +201,7 @@ class Univ_dataTableSeeder extends Seeder
           foreach ($univ_data as $univ_name) {
             DB::table('univ_data')->insert([
               [
-                'pre_name'     => $key,
+                'prefecture_name'     => $key,
                 'univ_name'    => $univ_name,
                 'created_at'   => new DateTime(),
                 'updated_at'   => new DateTime(),

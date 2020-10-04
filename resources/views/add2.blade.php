@@ -21,7 +21,7 @@
       <label for="lab_univ" class="col-sm-3 control-label">大学名</label>
         <select name="lab_univ">
           <option value="" selected>選択してください</option>
-          @foreach($pre_univ_data as $each_univ_data)
+          @foreach($prefecture_univ_data as $each_univ_data)
             <option value="{{ $each_univ_data->univ_name }}">{{ $each_univ_data->univ_name }}</option>
           @endforeach
         </select>

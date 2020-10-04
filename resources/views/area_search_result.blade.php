@@ -9,7 +9,7 @@
     {{--            <th>"{{ $keyword }}"にある大学一覧</th>--}}
     {{--          </thead>--}}
     {{--          <tbody>--}}
-    {{--            @foreach($datas as $pre_data)--}}
+    {{--            @foreach($datas as $prefecture_data)--}}
     {{--              <tr>--}}
     {{--                <!--↓↓ 大学名と大学の評価平均 部分 ↓↓-->--}}
     {{--                @include('components.univ_data',['array_tmp1'=>$average_item_jp])--}}

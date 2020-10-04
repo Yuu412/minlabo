@@ -24,7 +24,7 @@ Route::group(['middleware' => ['web']], function ()
   Route::post('/search_result', 'LabController@search')->name('search');
 
   //エリアごとに探すページ
-  Route::get('/area/{pre_name}','LabController@area_search')->name('area');
+  Route::get('/area/{prefecture_name}','LabController@area_search')->name('area');
 
   //学部ごとに探すページ
   Route::get('/faculty-result/{faculty}', 'LabController@faculty_result');

@@ -11,8 +11,8 @@ class DatabaseSeeder extends Seeder
        LaboratoriesTableSeeder::class,
        Lab_evaluationTableSeeder::class,
        Univ_dataTableSeeder::class,
-       Fac_logosTableSeeder::class,
-       Pre_imagesTableSeeder::class,
+       Faculty_logosTableSeeder::class,
+       Prefecture_imagesTableSeeder::class,
      ]);
     }
 }

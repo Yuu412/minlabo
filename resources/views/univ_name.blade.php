@@ -25,10 +25,10 @@
                 </a>
               </td>
               <!--↓↓ 大学名と大学の評価平均 部分 ↓↓-->
-              @include('components.univ_data', ['pre_data'=>$laboratory, 'array_tmp1'=>$average_item_jp])
+              @include('components.univ_data', ['prefecture_data'=>$laboratory, 'array_tmp1'=>$average_item_jp])
 
               <!--↓↓ 新着口コミの評価平均 部分 ↓↓-->
-              @include('components.latest_review', ['pre_data'=>$laboratory,'tmp1'=>'lab_name','tmp2'=>'lab_name'])
+              @include('components.latest_review', ['prefecture_data'=>$laboratory,'tmp1'=>'lab_name','tmp2'=>'lab_name'])
 
               <!--↓↓ この研究室の口コミを見る ↓↓-->
               @include('components.botton_watch_reviews')
