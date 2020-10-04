@@ -25,7 +25,7 @@ class Faculty_logosTableSeeder extends Seeder
           DB::table('faculty_logos')->insert([
             [
               'faculty_name'     => $key,
-              'faculty_logo'     => $faculty_img_name,
+              'faculty_filename'     => $faculty_img_name,
               'created_at'   => new DateTime(),
               'updated_at'   => new DateTime(),
             ],

@@ -65,7 +65,7 @@ class Prefecture_imagesTableSeeder extends Seeder
           DB::table('prefecture_images')->insert([
             [
               'prefecture_name'     => $key,
-              'prefecture_image'    => $prefecture_img_name,
+              'prefecture_filename'    => $prefecture_img_name,
               'created_at'   => new DateTime(),
               'updated_at'   => new DateTime(),
             ],

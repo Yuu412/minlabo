@@ -16,7 +16,7 @@ class CreatePrefectureImagesTable extends Migration
         Schema::create('prefecture_images', function (Blueprint $table) {
             $table->id();
             $table->string('prefecture_name');
-            $table->string('prefecture_image');
+            $table->string('prefecture_filename');
             $table->timestamps();
         });
     }
