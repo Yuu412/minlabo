@@ -2,7 +2,6 @@
 @section('content')
 
   @if(count($laboratories))
-
   <!--↓↓ 研究室の口コミを追加　ボタン ↓↓-->
   @include('components.botton_add_reviews')
 
@@ -18,18 +17,18 @@
 
               <!-- 大学、学部、学科、研究室名 -->
               <td class="table-text">
-                <a class="nav-link" href="{{ url('lab/'.$laboratory->lab_univ.'/'.$laboratory->lab_name) }}">
-                  {{ $laboratory->lab_univ }} {{ $laboratory->lab_faculty }} {{ $laboratory->lab_department }} {{ $laboratory->lab_name }}
+                <a class="nav-link" href="{{ url('lab/'.$laboratory[0]->lab_univ.'/'.$laboratory[0]->lab_name) }}">
+                  {{ $laboratory[0]->lab_univ }} {{ $laboratory[0]->lab_faculty }} {{ $laboratory[0]->lab_department }} {{ $laboratory[0]->lab_name }}
                 </a>
               </td>
 
               <!--↓↓ 研究室の評価平均 表示部分 ↓↓-->
-              @include('components.univ_data', ['prefecture_data'=>$laboratory, 'array_tmp1'=>$average_item_jp, 'count1'=>$laboratory->id, 'count2'=>'0'])
+              @include('components.univ_data', ['prefecture_data'=>$laboratory[0], 'array_tmp1'=>$average_item_jp, 'count1'=>$laboratory[0]->id, 'count2'=>'0'])
 
               <td>
                 新着口コミ：
                 @foreach($array_latest_evaluation as $item_latest_evaluation)
-                  @if($item_latest_evaluation->lab_univ == $laboratory->lab_univ && $item_latest_evaluation->lab_name == $laboratory->lab_name)
+                  @if($item_latest_evaluation->lab_univ == $laboratory[0]->lab_univ && $item_latest_evaluation->lab_name == $laboratory[0]->lab_name)
                   【{{ $item_latest_evaluation->all_average }}】,
                   教授：{{ $item_latest_evaluation->prof_average }},
                   就活：{{ $item_latest_evaluation->job_average }},

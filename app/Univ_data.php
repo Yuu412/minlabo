@@ -30,6 +30,15 @@ class Univ_data extends Model
 
   public function Laboratory()
   {
-     return $this->hasMany(Laboratory::class);
+    return $this->belongsTo('App\Laboratory', 'univ_id');
   }
+  public function lab_evaluation()
+  {
+    return $this->belongsTo('App\lab_evaluation');
+  }
+  public function Prefecture_image()
+  {
+    return $this->hasMany('App\Prefecture_image', 'id', 'prefecture_id');
+  }
+
 }

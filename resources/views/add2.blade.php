@@ -76,6 +76,5 @@
         </div>
       </div>
   </form>
-
   <!--現在登録済みの研究室一覧-->
 @endsection

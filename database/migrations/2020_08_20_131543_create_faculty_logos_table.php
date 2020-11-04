@@ -16,6 +16,7 @@ class CreateFacultyLogosTable extends Migration
         Schema::create('faculty_logos', function (Blueprint $table) {
             $table->id();
             $table->string('faculty_name');
+            $table->string('humanities_or_sciences');
             $table->string('faculty_filename');
             $table->timestamps();
         });

@@ -34,13 +34,9 @@ use Illuminate\Database\Eloquent\Model;
 class Laboratory extends Model
 {
   //hasMany設定
-//  public function lab_evaluation()
-//  {
-//     return $this->hasMany('app\User', 'id', 'user_id');
-//  }
-
-  public function univ_data()
+  public function lab_evaluation()
   {
-     return $this->belongsTo(Univ_data::class);
+     return $this->hasMany('app\lab_evaluation', 'lab_id');
   }
+
 }

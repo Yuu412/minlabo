@@ -12,7 +12,7 @@
   </div>
 
   <!--研究室の評価の登録フォーム-->
-  <form action="{{ url('/laboratory/{laboratory}') }}" method="POST" class="form-horizontal">
+  <form action="{{ url('/store/evaluation') }}" method="POST" class="form-horizontal">
     {{ csrf_field() }}
     @foreach ($eachtitle_array as $eachtitle)
       <h3>{{ $eachtitle }}</h3>
@@ -57,6 +57,5 @@
         </div>
       </div>
   </form>
-
   <!--現在登録済みの研究室一覧-->
 @endsection

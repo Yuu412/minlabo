@@ -15,9 +15,9 @@ class CreateLabEvaluationTable extends Migration
     {
         Schema::create('lab_evaluation', function (Blueprint $table) {
             $table->id();
-            $table->string('lab_name');
-            $table->string('lab_univ');
-            $table->integer('user_id');     //Add:user_id
+            $table->integer('lab_id');
+            $table->integer('univ_id');
+            $table->integer('user_id');
             /*教授について*/
             $table->integer('prof_care');
             $table->integer('prof_friendly');
@@ -54,7 +54,6 @@ class CreateLabEvaluationTable extends Migration
             $table->double('all_average',2,1);
 
             $table->string('token');
-            $table->date('add_time');
             $table->timestamps();
         });
     }

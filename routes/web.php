@@ -17,17 +17,17 @@ Route::group(['middleware' => ['web']], function ()
 {
 
   //研究室サイトダッシュボード表示
-  Route::get('/', 'LabController@index');
-  Route::post('/', 'LabController@index');
+  Route::get('/', 'IndexController@index');
+  Route::post('/', 'IndexController@index');
 
   //検索結果表示
   Route::post('/search_result', 'LabController@search')->name('search');
 
   //エリアごとに探すページ
-  Route::get('/area/{prefecture_name}','LabController@area_search')->name('area');
+  Route::get('/area/{prefecture_name}','AreaSearchController@area_search')->name('area');
 
   //学部ごとに探すページ
-  Route::get('/faculty-result/{faculty}', 'LabController@faculty_result');
+  Route::get('/faculty-result/{faculty}', 'FacultySearchController@faculty_result');
 
   Route::post('/', 'LabController@mv_add');
 
@@ -47,13 +47,13 @@ Route::group(['middleware' => ['web']], function ()
   ]);
 
   //TO:各大学ページ
-  Route::get('/univ/{univ_name}','LinkController@to_univ');
+  Route::get('/univ/{univ_name}','UnivController@to_univ');
 
   //TO:各研究室ページ
   Route::get('/lab/{lab_details_univ}/{lab_details_lab}','LinkController@to_lab_details');
 
   //TO:各研究室の評価詳細ページ
-  Route::get('/lab-evaluation/{lab_evaluation_details}','LinkController@to_lab_evaluation_details');
+  Route::get('/lab-evaluation/{lab_evaluation_details}','LabEvaluationController@to_lab_evaluation_details');
 
   //TO: マイページ
   Route::get('/my-page','LinkController@to_mypage')->name('my-page');
@@ -71,11 +71,9 @@ Route::group(['middleware' => ['web']], function ()
 
 //========ログインしなくてもアクセスできるページ========================================
 //研究室サイトダッシュボード表示
-Route::get('top', 'LinkController@preindex')->name('top');
+Route::get('top', 'PreindexController@preindex')->name('top');
 
-
-
-Route::get('/home', 'LabController@index')->name('home');
+Route::get('/home', 'IndexController@index')->name('home');
 
 Route::get('/welcome', function(){
   return view('welcome');
@@ -88,13 +86,14 @@ Route::get('/review/{token}', 'LinkController@qr_to_add');
 Route::post('/laboratories', 'LabController@store');
 
 //TO:研究室の情報追加ページ
-Route::post('/add/2', 'LinkController@ret_univ');
+Route::post('/add/2', 'RetunivController@ret_univ');
 
 //研究室の評価追加
-Route::post('/laboratory/{laboratory}', 'LinkController@store_evaluation');
+Route::post('/store/evaluation', 'StoreEvaluationController@store_evaluation');
 
-//TO:研究室の評価追加ページ(大学を追加 to 評価を追加)
-Route::POST('/add_evaluation', 'LinkController@add_evaluation');
+//TO:研究室の情報追加ページ(大学・学部・学科・研究室名)
+Route::POST('/add_evaluation', 'LabAdditionController@add_evaluation');
+
 //TO:研究室の評価追加ページ(リダイレクト)
 Route::GET('/add_evaluation',  function()
 {

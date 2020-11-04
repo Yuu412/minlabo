@@ -7,12 +7,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
       $this->call([
-       UsersTableSeeder::class,
-       LaboratoriesTableSeeder::class,
-       Lab_evaluationTableSeeder::class,
-       Univ_dataTableSeeder::class,
-       Faculty_logosTableSeeder::class,
-       Prefecture_imagesTableSeeder::class,
+        Lab_evaluationTableSeeder::class,
+        LaboratoriesTableSeeder::class,
+        Univ_dataTableSeeder::class,
+        Prefecture_imagesTableSeeder::class,
+        Faculty_logosTableSeeder::class,
+        DepartmentTableSeeder::class,
+        UsersTableSeeder::class,
      ]);
     }
 }

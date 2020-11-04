@@ -7,7 +7,6 @@ class UsersTableSeeder extends Seeder
 
     public function run()
     {
-
         for ($i = 1; $i < 21; $i++)
         {
           $random_date = [rand(2017, 2019), rand(1, 12), rand(1,31)];

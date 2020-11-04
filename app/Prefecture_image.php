@@ -25,4 +25,9 @@ use Illuminate\Database\Eloquent\Model;
 class Prefecture_image extends Model
 {
   protected $table = 'prefecture_images';
+
+  public function Univ_data()
+  {
+    return $this->hasMany('App\Univ_data', 'prefecture_id');
+  }
 }
