@@ -14,7 +14,7 @@ class LabEvaluationController extends Controller
   {
       $lab_evaluation = lab_evaluation::find($lab_evaluation_details);
       $laboratory = Laboratory::find($lab_evaluation->lab_id);
-
+      $lab_name = $laboratory->lab_name;
       $faculty_lib_array = [
           "文学部", "教育学部", "経済学部", "経営学部", "商学部",
           "社会学部", "法学部", "外国語学部", "国際学部", "体育学部",
@@ -104,6 +104,7 @@ class LabEvaluationController extends Controller
       $eachtitle_array = ["教授について", "就活について", "研究室について", "その他"];
 
       return view('lab_evaluation_details', [
+          'lab_name' => $lab_name,
           'lab_evaluation_details' => $lab_evaluation_details,
           'evaluation_array' => $evaluation_array,
           'eachtitle_array' => $eachtitle_array,

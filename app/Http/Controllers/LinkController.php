@@ -169,68 +169,6 @@ class LinkController extends Controller
         ]);
     }
 
-
-
-    //各研究室の詳細ページへ
-    public function to_lab_details($lab_details_univ, $lab_details_lab){
-      $count = 0;
-      $average_item_jp = ["総合評価", "教授", "就活", "研究室", "その他"];
-      $laboratories = Laboratory::latest()->get();
-      $lab_evaluations = lab_evaluation::latest()->get();
-
-      $lab_evaluation = array();
-
-      foreach($lab_evaluations as $lab_evaluation_item)
-      {
-          //32文字以上を･･･に置き換える関数
-          //整形したい文字列
-          $text = $lab_evaluation_item->content;
-          //文字数の上限
-          $limit = 50;
-
-          if(mb_strlen($text) > $limit) {
-            $title = mb_substr($text,0,$limit);
-            $text = "$title ... ";
-          }
-
-          $lab_evaluation_item->content = $text;
-
-          array_push($lab_evaluation, $lab_evaluation_item);
-      }
-
-      $evaluation_array = array();
-      foreach($lab_evaluation as $index => $evaluation)
-      {
-        if( $evaluation->lab_univ == $lab_details_univ and $evaluation->lab_name == $lab_details_lab)
-          array_push( $evaluation_array , $evaluation);
-      }
-
-        /*全平均値を格納した配列（2次元配列）*/
-        $array_average = array();
-        foreach ($evaluation_array as $evaluation_item) {
-            /*空の一時的な配列を定義して、そこに各平均値を格納していく*/
-            $array_average = array();
-            $array_average[] = round(lab_evaluation::orderBy('created_at', 'asc')->where('lab_name', $evaluation_item->lab_name)->where('lab_univ', $evaluation_item->lab_univ)->avg('all_average'), 2);
-            $array_average[] = round(lab_evaluation::orderBy('created_at', 'asc')->where('lab_name', $evaluation_item->lab_name)->where('lab_univ', $evaluation_item->lab_univ)->avg('prof_average'), 2);
-            $array_average[] = round(lab_evaluation::orderBy('created_at', 'asc')->where('lab_name', $evaluation_item->lab_name)->where('lab_univ', $evaluation_item->lab_univ)->avg('job_average'), 2);
-            $array_average[] = round(lab_evaluation::orderBy('created_at', 'asc')->where('lab_name', $evaluation_item->lab_name)->where('lab_univ', $evaluation_item->lab_univ)->avg('lab_average'), 2);
-            $array_average[] = round(lab_evaluation::orderBy('created_at', 'asc')->where('lab_name', $evaluation_item->lab_name)->where('lab_univ', $evaluation_item->lab_univ)->avg('other_average'), 2);
-        }
-
-      $flag = 1;
-
-      return view('lab_details',[
-        'count' => $count,
-        'average_item_jp' => $average_item_jp,
-        'lab_details_univ' => $lab_details_univ,
-        'lab_details_lab' => $lab_details_lab,
-        'lab_evaluation' => $lab_evaluation,
-        'laboratories' => $laboratories,
-        'evaluation_array' => $evaluation_array,
-        'array_average' => $array_average,
-        'flag' => $flag,
-      ]);
-    }
     //マイページへ
     public function to_mypage()
     {

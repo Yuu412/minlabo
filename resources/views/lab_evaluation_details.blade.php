@@ -5,7 +5,7 @@
   <!--end:バリテーションエラーの表示に使用-->
 
   <div class="card-body">
-      <h2>{{ $lab_evaluation->lab_name }}の口コミの詳細</h2>
+      <h2>{{ $lab_name }}の口コミの詳細</h2>
       <div>{{ $lab_evaluation->add_time }}</div>
 
       総合評価：{{ $lab_evaluation->all_average }}<br>

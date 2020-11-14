@@ -1,51 +1,53 @@
 @extends('layouts.app')
 @section('content')
-
-  @if(count($laboratories))
+  @if(count($laboratories_collection))
   <!--↓↓ 研究室の口コミを追加　ボタン ↓↓-->
   @include('components.botton_add_reviews')
 
+
     <table class="table table-striped task-table">
       <thead>
-        <th>{{ $keyword }}の研究室一覧</th>
+        <th>{{ $faculty_name }}の研究室一覧</th>
       </thead>
       <tbody>
-          @foreach($laboratories as $laboratory)
+          @foreach($laboratories_collection as $laboratory)
             <tr>
               <!--↓↓ 学部ロゴ　表示部 ↓↓-->
               @include('components.faculty_logo')
 
               <!-- 大学、学部、学科、研究室名 -->
               <td class="table-text">
-                <a class="nav-link" href="{{ url('lab/'.$laboratory[0]->lab_univ.'/'.$laboratory[0]->lab_name) }}">
-                  {{ $laboratory[0]->lab_univ }} {{ $laboratory[0]->lab_faculty }} {{ $laboratory[0]->lab_department }} {{ $laboratory[0]->lab_name }}
+                <a class="nav-link" href="{{ url('lab/'.$laboratory['univ_name'].'/'.$laboratory['lab_name']) }}">
+                  {{ $laboratory['univ_name'] }} {{ $faculty_name }} {{ $laboratory['department_name'] }} {{ $laboratory['lab_name'] }}
                 </a>
               </td>
 
               <!--↓↓ 研究室の評価平均 表示部分 ↓↓-->
-              @include('components.univ_data', ['prefecture_data'=>$laboratory[0], 'array_tmp1'=>$average_item_jp, 'count1'=>$laboratory[0]->id, 'count2'=>'0'])
-
-              <td>
-                新着口コミ：
-                @foreach($array_latest_evaluation as $item_latest_evaluation)
-                  @if($item_latest_evaluation->lab_univ == $laboratory[0]->lab_univ && $item_latest_evaluation->lab_name == $laboratory[0]->lab_name)
-                  【{{ $item_latest_evaluation->all_average }}】,
-                  教授：{{ $item_latest_evaluation->prof_average }},
-                  就活：{{ $item_latest_evaluation->job_average }},
-                  研究室：{{ $item_latest_evaluation->lab_average }},
-                  その他：{{ $item_latest_evaluation->other_average }}
-                  @endif
-                @endforeach
+              <td class="table-text">
+                平均口コミ：
+                【{{ $laboratory['all_average'] }}】
+                  {{ $laboratory['prof_average'] }}
+                  {{ $laboratory['job_average'] }}
+                  {{ $laboratory['lab_average'] }}
+                  {{ $laboratory['other_average'] }}
               </td>
 
+              <td class="table-text">
+                新着口コミ：
+                【{{ $laboratory['latest_evaluation']->all_average }}】
+                  {{ $laboratory['latest_evaluation']->prof_average }}
+                  {{ $laboratory['latest_evaluation']->job_average }}
+                  {{ $laboratory['latest_evaluation']->lab_average }}
+                  {{ $laboratory['latest_evaluation']->other_average }}
+              </td>
               <!--↓↓ この研究室の口コミを見る ↓↓-->
-              @include('components.botton_watch_reviews')
+              @include('components.botton_watch_reviews', ['univ_name' => $laboratory['univ_name']])
             </tr>
           @endforeach
         </tbody>
       </table>
     @else
     <!--↓↓ 該当データがなかったとき ↓↓-->
-    @include('components.nothing_data')
+    @include('components.nothing_data', ['keyword' => $faculty_name ])
   @endif
 @endsection

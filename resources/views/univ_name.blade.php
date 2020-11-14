@@ -13,22 +13,20 @@
         <th>{{ $univ_name }}の研究室一覧</th>
       </thead>
       <tbody>
-          @foreach($laboratories as $laboratory)
+          @foreach($laboratories_collection as $laboratory)
             <tr>
               <!--↓↓ 学部ロゴ　表示部 ↓↓-->
-              @include('components.faculty_logo')
+              @include('components.faculty_logo', ['faculty_name' => $laboratory['faculty_name'], 'faculty_filename' => $laboratory['faculty_filename']])
 
-              <!-- 研究室名 -->
               <td>
-                <a href="{{ url('lab/'.$univ_name.'/'.$laboratory->lab_name) }}">
-                  {{ $laboratory->lab_name }}
+                <a href="{{ url('lab/'.$univ_name.'/'.$laboratory['lab_name']) }}">
+                  {{ $laboratory['lab_name'] }}
                 </a>
               </td>
               <!--↓↓ 大学名と大学の評価平均 部分 ↓↓-->
-              @include('components.univ_data', ['prefecture_data'=>$laboratory, 'array_tmp1'=>$average_item_jp])
-
+              @include('components.univ_data')
               <!--↓↓ 新着口コミの評価平均 部分 ↓↓-->
-              @include('components.latest_review', ['prefecture_data'=>$laboratory,'tmp1'=>'lab_name','tmp2'=>'lab_name'])
+              @include('components.latest_review')
 
               <!--↓↓ この研究室の口コミを見る ↓↓-->
               @include('components.botton_watch_reviews')

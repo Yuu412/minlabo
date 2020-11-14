@@ -33,7 +33,7 @@ class StoreEvaluationController extends Controller
       }
 
       $univ_id = Univ_data::where('univ_name', $request->lab_univ)->first();
-      $lab_id  = Laboratory::where('lab_name', $request->lab_name)->first();
+      $lab_id  = Laboratory::where('lab_name', $request->lab_name)->where('univ_id', $univ_id->id)->first();
 
       $user_token = User::where('token', $request->token)->first();
       if (isset($user_token)) {
@@ -117,7 +117,7 @@ class StoreEvaluationController extends Controller
         } else {
             $user_id = Auth::user()->id;
         }
-        
+
         \DB::table('users')->where('id', $user_id)->update([
             'role' => 10,
             'status' => config('const.USER_STATUS.REGISTER'),

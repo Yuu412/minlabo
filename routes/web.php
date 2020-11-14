@@ -21,7 +21,7 @@ Route::group(['middleware' => ['web']], function ()
   Route::post('/', 'IndexController@index');
 
   //検索結果表示
-  Route::post('/search_result', 'LabController@search')->name('search');
+  Route::post('/search_result', 'SearchController@search')->name('search');
 
   //エリアごとに探すページ
   Route::get('/area/{prefecture_name}','AreaSearchController@area_search')->name('area');
@@ -50,7 +50,7 @@ Route::group(['middleware' => ['web']], function ()
   Route::get('/univ/{univ_name}','UnivController@to_univ');
 
   //TO:各研究室ページ
-  Route::get('/lab/{lab_details_univ}/{lab_details_lab}','LinkController@to_lab_details');
+  Route::get('/lab/{lab_details_univ}/{lab_details_lab}','ToLabDetailsController@to_lab_details');
 
   //TO:各研究室の評価詳細ページ
   Route::get('/lab-evaluation/{lab_evaluation_details}','LabEvaluationController@to_lab_evaluation_details');
