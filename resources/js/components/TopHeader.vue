@@ -23,7 +23,7 @@
         <login-button class="button" :link="routeLogin" />
         <register-button class="button" :link="routeRegister" />
       </div>
-      <img src="" alt="" />
+      <img src="img/iphone_screen.png" alt="操作画面" />
     </div>
   </header>
 </template>

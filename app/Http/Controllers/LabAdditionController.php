@@ -16,9 +16,11 @@ use Auth;
 class LabAdditionController extends Controller
 {
   //処理：研究室情報を追加
-  //遷移先：研究室の評価を追加するページ
+  //遷移先：研究室の評価を記入するページ
   public function add_evaluation(Request $request)
   {
+
+          $a = 1;
       /*研究室を判別するための"研究室名"と"研究室の所属大学"*/
       $lab_details = [$request->lab_univ, $request->lab_name];
       $token = $request->token;
@@ -58,7 +60,6 @@ class LabAdditionController extends Controller
       $already_data = Laboratory::where('univ_id', $univ_id->id)->where('lab_name', $request->lab_name)->exists();
 
       //対象の研究室が登録されていなかった場合
-
       if ($already_data == FALSE) {
           $faculty_id = Faculty_logo::where('faculty_name', $request->lab_faculty)->first();
           $department_id = Department::where('department_name', $request->lab_department)->first();
@@ -178,6 +179,7 @@ class LabAdditionController extends Controller
       $eachtitle_array = ["教授について", "就活について", "研究室について", "その他"];
 
       return view('add_evaluation', [
+        'a' => $a,
           'lab_details' => $lab_details,
           'lab_evaluation' => $lab_evaluation,
           'evaluation_array' => $evaluation_array,

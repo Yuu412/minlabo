@@ -19,7 +19,6 @@ class SearchController extends Controller
 
   public function search(Request $request)
   {
-
     #キーワード受け取り
     $keyword = $request->input('keyword');
     $laboratories = Laboratory::latest()->where('lab_name', 'like', '%' . $keyword . '%')->get();
@@ -53,10 +52,15 @@ class SearchController extends Controller
           'faculty_name' => $faculty_data->faculty_name,
           'faculty_filename' => $faculty_data->faculty_filename,
           'all_average' => round($lab_evaluations->avg('all_average'), 2),
+          'all_stars' => round($lab_evaluations->avg('all_average')*2, 0) / 2,
           'prof_average' => round($lab_evaluations->avg('prof_average'), 2),
+          'prof_stars' => round($lab_evaluations->avg('prof_average')*2, 0) / 2,
           'job_average' => round($lab_evaluations->avg('job_average'), 2),
+          'job_stars' => round($lab_evaluations->avg('job_average')*2, 0) / 2,
           'lab_average' => round($lab_evaluations->avg('lab_average'), 2),
+          'lab_stars' => round($lab_evaluations->avg('lab_average')*2, 0) / 2,
           'other_average' => round($lab_evaluations->avg('other_average'), 2),
+          'other_stars' => round($lab_evaluations->avg('other_average')*2, 0) / 2,
           'latest_evaluation' => $latest_evaluation
         ],
       ]);
@@ -66,8 +70,6 @@ class SearchController extends Controller
         'laboratories_collection' => $laboratories_collection,
         'laboratories' => $laboratories,
         'univ_name' => $univ_name,
-
-        'test' => $test,
     ]);
   }
 }

@@ -16,7 +16,7 @@
     <section id="area">
       <h2>どこのゼミ・研究室の口コミが見られるの？</h2>
       <div class="area-counts">
-        <img src="" alt="" />
+        <img src="img/japanmap.png" alt="日本地図" width="90%" height="90%" />
         <area-count
           v-for="(area, index) in areas"
           :key="area.name"

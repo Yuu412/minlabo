@@ -13,6 +13,14 @@ class LabEvaluationController extends Controller
   public function to_lab_evaluation_details($lab_evaluation_details)
   {
       $lab_evaluation = lab_evaluation::find($lab_evaluation_details);
+      $evaluation_stars = [
+        'all_stars' => round($lab_evaluation->all_average*2, 0) / 2,
+        'prof_stars' => round($lab_evaluation->prof_average*2, 0) / 2,
+        'job_stars' => round($lab_evaluation->job_average*2, 0) / 2,
+        'lab_stars' => round($lab_evaluation->lab_average*2, 0) / 2,
+        'other_stars' => round($lab_evaluation->other_average*2, 0) / 2,
+      ];
+
       $laboratory = Laboratory::find($lab_evaluation->lab_id);
       $lab_name = $laboratory->lab_name;
       $faculty_lib_array = [
@@ -104,11 +112,12 @@ class LabEvaluationController extends Controller
       $eachtitle_array = ["教授について", "就活について", "研究室について", "その他"];
 
       return view('lab_evaluation_details', [
-          'lab_name' => $lab_name,
           'lab_evaluation_details' => $lab_evaluation_details,
+          'lab_evaluation' => $lab_evaluation,
+          'evaluation_stars' => $evaluation_stars,
+          'lab_name' => $lab_name,
           'evaluation_array' => $evaluation_array,
           'eachtitle_array' => $eachtitle_array,
-          'lab_evaluation' => $lab_evaluation,
       ]);
   }
 }

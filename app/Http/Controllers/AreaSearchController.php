@@ -40,7 +40,6 @@ class AreaSearchController extends Controller
       //検索された文字列をprefecture_nameカラムに含む大学名の一覧を取得
       $prefecture_id = Prefecture_image::where('prefecture_name', $prefecture_name)->first('id')->id;
       $university_id = Univ_data::where('prefecture_id', $prefecture_id)->get('id');
-      $tmp = $university_id;
 
       //検索条件に当てはまる大学の研究室評価の平均値を取得
       $average_evaluations = lab_evaluation::selectRaw('univ_id, AVG(all_average) as all_average, AVG(prof_average) as prof_average, AVG(job_average) as job_average, AVG(lab_average) as lab_average, AVG(other_average) as other_average')->whereIn('univ_id', $university_id)->groupBy('univ_id')->get()->toArray();
@@ -86,8 +85,6 @@ class AreaSearchController extends Controller
       return view('area_search_result', [
           'prefectureName' => $prefecture_name,
           'universities' => $universities,
-
-          'tmp' => $tmp,
       ]);
   }
 

@@ -1,0 +1,70 @@
+/*横幅は1080px*/
+h3 {
+  font-weight: bold !important;
+}
+
+.gray-block{
+  height: 170px;
+  width: 100%;
+  padding: 50 0 0 10%;
+}
+
+.main{
+  background-color: #FFF;
+  min-height: 750px;
+  padding: 75 0 150 0;
+}
+
+.main-inbox{
+  width: 1080px;
+  margin: 0 auto 60 auto;
+}
+
+.step{
+  margin-bottom: 50;
+}
+
+.step h4{
+  color: #1D93E9 !important;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.content-message{
+  height: 40px;
+  font-size: 18;
+}
+
+.faculty{
+  padding-bottom: 35 !important;
+}
+
+.right-block{
+  padding:0 20 0 20;
+}
+
+.faculty-name{
+  font-weight: normal;
+}
+
+.faculty-group{
+  margin: 30 0 0 0;
+}
+
+.choices{
+  width: 120px;
+  display: inline-block;
+  vertical-align:middle;
+}
+
+
+.next-button{
+  text-align: center;
+  padding-top: 150;
+}
+
+.next-button button{
+  padding: 7.5 75 7.5 75;
+  font-size: 18px;
+  font-weight: bold;
+}

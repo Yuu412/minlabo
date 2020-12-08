@@ -36,7 +36,6 @@ export default {
   }
 
   .category-name {
-    flex: 0 4em;
     margin-right: 15px;
     text-align: right;
     font-weight: bold;
