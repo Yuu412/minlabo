@@ -1,7 +1,7 @@
 <template>
   <b-navbar toggleable="lg" type="dark" class="logged-in-nav py-3">
     <b-navbar-brand href="/" class="ml-5">
-      <img src="" alt="みんラボ" />
+      <img src="/img/minlabo_logo/logo_2.png" width="200px" alt="みんラボ" />
     </b-navbar-brand>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>

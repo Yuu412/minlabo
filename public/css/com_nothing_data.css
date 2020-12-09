@@ -21,3 +21,14 @@
   line-height: 2;
   border-bottom: 2px solid #EEEEEE;
 }
+
+.return-button{
+  text-align: center;
+  padding-top: 150;
+}
+
+.return-button a{
+  padding: 7.5 75 7.5 75;
+  font-size: 18px;
+  font-weight: bold;
+}

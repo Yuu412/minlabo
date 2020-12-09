@@ -19,8 +19,6 @@ class LabAdditionController extends Controller
   //遷移先：研究室の評価を記入するページ
   public function add_evaluation(Request $request)
   {
-
-          $a = 1;
       /*研究室を判別するための"研究室名"と"研究室の所属大学"*/
       $lab_details = [$request->lab_univ, $request->lab_name];
       $token = $request->token;
@@ -168,6 +166,35 @@ class LabAdditionController extends Controller
           ];
       }
 
+      $jobtype_array = [
+        "メーカー" => [
+          "食品", "農林・水産", "住宅・建設", "インテリア", "繊維・化学・薬品", "化粧品",
+          "鉄鋼・金属", "電子・電気機器", "自動車", "印刷", "スポーツ", "その他メーカー"
+        ],
+        "商社" => [
+          "総合商社", "専門商社"
+        ],
+        "小売" => [
+          "百貨店・スーパー", "コンビニ", "その他小売"
+        ],
+        "広告・出版・マスコミ" => [
+          "放送", "新聞・出版", "広告"
+        ],
+        "サービス・インフラ" => [
+          "不動産", "鉄道・航空・運輸・物流", "電力・ガス・エネルギー",
+          "旅行・ホテル", "医療", "アミューズメント", "人材・教育", "その他サービス"
+        ],
+        "金融" => [
+          "銀行・証券", "クレジット", "保険", "その他金融"
+        ],
+        "ソフトウェア・通信" => [
+          "ソフトウェア", "インターネット", "通信"
+        ],
+        "官公庁" => [
+          "官公庁", "公社・団体"
+        ],
+      ];
+
       //各配列をまとめる配列
       $evaluation_array = [
           '教授について' => $prof_array,
@@ -179,12 +206,12 @@ class LabAdditionController extends Controller
       $eachtitle_array = ["教授について", "就活について", "研究室について", "その他"];
 
       return view('add_evaluation', [
-        'a' => $a,
           'lab_details' => $lab_details,
           'lab_evaluation' => $lab_evaluation,
           'evaluation_array' => $evaluation_array,
           'eachtitle_array' => $eachtitle_array,
           'token' => $token,
+          'jobtype_array' => $jobtype_array
       ]);
   }
 }

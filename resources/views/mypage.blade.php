@@ -1,20 +1,18 @@
 @extends('layouts.app')
 @section('content')
-
-  <li class="nav-item">
-    <a class="nav-link" href="{{ url('/confirm_user') }}">登録情報を確認・変更する</a>
-  </li>
-
-  <!--研究室登録フォーム-->
-  @include('components.botton_add_reviews')
-
   @if(count($user_datas) > 0)
 
   <!--バリテーションエラーの表示に使用-->
   @include('common.errors')
 
-<div class="card-body">
-  <div class="card-body">
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('/confirm_user') }}">登録情報を確認・変更する</a>
+  </li>
+  <!--研究室登録フォーム-->
+  @include('components.botton_add_reviews')
+
+
+{{--
     <table class="table table-striped task-table">
       <!--テーブルヘッダ-->
       <thead>
@@ -66,11 +64,7 @@
         @endforeach
       </tbody>
   </table>
-</div>
-<div>
-</div>
-
-</div>
+  --}}
 
 @endif
 

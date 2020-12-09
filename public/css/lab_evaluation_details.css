@@ -13,7 +13,7 @@ h3 {
 .flex-box{
   display: flex;
   justify-content: space-between;
-  padding:10 100 10 10;
+  padding: 15 30 15 10;
 }
 
 .all-review-box{
@@ -60,7 +60,6 @@ h3 {
 
 .main-inbox-block{
   width: 45%;
-  height: 380px;
   display: inline-block;
   vertical-align: top;
   border: 1px solid #d2d2d2;
@@ -74,13 +73,26 @@ h3 {
 }
 
 .each-evaluation{
-  font-size: 16px;
+  font-size: 14px;
   line-height: 2.0;
+}
+
+.evaluation_graph img{
+  width: 200px !important;
+}
+
+.about-lab{
+  padding: 10 30 10 10 !important;
 }
 
 .part{
   margin:50 0 50 0;
   font-size: 16px;
+}
+
+.part-content{
+  font-size: 18px;
+  margin-left: 20px;
 }
 
 .content{

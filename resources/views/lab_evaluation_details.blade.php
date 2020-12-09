@@ -58,8 +58,8 @@
                 <div class="flex-item">
                   {{ $key }}
                 </div>
-                <div class="flex-item">
-                  {{ $lab_evaluation->$prof_item }}
+                <div class="flex-item evaluation_graph">
+                  <img src="{{ asset('img/evaluation_graph/graph_'.$lab_evaluation->$prof_item.'.png') }}" alt="{{$prof_item}}" width="100">
                 </div>
               </div>
             @endforeach
@@ -69,14 +69,12 @@
 
       <div class="part">
         <h4>先輩の就職業界</h4>
-        <img src="{{ asset('img/others/jobtype.jpg') }}" alt="業界リスト" width="1000" height="500">
-        <br>
-        {{ $lab_evaluation->objobtype}}
+        <span class="part-content">{{ $lab_evaluation->objobtype}}</span>
       </div>
 
       <div class="part">
         <h4>備考欄</h4>
-        {{ $lab_evaluation->terms }}
+        <span class="part-content">{{ $lab_evaluation->terms }}</span>
       </div>
 
       <div class="part">

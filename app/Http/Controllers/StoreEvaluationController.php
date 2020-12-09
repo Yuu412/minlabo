@@ -95,15 +95,17 @@ class StoreEvaluationController extends Controller
        /*他*/
        $lab_evaluation->all_average = ($lab_evaluation->prof_average + $lab_evaluation->job_average + $lab_evaluation->lab_average + $lab_evaluation->other_average) / 4.0;
        $lab_evaluation->objobtype = $request->objobtype;
-     if(!empty($request->terms)){
-       $lab_evaluation->terms = $request->terms;
-     }
-     $lab_evaluation->content = $request->content;
-
-        $lab_evaluation->token = $request->token;
+       if(!empty($request->terms)){
+         $lab_evaluation->terms = $request->terms;
+       }
+       else{
+         $lab_evaluation->terms = "ありません。";
+       }
+       $lab_evaluation->content = $request->content;
+       $lab_evaluation->token = $request->token;
 
         if (!empty($request->objobtype)) {
-            $tmp = implode(", ", $request->objobtype);
+            $tmp = implode("、 ", $request->objobtype);
         } else {
             $tmp = "";
         }

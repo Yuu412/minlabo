@@ -9,5 +9,7 @@
           ”{{ $keyword }}”のキーワード含む研究室は見つかりませんでした。<br>
           研究室の口コミ投稿をご希望される場合は、下記のフォームから登録してください。
       </div>
-      <a class="nav-link" href="/">トップページに戻る</a>
+      <div class="return-button">
+        <a class="btn btn-primary" href="/">トップページに戻る</a>
+      </div>
     </div>
