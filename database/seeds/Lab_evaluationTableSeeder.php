@@ -11,22 +11,6 @@ class Lab_evaluationTableSeeder extends Seeder
      */
     public function run()
     {
-      $univ_array = [
-        "東京大学","山形大学","北海道大学","徳島大学","島根大学",
-        "岡山大学","鳥取大学","新潟大学","熊本大学","佐賀大学",
-        "神戸大学","大阪大学","京都大学","関西大学","慶應大学",
-        "岡山理科大学","香川大学","愛媛大学","高知大学","広島大学",
-        "東北大学","近畿大学","九州大学","早稲田大学","甲南大学",
-      ];
-
-      $lab_array = [
-        "佐藤研究室","谷口研究室","田中研究室","神戸研究室","中田研究室",
-        "斎藤研究室","神谷研究室","見城研究室","南波研究室","梶崎研究室",
-        "服部研究室","坂口研究室","田口研究室","高橋研究室","清水研究室",
-        "新見研究室","南澤研究室","東山研究室","手塚研究室","多田研究室",
-        "古賀研究室","六条研究室","灰田研究室","馬場研究室","田中研究室",
-      ];
-
       $content_array = [
         "大体月に1度くらいで何かしらのイベント（飲み会など）があると思うとイメージしやすい。お金がかかるのと、私的には多すぎるのがダメなところ。 （研究室旅行に関しては教授以外先生、生徒は全く乗り気でない。というのも、一泊二日で3万近くかかり、しかも無難な観光が多くつまらないからだ）",
         "研究をしたいときは行い、したくないときはだらだらしている。このようなスタイルがまかり通る研究室であるため、良く言えば自由、悪く言えば不真面目だ。 もっと真面目に、熱心に研究に取り組んでいるのかなと思ったら、一部の賢い人に大半の生徒がぶら下がってるだけのスタイルである。 （賢い先生および先輩に何したらいいか聞きまくってそれを自分の意見かの如く発表する研究室生がおおすぎ）。 まあ、これはどこの研究室や会社でもそうなのかもしれないが、桑畑研究室は特に見かけ上偉く見せる傾向にあると私は思う（教授譲り）",
@@ -46,10 +30,19 @@ class Lab_evaluationTableSeeder extends Seeder
             $random_date = [rand(2017, 2019), rand(1, 12), 1];
           }
 
+          $univ_id = 43 * ($count + 1);
+          if($univ_id > 1076){
+            $univ_id = $univ_id % 1075;
+          }
+
+          if($univ_id == 0){
+            $univ_id++;
+          }
+
           $data = [
-            'lab_name'       => $lab_array[$count],
-            'lab_univ'       => $univ_array[$count],
-            'user_id'        =>  rand(1, 20),
+            'lab_id'       => $count+1,
+            'univ_id'       => $univ_id,
+            'user_id'        =>  rand(1, 300),
             'prof_care' => rand(1.0, 5.0),
             'prof_friendly' => rand(1.0, 5.0),
             'prof_jobhunt' => rand(1.0, 5.0),
@@ -75,10 +68,8 @@ class Lab_evaluationTableSeeder extends Seeder
             'content' => $content_array[rand(0,6)],
             'objobtype' => "1、4、18",
             'token' => str_random(15),
-            'add_time'       => new DateTime($random_date[0].'-'.$random_date[1].'-'.$random_date[2]),
             'created_at'     => new DateTime($random_date[0].'-'.$random_date[1].'-'.$random_date[2]),
             'updated_at'     => new DateTime($random_date[0].'-'.$random_date[1].'-'.$random_date[2]),
-
           ];
           // その数値を元に計算をして追加する
           $data['prof_average'] = (

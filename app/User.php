@@ -58,7 +58,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'email_verified', 'email_verify_token',
+        'email', 'password', 'role', 'email_verified', 'email_verify_token',
     ];
 
     /**
@@ -78,4 +78,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function lab_evaluation()
+    {
+      return $this->hasMany('App\lab_evaluation','user_id');
+    }
 }

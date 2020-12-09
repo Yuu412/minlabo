@@ -25,4 +25,11 @@ use Illuminate\Database\Eloquent\Model;
 class Faculty_logo extends Model
 {
   protected $table = 'faculty_logos';
+
+  public function Laboratory()
+  {
+    //1対多の1の方でhasManyを使う
+    //外部キーを第2引数で定義する
+    return $this->hasMany('App\Laboratory','faculty_id');
+  }
 }

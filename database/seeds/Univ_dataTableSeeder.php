@@ -197,11 +197,13 @@ class Univ_dataTableSeeder extends Seeder
           ],
         ];
 
+        $count = 0;
         foreach ($univ_array as $key => $univ_data) {
+          $count++;
           foreach ($univ_data as $univ_name) {
             DB::table('univ_data')->insert([
               [
-                'prefecture_name'     => $key,
+                'prefecture_id'=> $count,   //$key
                 'univ_name'    => $univ_name,
                 'created_at'   => new DateTime(),
                 'updated_at'   => new DateTime(),

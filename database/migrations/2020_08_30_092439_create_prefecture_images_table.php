@@ -17,6 +17,7 @@ class CreatePrefectureImagesTable extends Migration
             $table->id();
             $table->string('prefecture_name');
             $table->string('prefecture_filename');
+            $table->string('area_name');
             $table->timestamps();
         });
     }

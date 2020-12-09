@@ -1,0 +1,65 @@
+/*横幅は1080px*/
+h3 {
+  font-weight: bold !important;
+}
+.each-evaluation-ec{
+  width: 1080px;
+  border: 1px solid #d2d2d2;
+  margin: 0 auto 60 auto;
+}
+
+.average-evaluation-ec{
+  height: 80px;
+  background-color: #EEEEEE;
+  display: flex;
+  padding: 0 50 0 50;
+  justify-content: space-between;
+}
+
+.average-evaluation-block-ec{
+  font-size: 22px;
+  margin: auto 0 auto 0;
+}
+
+.all_stars_img-ec{
+  vertical-align: sub!important;
+}
+
+.add-time-ec{
+  font-size: 16px;
+  margin: auto 0 auto 0;
+}
+
+.new-evaluation-ec{
+  padding: 25 0 25 50;
+}
+
+.review-item-ec{
+  font-size: 16px;
+  display: inline-block;
+  margin-right: 25;
+}
+
+.flex-box-ec{
+  margin-top: 25;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-box-ec{
+  font-size: 16px;
+  width: 60%;
+}
+
+.botton-box-ec{
+  padding: 15 50 30 0;
+}
+
+.botton-ec{
+  height: 30px;
+  font-size: 16px;
+  color: #FFF;
+  background-color: #1D93E9;
+  padding: 10 25 10 25;
+  border-radius: 5px;
+}

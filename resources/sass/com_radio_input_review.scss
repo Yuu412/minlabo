@@ -1,0 +1,40 @@
+
+/*radio_input_review.blade.php内の$count_itemに相当*/
+$each_category_counts: 5,5,6,5;
+
+@for $i from 1 through 4 {
+  @each $each_category_count in $each_category_counts {
+    @for $j from 1 through $each_category_count{
+      #radios#{$i}-#{$j}{
+        position:relative;
+        width:50%;
+        margin:0 auto;
+        color:#1D93E9;
+        padding-bottom:5%;
+      }
+      #slider#{$i}-#{$j}{
+        position:absolute;
+        left:0%; top:0;
+        width:10%; padding-bottom:10%;
+        margin:2.5% 0 0 5%;
+        background:#1D93E9;
+        transition:transform 1s;
+        border-radius:50%;
+        animation-timing-function: ease-in-out;
+        animation-duration:.3s;
+        animation-fill-mode: forwards;
+        transition: 0.2s left .05s ease-in-out;
+      }
+      #input#{$i}-#{$j}-1:checked  ~ #slider#{$i}-#{$j}{ animation-name: input#{$i}-#{$j}-1; left:0; }
+      #input#{$i}-#{$j}-2:checked  ~ #slider#{$i}-#{$j}{ animation-name: input#{$i}-#{$j}-2; left:20%; }
+      #input#{$i}-#{$j}-3:checked  ~ #slider#{$i}-#{$j}{ animation-name: input#{$i}-#{$j}-3; left:40%; }
+      #input#{$i}-#{$j}-4:checked  ~ #slider#{$i}-#{$j}{ animation-name: input#{$i}-#{$j}-4; left:60%; }
+      #input#{$i}-#{$j}-5:checked  ~ #slider#{$i}-#{$j}{ animation-name: input#{$i}-#{$j}-5; left:80%; }
+      @keyframes input#{$i}-#{$j}-1{ 30%, 70% { transform:scale(0.5); } }
+      @keyframes input#{$i}-#{$j}-2{ 30%, 70% { transform:scale(0.5); } }
+      @keyframes input#{$i}-#{$j}-3{ 30%, 70% { transform:scale(0.5); } }
+      @keyframes input#{$i}-#{$j}-4{ 30%, 70% { transform:scale(0.5); } }
+      @keyframes input#{$i}-#{$j}-5{ 30%, 70% { transform:scale(0.5); } }
+    }
+  }
+}

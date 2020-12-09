@@ -15,12 +15,10 @@ class CreateLaboratoriesTable extends Migration
     {
         Schema::create('laboratories', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');       //Add:user_id
-            $table->string('lab_univ');       //大学
-            $table->string('lab_faculty');     //学部
-            $table->string('lab_department');  //学科
             $table->string('lab_name');       //研究室名
-            $table->date('add_time');
+            $table->integer('univ_id');       //大学ID
+            $table->integer('faculty_id');     //学部ID
+            $table->integer('department_id');  //学科ID
             $table->timestamps();
         });
     }

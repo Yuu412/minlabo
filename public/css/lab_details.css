@@ -1,0 +1,25 @@
+/*横幅は1080px*/
+h3 {
+  font-weight: bold !important;
+}
+
+.gray-block{
+  height: 170px;
+  width: 100%;
+  padding: 50 0 0 10%;
+}
+
+.total-evaluation{
+  background-color: #FFF;
+  padding: 75 0 150 0;
+}
+
+.font-weight-bold{
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.search-result{
+  padding-left: 10%;
+  margin-bottom: 50px;
+}

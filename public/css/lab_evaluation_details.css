@@ -1,0 +1,101 @@
+/*横幅は1080px*/
+
+h3 {
+  font-weight: bold !important;
+}
+
+.gray-block{
+  height: 240px;
+  width: 100%;
+  padding: 50 0 0 10%;
+}
+
+.flex-box{
+  display: flex;
+  justify-content: space-between;
+  padding: 15 30 15 10;
+}
+
+.all-review-box{
+  height: 50px;
+  padding-top: 10px;
+}
+
+.all-review-box img{
+  vertical-align: sub;
+}
+
+.sizeup{
+  font-size: 22px;
+}
+
+.review-box{
+  font-size: 18px;
+}
+
+.review-box img{
+  vertical-align: bottom;
+}
+
+.review-item{
+  display: inline-block;
+  margin: 25 25 0 0;
+  min-width: 175px;
+}
+
+.main{
+  background-color: #FFF;
+  padding: 75 0 150 0;
+}
+
+.search-result{
+  padding-left: 10%;
+  margin-bottom: 50px;
+}
+
+.main-inbox{
+  width: 1080px;
+  margin: 0 auto 60 auto;
+}
+
+.main-inbox-block{
+  width: 45%;
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid #d2d2d2;
+  margin: 0 4.5% 60 0;
+}
+
+.block-name{
+  width: 100%;
+  background-color: #EEE;
+  padding: 10 0 10 10;
+}
+
+.each-evaluation{
+  font-size: 14px;
+  line-height: 2.0;
+}
+
+.evaluation_graph img{
+  width: 200px !important;
+}
+
+.about-lab{
+  padding: 10 30 10 10 !important;
+}
+
+.part{
+  margin:50 0 50 0;
+  font-size: 16px;
+}
+
+.part-content{
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+.content{
+  padding: 50 5%;
+  border: solid 2px #EEEEEE;
+}

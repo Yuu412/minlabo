@@ -15,8 +15,8 @@ class CreateUnivDataTable extends Migration
     {
         Schema::create('univ_data', function (Blueprint $table) {
             $table->id();
-            $table->string('prefecture_name');
             $table->string('univ_name');
+            $table->integer('prefecture_id');
             $table->timestamps();
         });
     }

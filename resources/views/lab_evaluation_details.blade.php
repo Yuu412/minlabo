@@ -1,36 +1,90 @@
+<link href="{{ asset('css/lab_evaluation_details.css') }}" rel="stylesheet" type="text/css">
+
 @extends('layouts.app')
 @section('content')
   <!--バリテーションエラーの表示に使用-->
   @include('common.errors')
   <!--end:バリテーションエラーの表示に使用-->
 
-  <div class="card-body">
-      <h2>{{ $lab_evaluation->lab_name }}の口コミの詳細</h2>
-      <div>{{ $lab_evaluation->add_time }}</div>
+  <div class="gray-block">
+      <div class="flex-box">
+        <div class="flex-item">
+          <h2>{{ $lab_name }}の口コミの詳細</h2>
+        </div>
+        <div class="flex-item">
+          <div>{{ $lab_evaluation->created_at }}</div>
+        </div>
+      </div>
 
-      総合評価：{{ $lab_evaluation->all_average }}<br>
-      教授：{{ $lab_evaluation->prof_average }}<br>
-      就活：{{ $lab_evaluation->job_average }}<br>
-      研究室：{{ $lab_evaluation->lab_average }}<br>
-      その他：{{ $lab_evaluation->other_average }}<br>
+      <div class="all-review-box">
+        <span class="sizeup">総合評価<span>
+        <img src="{{ asset('img/evaluation_star/star_'.$evaluation_stars['all_stars'].'.png') }}" alt="star" width="100">
+        <span class="evaluation_value">{{ $lab_evaluation->all_average }}</span>
+      </div>
+      <div class="review-box">
+        <div class="review-item">
+          教授
+          <img src="{{ asset('img/evaluation_star/star_'.$evaluation_stars['prof_stars'].'.png') }}" alt="star" width="100">
+          {{ $lab_evaluation->prof_average }}
+        </div>
+        <div class="review-item">
+          就活
+          <img src="{{ asset('img/evaluation_star/star_'.$evaluation_stars['job_stars'].'.png') }}" alt="star" width="100">
+          {{ $lab_evaluation->job_average }}
+        </div>
+        <div class="review-item">
+          研究室
+          <img src="{{ asset('img/evaluation_star/star_'.$evaluation_stars['lab_stars'].'.png') }}" alt="star" width="100">
+          {{ $lab_evaluation->lab_average }}
+        </div>
+        <div class="review-item">
+          その他
+          <img src="{{ asset('img/evaluation_star/star_'.$evaluation_stars['other_stars'].'.png') }}" alt="star" width="100">
+          {{ $lab_evaluation->other_average }}
+        </div>
+      </div>
+  </div>
 
+  <div class="main">
+    <div class="main-inbox">
       @foreach ($eachtitle_array as $eachtitle)
-        <h3>{{ $eachtitle }}</h3>
-        @foreach ($evaluation_array[$eachtitle] as $key => $prof_item)
-          <div>{{ $key }} : {{ $lab_evaluation->$prof_item }}</div>
-        @endforeach
+        <div class="main-inbox-block">
+          <div class="block-name">
+            <h4>{{ $eachtitle }}</h4>
+          </div>
+          <div class="each-evaluation">
+            @foreach ($evaluation_array[$eachtitle] as $key => $prof_item)
+              <div class="flex-box">
+                <div class="flex-item">
+                  {{ $key }}
+                </div>
+                <div class="flex-item evaluation_graph">
+                  <img src="{{ asset('img/evaluation_graph/graph_'.$lab_evaluation->$prof_item.'.png') }}" alt="{{$prof_item}}" width="100">
+                </div>
+              </div>
+            @endforeach
+          </div>
+        </div>
       @endforeach
-  </div>
 
-  <div>
-    <img src="{{ asset('img/others/jobtype.jpg') }}" alt="業界リスト" width="600" height="300">
-  </div>
-    {{ $lab_evaluation->objobtype}}
-  <div>
-    {{ $lab_evaluation->terms }}
-  </div>
-  <div>
-    {{ $lab_evaluation->content }}
+      <div class="part">
+        <h4>先輩の就職業界</h4>
+        <span class="part-content">{{ $lab_evaluation->objobtype}}</span>
+      </div>
+
+      <div class="part">
+        <h4>備考欄</h4>
+        <span class="part-content">{{ $lab_evaluation->terms }}</span>
+      </div>
+
+      <div class="part">
+        <h4>{{ $lab_name }}に関する口コミ</h4>
+        <div class="content">
+          <h5>回答者：〇〇学部　〇〇学科</h5>　
+          {{ $lab_evaluation->content }}
+        </div>
+      </div>
+    </div>
   </div>
 
   <!--現在登録済みの研究室一覧-->

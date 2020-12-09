@@ -1,0 +1,30 @@
+.font-weight-bold-lr{
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+#evaluation_all_value-lr{
+  font-size: 20px;
+  color: #1d93e9;
+  margin-left: 10;
+  vertical-align: middle;
+}
+.evaluation_value-lr{
+  font-size: 15px;
+  color: #1d93e9;
+}
+
+.nav-link-lr{
+  color: #166c9d;
+  display: inline-block;
+  padding: 0 !important;
+}
+
+.review-box-lr{
+  margin: 25 0 25 0;
+}
+
+.review-item-lr{
+  display: inline-block;
+  margin: 0 25 0 0;
+}

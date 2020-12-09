@@ -31,4 +31,5 @@ if (!mix.inProduction()) {
 mix
   .js('resources/js/app.js', 'public/js')
   .sass('resources/sass/app.scss', 'public/css')
+  .sass('resources/sass/com_radio_input_review.scss', 'public/css/com_radio_input_review')
   .version()
