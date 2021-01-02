@@ -169,16 +169,4 @@ class LinkController extends Controller
         ]);
     }
 
-    //マイページへ
-    public function to_mypage()
-    {
-        $user_datas = lab_evaluation::where('user_id', Auth::user()->id)->get();
-        $laboratories = Laboratory::orderBy('created_at', 'asc')->get();
-        return view('mypage', [
-            'user_datas' => $user_datas,
-            'laboratories' => $laboratories
-        ]);
-
-    }
-
 }

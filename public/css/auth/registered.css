@@ -1,0 +1,69 @@
+.main{
+  margin: 100 auto 0 auto;
+  width: 1080px;
+  text-align: center;
+}
+.main h2{
+  margin: 50 auto;
+}
+.main p{
+  font-size: 16px;
+}
+
+.gray-block{
+  height: 100px;
+  width: 70%;
+  margin: 25 auto 25 auto;
+  padding-top: 35;
+  font-size: 20px
+  line-height: 2;
+  border: 1px solid #D2D2D2;
+  background-color: #EEEEEE;
+}
+.gold-block{
+  height: 100px;
+  width: 70%;
+  margin: 25 auto 50 auto;
+  padding-top: 25;
+  border: 1px solid #957D56;
+  color: #957D56;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+
+.main{
+  width: 100%;
+  padding-bottom: 0;
+}
+.main h2{
+  font-size: 1.4rem;
+  margin-bottom: 25 auto;
+}
+.main p{
+  width: 90%;
+  margin: 0 auto;
+  font-size: 0.9rem;
+}
+
+.gray-block{
+  height: 75px;
+  width: 90%;
+  padding-top: 25px;
+}
+
+.gold-block{
+  width: 90%;
+  height: 130px;
+  padding: 0 10;
+}
+
+.break{
+  display: block;
+}
+
+
+}

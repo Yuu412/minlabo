@@ -48,11 +48,14 @@ class UnivController extends Controller
           ],
         ]);
       }
+      $hits = count($laboratories_collection);
+
       /*===== return 部 ======*/
       return view('univ_name', [
           'laboratories_collection' => $laboratories_collection,
           'laboratories' => $laboratories,
           'univ_name' => $univ_name,
+          'hits' => $hits
       ]);
   }
 }

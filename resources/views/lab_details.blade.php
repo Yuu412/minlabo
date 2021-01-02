@@ -1,5 +1,7 @@
-@extends('layouts.app')
 <link href="{{ asset('css/lab_details.css') }}" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery.min.js"></script>
+
+@extends('layouts.app')
 @section('content')
   @if(count($evaluations_collection) > 0)
     @include('common.errors')

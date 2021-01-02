@@ -1,4 +1,6 @@
 <link href="{{ asset('css/add2.css') }}" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery.min.js"></script>
+
 @extends('layouts.app')
 @section('content')
 
@@ -23,8 +25,8 @@
 
     <!--研究室が所属する大学名-->
     <tr>
-      <th width="30%" height="75px">
-        <label for="lab_univ">大学名</label>
+      <th class="content-title" width="30%" height="75px">
+        大学名
       </th>
       <th class="right-block">
         <select name="lab_univ">
@@ -38,7 +40,7 @@
 
     <!--学部の名前-->
     <tr>
-      <th width="30%" height="200px">
+      <th class="content-title" width="30%" height="200px">
         学部名
       </th>
       <th class="right-block faculty">
@@ -76,8 +78,8 @@
 
     <!--学科の名前-->
     <tr>
-      <th width="30%" height="75px">
-        <label for="lab_department">学科名</label>
+      <th class="content-title" width="30%" height="75px">
+        学科名
       </th>
       <th class="right-block">
         <input type="text" name="lab_department" class="form-control">

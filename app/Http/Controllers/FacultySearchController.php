@@ -57,10 +57,13 @@ class FacultySearchController extends Controller
           ],
         ]);
       }
+      $hits = count($laboratories_collection);
+
       return view('faculty_result', [
         'faculty_name' => $faculty_name,
         'faculty_filename' => $faculty_data->faculty_filename,
         'laboratories_collection' => $laboratories_collection,
+        'hits' => $hits
       ]);
     }
 }

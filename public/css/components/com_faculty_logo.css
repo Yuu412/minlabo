@@ -1,0 +1,37 @@
+.faculty-logo-fl{
+  height: 225px;
+  width: 200px;
+  text-align: center;
+}
+
+.faculty-logo-fl img{
+  width: 125px;
+  height: 125px;
+  margin: 50 0 10 0;
+}
+
+.faculty-name-fl{
+  font-size: 18px;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+
+.faculty-logo-fl{
+  width: 150px;
+  height: unset;
+  text-align: left;
+}
+.faculty-logo-fl img{
+  margin: 0 0 5 0;
+  width: 60px !important;
+  height: 60px !important;
+}
+
+.faculty-name-fl{
+  font-size: 0.9rem;
+}
+}

@@ -1,0 +1,27 @@
+
+.botton_add_reviews{
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #f8f9fa;
+  background-color: #1D93E9;
+  padding: 10px 25 0 25;
+  border-radius: 5px;
+  margin-top: -40;
+  right: 10%;
+  position: absolute;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+.botton_add_reviews{
+  font-size: 0.9rem;
+  margin-top: 20;
+  padding: 10px 15 0 15;
+  right: unset;
+  left: 5%;
+}
+}

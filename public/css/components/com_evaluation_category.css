@@ -58,8 +58,63 @@ h3 {
 .botton-ec{
   height: 30px;
   font-size: 16px;
-  color: #FFF;
+  color: #f8f9fa;
   background-color: #1D93E9;
   padding: 10 25 10 25;
   border-radius: 5px;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+
+.each-evaluation-ec{
+  width: 90%;
+}
+.each-evaluation-ec img{
+  width: 85px;
+}
+
+.average-evaluation-block-ec {
+  font-size: 1.2rem;
+}
+
+.average-evaluation-ec{
+  padding: 15 10 0 10;
+  display: block;
+}
+
+.add-time-ec{
+  font-size: 0.9rem;
+}
+
+.new-evaluation-ec{
+  padding: 10 10 0 10;
+}
+
+.review-item-ec{
+  width: 49%;
+  font-size: 0.9rem;
+  margin-right: 0;
+}
+.review-item-ec img{
+  width: 70px;
+}
+
+.non-flex-ec{
+  display: block;
+}
+
+.content-box-ec{
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.botton-box-ec{
+  padding: 15 0 30 0;
+  text-align: center;
+}
+
 }

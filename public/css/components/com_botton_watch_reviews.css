@@ -1,0 +1,27 @@
+.botton-box-bwr{
+  text-align: center;
+  padding: 15 0 30 0;
+}
+
+.botton-bwr{
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #f8f9fa !important;
+  background-color: #1D93E9;
+  padding: 10 25 10 25;
+  border-radius: 5px;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+.botton-box-bwr{
+  padding: 10 0 30 0;
+}
+.botton-bwr{
+  font-size: 0.9rem;
+  padding: 10;
+}

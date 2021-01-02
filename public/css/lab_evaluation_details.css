@@ -44,7 +44,7 @@ h3 {
 }
 
 .main{
-  background-color: #FFF;
+  background-color: #f8f9fa;
   padding: 75 0 150 0;
 }
 
@@ -98,4 +98,77 @@ h3 {
 .content{
   padding: 50 5%;
   border: solid 2px #EEEEEE;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+
+.gray-block{
+  height: 220px;
+  text-align: center;
+  padding-left: 0;
+}
+.gray-block h2{
+  font-size: 1.4rem;
+}
+.gray-block img{
+  width: 85px;
+}
+
+.flex-box{
+  padding: 0;
+}
+.non-flex{
+  display: block;
+}
+
+.sizeup{
+  font-size: 1.1rem;
+}
+
+.all-review-box{
+  height: 30px;
+  padding-top: 0;
+}
+.review-box{
+  font-size : 0.9rem;
+}
+
+.review-item{
+  margin: 0;
+}
+
+.main{
+  width: 100%;
+  padding-bottom: 0;
+}
+
+.main-inbox{
+  width: 90%;
+}
+
+.main-inbox-block{
+  width: 100%;
+}
+.each-evaluation{
+  padding: 15 0;
+}
+
+.each-evaluation .flex-box{
+  padding: 10;
+}
+.each-evaluation .flex-item{
+  font-size: 0.9rem;
+  margin: auto 10 auto 0;
+}
+.evaluation_graph img {
+    width: 180px !important;
+}
+
+.part{
+  margin-top: 0;
+}
 }

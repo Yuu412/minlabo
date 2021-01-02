@@ -1,4 +1,4 @@
-<link href="{{ asset('css/com_radio_input_review.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/components/com_radio_input_review.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('css/com_radio_input_review/com_radio_input_review.css') }}" rel="stylesheet" type="text/css">
 
 {{--

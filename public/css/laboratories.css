@@ -1,0 +1,240 @@
+/*横幅は1080px*/
+h2, h3, h4{
+  font-weight: bold !important;
+}
+
+h2{
+  margin: 50 0 30 0 !important;
+}
+
+a{
+  transition: .3s;
+}
+
+.top{
+  height: 400px;
+  padding-top: 30px;
+  background-color: #1D93E9;
+}
+.top h1{
+  color: #f8f9fa;
+}
+
+.search-form-box{
+  width: 70%;
+  margin: 50 auto 0 auto;
+  padding: 15 5%;
+  background-color: #71B8FF;
+  border-radius: 20px;
+}
+.search-form-box h2{
+  font-weight: 500 !important;
+  color: #f8f9fa !important;
+  padding-bottom: 10;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.search-form{
+  margin: 0 auto;
+}
+
+
+.myform{
+  width: 90% !important;
+  height: 60px !important;
+  font-size: 16px !important;
+}
+
+.mybtn{
+  height: 60px;
+}
+
+
+.main{
+  width: 1080px;
+  margin: 0 auto 300 auto;
+}
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.main-prefectures-box{
+  width: 30%;
+  margin-bottom: 20px;
+  border: 1px solid #d2d2d2;
+  box-shadow: 2px 2px 2px 0px #EEE;
+}
+
+.main-prefectures-box img{
+  height: 110px;
+}
+
+.main-prefectures-box span{
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.area-box{
+  width: 95%;
+}
+
+.area{
+  width: 50%;
+  margin-top: 20px;
+  padding-right: 20px;
+  word-break: keep-all;
+}
+.area span{
+  margin-right: 10px;
+}
+
+.faculty-box{
+  width: 15%;
+  padding: 15 0;
+  margin-bottom: 30;
+  text-align: center;
+  background-color: #1D93E9;
+}
+
+.faculty-name{
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f8f9fa;
+}
+
+.evaluation-box{
+  position: relative;
+  width: 18%;
+  box-shadow: 2px 2px 6px 4px #DDD;
+}
+.evaluation-box img{
+  width: 100%;
+}
+
+.lab-information{
+  position: absolute !important;
+  z-index: 99;
+  width: 100%;
+  color: #f8f9fa;
+  font-weight: bold;
+  text-align: center;
+}
+.lab-information div{
+  margin: 10 0;
+}
+.black{
+  background-color: #000;
+}
+.black-img{
+  display: block;
+  opacity: .6;
+}
+
+.star-box{
+  padding: 15 10% 15 10%;
+}
+
+.star-box div{
+  margin: 10 0;
+  display: flex;
+  justify-content: space-between;
+}
+.star-box span{
+  width: 100px;
+}
+.star-box img{
+  width: 80px;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+    h1, h2, h3, h4, h5, h6{
+      letter-spacing: 0em !important;
+    }
+
+    h1{
+      font-size: 1.2rem !important;
+    }
+
+    h2{
+      font-size: 1.4rem !important;
+    }
+
+    .top{
+      height: 250px;
+    }
+
+    .search-form-box{
+      width: 95%;
+      margin-top: 25px;
+      padding: 15 5% 5 5%;
+      border-radius: 10px;
+    }
+    .search-form-box h2{
+      font-size: 1rem !important;
+      margin: 0 0 5 0 !important;
+    }
+
+    .myform {
+      width: 80% !important;
+      height: 46px !important;
+      font-size: 14px !important;
+    }
+
+    .mybtn {
+        height: 50px;
+    }
+
+    .main{
+      width: 100%;
+      padding: 0 5;
+      margin-bottom: 50;
+      overflow-x: hidden;
+    }
+    .main-prefectures-box{
+      text-align: center;
+    }
+    .main-prefectures-box span {
+      margin-left: 0px;
+    }
+    .main-prefectures-box img {
+      height: 110px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .area-box{
+      width: 100%;
+    }
+
+    .area span{
+      font-size: 1rem;
+      margin-right: 15px;
+    }
+
+    .scroll{
+      overflow: overlay;
+      flex-wrap: nowrap;
+    }
+
+    .evaluation-box {
+        width: 35%;
+        margin-right: 5;
+    }
+
+    .faculty-box{
+      width: 30%;
+    }
+
+    .evaluation-box{
+      width: 200px;
+    }
+    .lab-information-box{
+      width: 200px;
+    }
+}

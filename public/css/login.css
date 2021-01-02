@@ -1,0 +1,44 @@
+.main{
+  margin: 0 auto;
+  width: 1080px;
+}
+
+.form-box{
+  width: 60%;
+  margin: 100 auto 0 auto;
+}
+.form-box h2{
+  padding-bottom: 15;
+  margin-bottom: 50;
+  border-bottom: 1px solid #555555;
+}
+
+.login-box button{
+  display: block;
+  width: 100%;
+  height: 50;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.login-box a{
+  padding-top: 10;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h2{
+  font-size: 1.4rem !important;
+}
+.main{
+  width: 100%;
+}
+
+.form-box{
+  width: 90%
+}
+
+.login-box button{
+  height: 40px;
+}
+}

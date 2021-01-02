@@ -37,3 +37,13 @@
 #radios3-4, #radios3-5, #radios3-6{
   padding-bottom: 0 !important;
 }
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+  .flex-item-rie{
+      font-size: 0.8rem;
+  }
+}

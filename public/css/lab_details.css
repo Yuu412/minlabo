@@ -10,7 +10,7 @@ h3 {
 }
 
 .total-evaluation{
-  background-color: #FFF;
+  background-color: #f8f9fa;
   padding: 75 0 150 0;
 }
 
@@ -22,4 +22,33 @@ h3 {
 .search-result{
   padding-left: 10%;
   margin-bottom: 50px;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+
+.total-evaluation{
+  width: 100%;
+  overflow-x: hidden;
+  padding: 25 0 0 0;
+}
+
+.gray-block{
+  height: 170px;
+  text-align: center;
+  padding-left: 0;
+}
+.gray-block h3{
+  font-size: 1.4rem;
+}
+
+.search-result{
+  font-size: 1.0rem;
+  padding-left: 5%;
+  margin-bottom: 25px;
+}
+
 }

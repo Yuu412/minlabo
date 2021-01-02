@@ -1,4 +1,6 @@
 <link href="{{ asset('css/faculty_result.css') }}" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery.min.js"></script>
+
 @extends('layouts.app')
 @section('content')
   @if(count($laboratories_collection))
@@ -8,7 +10,7 @@
       @include('components.botton_add_reviews')
     </div>
     <div class="total-evaluation">
-      <h4 class="search-result">該当件数（〇件）</h4>
+      <h4 class="search-result">該当件数（{{$hits}}件）</h4>
       @foreach($laboratories_collection as $laboratory)
         <div class="each-evaluation">
           <div class="top">
@@ -21,7 +23,7 @@
           </div>
           <div class="details">
               <!--↓↓ 新着口コミの評価平均 部分 ↓↓-->
-              @include('components.latest_review')
+              @include('components.latest_review',['laboratory' => $laboratory])
           </div>
         </div>
       @endforeach

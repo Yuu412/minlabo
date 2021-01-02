@@ -26,5 +26,23 @@
 
 .review-item-lr{
   display: inline-block;
-  margin: 0 25 0 0;
+  margin: 0;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+.all-sp{
+  font-size: 0.9rem;
+  display: block !important;
+}
+
+.review-box-lr {
+  margin: 5 0 15 0;
+  font-size: 0.8rem;
+  letter-spacing: 0 !important;
+}
+
+.review-item-lr{
+  width: 155px;
+}
 }
