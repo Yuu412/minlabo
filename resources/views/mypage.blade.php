@@ -1,16 +1,27 @@
+<link href="{{ asset('css/mypage.css') }}" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery.min.js"></script>
+
 @extends('layouts.app')
 @section('content')
   @if(count($user_datas) > 0)
 
   <!--バリテーションエラーの表示に使用-->
   @include('common.errors')
+  <div class="gray-block">
+    <h3>マイページ</h3>
+    <a href="{{ url('/confirm_user') }}">登録情報を確認・変更する</a>
 
-  <li class="nav-item">
-    <a class="nav-link" href="{{ url('/confirm_user') }}">登録情報を確認・変更する</a>
-  </li>
-  <!--研究室登録フォーム-->
-  @include('components.botton_add_reviews')
-
+    <!--研究室登録フォーム-->
+    @include('components.botton_add_reviews')
+  </div>
+  <div class="main">
+    <div class="main-inbox">
+      <h4 class="search-result">これまでに投稿した口コミ</h4>
+        @foreach($evaluations_collection as $evaluation)
+          @include('components.evaluation_category')
+        @endforeach
+    </div>
+  </div>
 
 {{--
     <table class="table table-striped task-table">

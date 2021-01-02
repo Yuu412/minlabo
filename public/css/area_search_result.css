@@ -1,0 +1,146 @@
+/*横幅は1080px*/
+h3 {
+  font-weight: bold !important;
+}
+img{
+  vertical-align: bottom !important;
+}
+
+.gray-block{
+  height: 170px;
+  width: 100%;
+  padding: 50 0 0 10%;
+}
+
+.total-evaluation{
+  background-color: #f8f9fa;
+  padding: 75 0 150 0;
+}
+
+.search-result{
+  padding-left: 10%;
+  margin-bottom: 50px;
+}
+
+.each-evaluation{
+  width: #f8f9fapx;
+  border: 1px solid #d2d2d2;
+  margin: 0 auto 60 auto;
+}
+
+.top{
+  background-color: #EEEEEE;
+  padding: 25 50 25 50;
+  font-weight: bold;
+}
+
+.flex-box{
+  display: flex;
+}
+
+.lab-info h3{
+  color: #166c9d !important;
+}
+
+.evaluation_value{
+  font-size: 16px;
+  color: #1d93e9;
+}
+
+.all-review-box{
+  margin-left: 50;
+}
+.all-review-box span{
+  font-size: 16px;
+}
+
+.review-box{
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-item{
+  margin: 25 25 0 0;
+  min-width: 175px;
+}
+
+.details{
+  padding: 25 0 0 50;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+
+.total-evaluation{
+  width: 100%;
+  overflow-x: hidden;
+  padding: 25 0 0 0;
+}
+
+.gray-block{
+  height: 120px;
+  text-align: center;
+  padding-left: 0;
+}
+.gray-block h3{
+  font-size: 1.4rem;
+}
+
+.search-result{
+  font-size: 1.0rem;
+  padding-left: 5%;
+  margin-bottom: 25px;
+}
+
+.each-evaluation{
+  width: 90%;
+}
+.each-evaluation img{
+  width: 85px;
+}
+
+.top{
+  padding: 15 10 0 10;
+}
+
+.non-flex{
+  display: block;
+}
+
+.lab-info h3{
+  font-size: 1.2rem;
+}
+
+.all-review-box{
+  margin-left: 0;
+}
+.all-review-box span, .evaluation_value{
+  font-size: 0.9rem;
+}
+
+.review-box{
+  flex-wrap: wrap;
+}
+
+.review-item{
+  margin: 5 0;
+  width: 150;
+  min-width: 0;
+  font-size: 0.8rem;
+}
+
+.review-item img{
+  width: 75px;
+}
+
+.details{
+  padding-left: 10;
+}
+.details h4{
+  font-size: 1.1rem;
+}
+
+}

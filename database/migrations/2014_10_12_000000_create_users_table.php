@@ -22,6 +22,9 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('role');
             $table->string('token')->default('default');
             $table->rememberToken();
+            $table->string('univ_name');
+            $table->string('faculty_name');
+            $table->string('department_name');
             $table->timestamps();
         });
     }

@@ -1,0 +1,59 @@
+a{
+  color: #333;
+}
+
+.nav-link{
+  color: #f8f9fa !important;
+}
+
+.header{
+  background-color: #1D93E9;
+}
+
+body{
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif !important;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding-top: 50px;
+}
+footer img{
+  width: 300px;
+}
+footer p{
+  color: #f8f9fa;
+  line-height: 4;
+}
+
+.upper{
+  padding: 20 0;
+  margin-bottom: -15px;
+  background-color: #EEE;
+}
+
+.under{
+  height: 50px;
+  background-color:  #1D93E9;
+}
+
+ul.footer-menu li {
+display: inline;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+
+footer{
+  font-size: 0.7rem;
+}
+
+footer img{
+  width: 50%;
+}
+
+.footer-menu{
+  width: 90%;
+}
+}

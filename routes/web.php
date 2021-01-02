@@ -9,13 +9,21 @@ Auth::routes(); //認証機能を使用する。
 /*====== 会員登録関係 ===================*/
 Route::post('register/pre_check', 'Auth\RegisterController@pre_check')->name('register.pre_check');
 
-Route::get('register/verify/{token}', 'Auth\RegisterController@mainRegister');
+// メールから本登録画面に遷移
+Route::get('register/verify/{token}', 'Auth\RegisterController@toMainRegister');
+
+// 本登録画面(1)から本登録画面(2)に遷移
+Route::post('register/main2', 'Auth\RegisterController@toMain2Register')->name('register.main2');
+// 本登録画面(2)から確認画面に遷移
+Route::post('register/main/check', 'Auth\RegisterController@toMainRegisterCheck')->name('register.main.check');
+// 確認画面から本登録を行う
+Route::post('register/main/registered', 'Auth\RegisterController@mainRegistered')->name('register.main.done');
+
 /*=======================================*/
 
 //認証を必須にするミドルウェア
 Route::group(['middleware' => ['web']], function ()
 {
-
   //研究室サイトダッシュボード表示
   Route::get('/', 'IndexController@index');
   Route::post('/', 'IndexController@index');
@@ -56,7 +64,7 @@ Route::group(['middleware' => ['web']], function ()
   Route::get('/lab-evaluation/{lab_evaluation_details}','LabEvaluationController@to_lab_evaluation_details');
 
   //TO: マイページ
-  Route::get('/my-page','LinkController@to_mypage')->name('my-page');
+  Route::get('/my-page','ToMypageController@to_mypage')->name('my-page');
 
   //TO: 登録情報の確認画面
   Route::get('/confirm_user',[
@@ -80,7 +88,7 @@ Route::get('/welcome', function(){
 });
 
 //QRコードから口コミ登録画面への遷移
-Route::get('/review/{token}', 'LinkController@qr_to_add');
+//Route::get('/review/{token}', 'LinkController@qr_to_add');
 
 //研究室の追加
 Route::post('/laboratories', 'LabController@store');

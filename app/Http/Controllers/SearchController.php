@@ -65,11 +65,14 @@ class SearchController extends Controller
         ],
       ]);
     }
+    $hits = count($laboratories_collection);
+
     return view('search_result', [
         'keyword' => $keyword,
         'laboratories_collection' => $laboratories_collection,
         'laboratories' => $laboratories,
         'univ_name' => $univ_name,
+        'hits' => $hits,
     ]);
   }
 }

@@ -1,0 +1,117 @@
+/*横幅は1080px*/
+h3 {
+  font-weight: bold !important;
+}
+
+.gray-block{
+  height: 170px;
+  width: 100%;
+  padding: 50 0 0 0;
+  text-align: center;
+}
+
+.main{
+  background-color: #f8f9fa;
+  min-height: 750px;
+  padding: 75 0 150 0;
+}
+
+.main-inbox{
+  width: 1080px;
+  margin: 0 auto 60 auto;
+  text-align: center;
+}
+
+.content{
+  font-size: 18px;
+}
+
+.next-box{
+  display: flex;
+  margin: 100 auto 0 auto;
+}
+
+.btn-left{
+  width: 25%;
+  height: 50;
+  line-height: 3;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1D93E9;
+  margin: 0 25 0 auto;
+  background-color: #D2ECFF;
+  border: 1px solid #1D93E9;
+  border-radius: 0.25rem;
+}
+.btn-left:hover{
+  background-color: #c8e2f5;
+  color: #1D93E9;
+}
+
+.btn-right{
+  width: 25%;
+  height: 50;
+  line-height: 3;
+  font-size: 16px;
+  font-weight: bold;
+  color: #f8f9fa;
+  margin: 0 auto 0 25;
+  background-color: #1D93E9;
+  border-radius: 0.25rem;
+}
+.btn-right:hover{
+  background-color: #2176bd;
+  color: #f8f9fa;
+}
+
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+
+main{
+  min-height: 50vh !important;
+}
+
+.gray-block{
+    height: 120px;
+}
+.gray-block h3{
+  font-size: 1.2rem;
+}
+
+.main{
+  width: 100%;
+  min-height: 400px;
+  padding: 25 0 0 0;
+}
+
+.main-inbox{
+  width: 90%;
+}
+
+.content{
+  font-size: 0.9rem;
+}
+
+.next-box{
+  margin-top: 50px;
+}
+
+.btn-left, .btn-right{
+  width: 40%;
+  font-size: 0.9rem;
+}
+
+.btn-left{
+  margin-right: 5;
+}
+
+.btn-right{
+  margin-left: 5;
+}
+
+
+}

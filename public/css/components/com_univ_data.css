@@ -1,0 +1,68 @@
+.flex-box-ud{
+  display: flex;
+  justify-content: space-between;
+}
+
+.lab-info-ud{
+  padding: 0 !important;
+  color: #166c9d !important;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.evaluation_value-ud{
+  font-size: 15px;
+  color: #1d93e9;
+}
+
+.sizeup-ud{
+  font-size: 16px;
+}
+
+.review-item-ud{
+  display: inline-block;
+  margin: 25 25 0 0;
+  min-width: 175px;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+
+.break-ud{
+  word-break: break-all;
+}
+.non-flex-ud{
+  display: block;
+}
+.lab-info-ud{
+  font-size: 1.0rem;
+  word-break: keep-all;
+}
+.all-review-box-ud, .review-box-ud{
+  display: none;
+}
+/*
+.all-review-box, .review-box-ud{
+  width: 90vw;
+  left: 10%;
+  position: absolute;
+}
+.review-box-ud{
+  width: 160%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.review-box span-ud{
+  display: none;
+}
+
+.review-item-ud{
+  margin: 0;
+  width: 150px;
+  min-width: 0;
+}
+*/
+}

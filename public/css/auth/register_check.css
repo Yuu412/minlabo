@@ -1,0 +1,118 @@
+.main{
+  margin: 0 auto;
+  width: 1080px;
+}
+
+.form-box{
+  width: 80%;
+  margin: 100 auto 0 auto;
+}
+.form-box p{
+  margin-bottom: 25px;
+}
+.form-box h2{
+  padding-bottom: 15;
+  margin-bottom: 30;
+  border-bottom: 1px solid #555555;
+}
+.form-box h3{
+  font-size: 20px;
+}
+
+table{
+  width: 100%;
+  margin: 50 0;
+}
+table tr{
+  width: 100%;
+}
+table tr{
+  width: 40%;
+}
+
+table label{
+  width: 100% !important;
+  padding: 25 0 20 20;
+}
+
+.input-box{
+}
+.input-box input{
+  width: 80%;
+  margin-left: 20;
+}
+.input-box span{
+  margin-left: 20;
+}
+
+.next-box{
+  display: flex;
+  margin: 0 auto;
+}
+
+.next-box button{
+  display: block;
+  width: 30%;
+  height: 50;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 auto 0 25;
+}
+.next-box a{
+  display: block;
+  width: 30%;
+  height: 50;
+  line-height: 2;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1D93E9;
+  margin: 0 25 0 auto;
+  background-color: #D2ECFF;
+  border: 1px solid #1D93E9;
+}
+.next-box a:hover{
+  background-color: #c8e2f5;
+  color: #1D93E9;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+
+.main{
+  width: 100%;
+  padding-bottom: 0;
+}
+
+.form-box{
+  width: 90%;
+}
+.form-box h2{
+  font-size: 1.4rem;
+  margin-bottom: 25;
+}
+.form-box h3{
+  font-size: 1.2rem;
+}
+
+table{
+  margin: 25 0 50 0;
+}
+table label{
+  padding: 25 0 20 10;
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+
+.input-box span{
+  font-size: 0.8rem;
+  display: block;
+}
+.input-box input{
+  margin: 5 0 0 20;
+}
+
+
+}

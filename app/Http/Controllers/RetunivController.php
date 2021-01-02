@@ -46,7 +46,7 @@ class RetunivController extends Controller
 
       $prefecture_id = Prefecture_image::where('prefecture_name', $request->input('pref_name'))->value('id');
       $prefecture_univ_data = Univ_data::orderBy('created_at', 'asc')->where('prefecture_id', $prefecture_id)->get();
-      
+
       return view('add2', [
           'prefecture_univ_data' => $prefecture_univ_data,
           'faculty_lib_array' => $faculty_lib_array,

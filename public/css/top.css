@@ -1,0 +1,486 @@
+/*====スクロールごとに表示部=======================================*/
+/*================================================================*/
+.fadein {
+  opacity: 0;
+  transform: translate(0, 200px);
+  transition: all 1s;
+}
+
+.fadein.active {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.flex-box{
+  display: flex;
+}
+
+.top{
+  width: 100%;
+  background: -moz-linear-gradient(top, #1D93E9 0%, #f8fafc 100%);
+  background: -webkit-linear-gradient(top, #1D93E9 0%, #f8fafc 100%);
+  background: linear-gradient(to bottom, #1D93E9 0%, #f8fafc 100%);
+}
+.top-contents-box{
+  width: 1080px;
+  margin: 0 auto;
+}
+#f8f9fa
+.top-contents{
+  padding-left: : 10%;
+  width: 60%;
+}
+.top-contents h1{
+  margin: 100 0 25 0;
+  line-height: 1.5;
+}
+.top-contents p{
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 2;
+}
+
+#iphone-bubble{
+  width: 40vw;
+  height: 400;
+  position: absolute;
+  top: 15vw;
+  right: 10%;
+}
+
+.button-box{
+  margin: 50 0;
+}
+.button-box a{
+  display: block;
+  margin: 15 0;
+  line-height: 2;
+}
+
+.button{
+  width: 240px;
+  height: 50px;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f8f9fa;
+  transition: .4s;
+}
+.button:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.login-button{
+  border: 1px solid #8800FF;
+  color: #C24BFC;
+}
+.login-button:hover{
+  background: -moz-linear-gradient(45deg, #8800FF 0%, #C24BFC  80%);
+  background: -webkit-linear-gradient(45deg, #8800FF 0%, #C24BFC  80%);
+  background: linear-gradient(45deg, #8800FF 0%, #C24BFC  80%);
+}
+
+.register-button{
+  background: -moz-linear-gradient(45deg, #3DA8F9 0%, #C96BFF 100%);
+  background: -webkit-linear-gradient(45deg, #3DA8F9 0%, #C96BFF 100%);
+  background: linear-gradient(45deg, #3DA8F9 0%, #C96BFF 100%);
+
+}
+.register-button:hover{
+  background: -moz-linear-gradient(45deg, #C96BFF 0%, #3DA8F9 100%);
+  background: -webkit-linear-gradient(45deg, #C96BFF 0%, #3DA8F9 100%);
+  background: linear-gradient(45deg, #C96BFF 0%, #3DA8F9 100%);
+}
+.iphone-screen{
+  width: 40%;
+  margin: 50 0 0 -100;
+}
+.iphone-screen img{
+  width: 120%;
+}
+
+.main{
+  width: 1080px;
+  margin: 0 auto;
+}
+
+.section{
+  margin: 100px 0;
+}
+.section h2{
+  margin: 50 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.introduce-box{
+  width: 80%;
+  margin: 0 auto;
+  padding: 30px 75px;
+  border: 2px solid #EEEEEE;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px 0px #DDD;
+  text-align: center;
+}
+.introduce-box p{
+  margin: 25 auto;
+  font-size: 18px;
+  font-weight: bold;
+}
+.evaluation-count{
+  text-align:center;
+  /*wavefyの分だけ確保*/
+  margin-bottom: 500px;
+}
+
+.relative{
+  position: relative;
+}
+
+.area{
+  width: 200;
+  height: 100;
+  position: absolute;
+  margin: 2em 0;
+  padding: 0.5em 1em;
+  border-radius: 8px;
+}
+
+.area-title{
+  width: 150px;
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10%;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 22px;
+  background: #f8fafc;
+  font-weight: bold;
+}
+
+.area p{
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.count{
+  font-size: 40px;
+  line-height: 2;
+}
+
+#area-1{
+  /*北海道・東北地方*/
+  top: 100;
+  right: 50;
+  border: solid 3px #5BA2FF;
+}
+#area-1 .area-title{
+  color: #2D56B5;
+}
+#area-1 .count{
+  color: #368FCE;
+}
+
+#area-2{
+  /*関東・中部地方*/
+  bottom: 50;
+  right: 150;
+  border: solid 3px #2ECB87;
+}
+#area-2 .area-title{
+  color: #0DC17E;
+}
+#area-2 .count{
+  color: #00AA81;
+}
+
+#area-3{
+  /*近畿地方*/
+  bottom: -100;
+  left: 450;
+  border: solid 3px #9B2A2E;
+}
+#area-3 .area-title{
+  color: #AE2727;
+}
+#area-3 .count{
+  color: #B33030;
+}
+
+#area-4{
+  /*中国・四国地方*/
+  top: 20;
+  left: 325;
+  border: solid 3px #FFC78E;
+}
+#area-4 .area-title{
+  color: #FF7E1C;
+}
+#area-4 .count{
+  color: #FF7E1C;
+}
+
+#area-5{
+  /*九州地方*/
+  bottom: 100;
+  left: 100;
+  border: solid 3px #EE4D93;
+}
+#area-5 .area-title{
+  color: #DE105D;
+}
+#area-5 .count{
+  color: #E365BD;
+}
+
+.wave-box {
+  height: 300px;
+  width: 100%;
+  margin-top: 50px;
+  position: absolute;
+  left: 0;
+}
+
+.dot-right {
+  position: absolute;
+  margin-top: -260px;
+  width: 60%;
+  height: 240px;
+  right: 0;
+  background-image: radial-gradient(rgba(214, 238, 255, 1.0) 10%, transparent 15%);
+  background-position: 0 0, 30px 30px;
+  background-size: 38px 38px;
+}
+
+.register-step{
+  margin-top: 200px;
+}
+
+.flex-step{
+  justify-content: space-around;
+}
+
+.step{
+  padding: 30px 75px;
+  border: 2px solid #EEEEEE;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px 0px #EEE;
+}
+.step img{
+  width: 150px;
+}
+.step p{
+  margin-top: 25;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+.step-details{
+  width: 50%;
+  margin: 40 auto;
+}
+.step-details span{
+    display: block;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+}
+.step-details p{
+  margin: 25 0;
+  line-height: 2;
+  text-align: center;
+  font-size: 18px;
+}
+#step-details-left{
+  border-right: 2px solid #EEE;
+}
+
+.last-button{
+  width: 340px !important;
+  height: 80px !important;
+  margin: 15 auto 100 auto !important;
+  padding: 15px 20px !important;
+  border-radius: 35px !important;
+  font-size: 26px !important;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+.top, .main{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.top-contents-box{
+  width: 100%;
+}
+
+.top-contents{
+  width: 60%;
+  padding-left: 5%;
+}
+.top-contents h1{
+  font-size: 1.3rem;
+  margin: 25 0;
+}
+.top-contents p{
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.iphone-screen{
+  width: 50%;
+  margin: 25 0 0 -50;
+}
+
+#iphone-bubble{
+  width: 30vw;
+  height: 250;
+  top: 25vw;
+  right: 5%;
+}
+
+.button-box{
+  margin: 25 0 25 10%;
+}
+
+.button{
+  width: 170px;
+  height: 40px;
+  font-size: 0.9rem;
+}
+
+.introduce-box{
+  width: 90%;
+  padding: 15px 5%;
+}
+.introduce-box p{
+  margin: 10 auto;
+  font-size: 0.9rem;
+}
+
+.section{
+  margin: 100 0;
+}
+.section h2{
+  margin: 25 0;
+  font-size: 1.2rem;
+}
+
+.section iframe{
+  width: calc(560px * 0.5);
+  height: calc(315px * 0.5)
+}
+
+.relative img{
+  width: 60%;
+  margin-top: 20px;
+}
+
+.area{
+  width: 120;
+  height: 60;
+  z-index: 10;
+}
+
+#area-1{
+  top: 6vh;
+  right: 2vw;
+}
+#area-2{
+  bottom: -2vh;
+  right: 6vw;
+}
+#area-3{
+  bottom: -10vh;
+  left: 28vw;
+  background-color: #f8fafc;
+}
+#area-4{
+  top: -2vh;
+  left: 22vw;
+}
+#area-5{
+  bottom: 6vh;
+  left: 2vw;
+}
+
+.area-title{
+  width: 100px;
+  font-size: 1.0rem;
+  padding: 0;
+  left: 8%;
+}
+
+.count{
+  font-size: 1.6rem;
+}
+
+.wave-box{
+  height: 150px;
+  margin-top: -50px;
+  z-index: 1;
+}
+
+.dot-right{
+  margin-top: 0;
+  height: 100px;
+  z-index: 10;
+  background-size: 20px 20px;
+}
+
+.register-step{
+  margin-top: 200px !important;
+}
+
+.flex-step{
+  display: block;
+}
+
+.step{
+  width: 70%;
+  margin: 0 auto 20 auto;
+  text-align: center;
+  padding: 10px 5px;
+}
+.step img{
+  width: 80px;
+}
+.step p{
+  font-size: 0.9rem;
+}
+
+.step-details span {
+  font-size: 1.1rem;
+}
+.step-details p {
+  font-size: 0.9rem;
+}
+
+.last-button-box{
+  margin: 0;
+}
+.last-button-box a{
+  line-height: 1;
+}
+
+.last-button{
+  width: 220px !important;
+  height: 50px !important;
+  font-size: 1.1rem !important;
+}
+}

@@ -1,24 +1,36 @@
+<link href="{{ asset('css/user/confirm_user.css') }}" rel="stylesheet" type="text/css">
 @extends('layouts.app')
 @section('content')
+<div class="gray-block">
+  <h2>登録情報の確認</h2>
+</div>
+<div class="main">
+  <div class="form-box">
+      <h3>メールアドレス</h3>
+      <div class="content">{{ $auth -> email}}</div>
 
-  <div class="card-body">
-    <h2>登録情報の確認</h2>
+      <h3>パスワード</h3>
+      <div class="content">********</div>
 
-    <div class="col-sm-5" style="padding:20px 0; padding-left:0px;">
-      <ul class="list-group">
-        <li class="list-group-item">{{ $auth -> name}}</li>
-        <li class="list-group-item">{{ $auth -> email}}</li>
-        <li class="list-group-item">{{ $auth -> password}}</li>
-        <li class="list-group-item">{{ $auth -> univ_name}}</li>
-        <li class="list-group-item">{{ $auth -> faculty_name}}</li>
-        <li class="list-group-item">{{ $auth -> department_name}}</li>
-        <li class="list-group-item">{{ $auth -> lab_name}}</li>
-      </ul>
+      <h3>プロフィール情報</h3>
+      <table border="1">
+        <tr>
+         <th>所属大学</th>
+         <td>{{ $auth->univ_name}}</td>
+        </tr>
+        <tr>
+         <th>学部</th>
+         <td>{{ $auth->faculty_name}}</td>
+        </tr>
+        <tr>
+         <th>学科</th>
+         <td>{{ $auth->department_name}}</td>
+        </tr>
+      </table>
     </div>
+  </div>
 
     <li class="nav-item">
       <a class="nav-link" href="{{ url('/edit_user') }}">登録情報を変更する</a>
     </li>
-
-  </div>
 @endsection

@@ -10,7 +10,7 @@ h3 {
 }
 
 .main{
-  background-color: #FFF;
+  background-color: #f8f9fa;
   min-height: 750px;
   padding: 75 0 150 0;
 }
@@ -34,6 +34,11 @@ h3 {
   height: 40px;
   font-size: 18;
 }
+
+.content-title{
+  padding-left: 15;
+}
+
 
 .faculty{
   padding-bottom: 35 !important;
@@ -66,4 +71,53 @@ h3 {
   padding: 7.5 75 7.5 75;
   font-size: 18px;
   font-weight: bold;
+}
+
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+
+.gray-block{
+  height: 120px;
+  text-align: left;
+  padding-left: 5%;
+}
+.gray-block h3{
+  font-size: 1.4rem;
+}
+
+.main{
+  width: 100%;
+  padding-bottom: 0;
+  overflow-x: hidden;
+}
+
+.main-inbox{
+  width: 90%;
+}
+
+.content-message{
+  height: 80px;
+  font-size: 1.0rem;
+}
+
+.main-inbox table{
+  width: 100%;
+}
+
+.main-inbox th{
+  min-width: 100px;
+}
+
+.right-block{
+  max-width: 100px;
+  padding: 0 10 0 10;
+}
+.right-block select{
+  width: 100%;
+}
+
 }

@@ -1,4 +1,4 @@
-<link href="{{ asset('css/com_evaluation_category.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/components/com_evaluation_category.css') }}" rel="stylesheet" type="text/css">
 
     <div class="each-evaluation-ec">
         <div class="average-evaluation-ec">
@@ -35,7 +35,7 @@
                     <span class="evaluation_value-ec">{{ $evaluation['other_average'] }}</span>
                 </div>
               </div>
-              <div class="flex-box-ec">
+              <div class="flex-box-ec non-flex-ec">
                 <div class="content-box-ec">
                   <a href="{{ url('lab-evaluation/'.$evaluation['id']) }}">
                       口コミ：{{ $evaluation['comment'] }}

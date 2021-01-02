@@ -1,0 +1,60 @@
+/*横幅は1080px*/
+.gray-block-nd{
+  background-color: #EEE;
+  height: 170px;
+  width: 100%;
+  padding: 50 0 0 10%;
+}
+
+.total-evaluation-nd{
+  width: 100%;
+  min-height: 750px;
+  background-color: #f8f9fa;
+  padding: 100 0 0 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.each-evaluation-nd{
+  width: 1080px;
+  margin: 0 auto 50 auto;
+  padding-bottom: 50;
+  line-height: 2;
+  border-bottom: 2px solid #EEEEEE;
+}
+
+.return-button-nd{
+  text-align: center;
+  padding-top: 150;
+}
+
+.return-button-nd a{
+  padding: 7.5 75 7.5 75;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+
+  .total-evaluation-nd{
+    width: 100%;
+    min-height: 500px;
+  }
+
+  .each-evaluation-nd{
+    width: 90%;
+    font-size: 0.9rem;
+  }
+  .return-button-nd{
+    padding-top: 0;
+  }
+  .return-button-nd a{
+    padding: 7.5 25 7.5 25;
+    font-size: 1.0rem;
+  }
+
+}

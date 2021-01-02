@@ -9,22 +9,17 @@
       :csrf="csrf"
     />
     <not-logged-in-nav v-else :route-register="routeRegister" :route-login="routeLogin" :route-post="routePost" />
-    <h1 class="py-5">「研究室・ゼミ」選びの不安を、ゼロに。</h1>
-    <section id="search" class="mx-auto mb-5 pt-5 pb-4">
-      <h2 class="caption mx-auto mb-3 px-4 pb-2">研究室・ゼミを探す</h2>
-      <search-laboratory-form :endpoint="endpointSearch" :csrf="csrf" class="mx-auto"></search-laboratory-form>
-    </section>
+    
   </header>
 </template>
 
 <script>
-import SearchLaboratoryForm from './SearchLaboratoryForm'
 import LoggedInNav from './LoggedInNav'
 import NotLoggedInNav from './NotLoggedInNav'
 
 export default {
   name: 'LaboratoriesHeader',
-  components: { SearchLaboratoryForm, LoggedInNav, NotLoggedInNav },
+  components: { LoggedInNav, NotLoggedInNav },
   props: {
     endpointSearch: {
       type: String,

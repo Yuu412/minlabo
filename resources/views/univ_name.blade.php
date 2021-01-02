@@ -1,5 +1,7 @@
 @extends('layouts.app')
 <link href="{{ asset('css/univ_name.css') }}" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery.min.js"></script>
+
 @section('content')
   @if(count($laboratories) > 0)
   <!--バリテーションエラーの表示に使用-->
@@ -10,7 +12,7 @@
           @include('components.botton_add_reviews')
       </div>
       <div class="total-evaluation">
-        <h4 class="search-result">該当件数（〇件）</h4>
+        <h4 class="search-result">該当件数（{{$hits}}件）</h4>
           @foreach($laboratories_collection as $laboratory)
           <div class="each-evaluation">
               <div class="top">

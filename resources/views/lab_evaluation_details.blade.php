@@ -1,4 +1,5 @@
 <link href="{{ asset('css/lab_evaluation_details.css') }}" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery.min.js"></script>
 
 @extends('layouts.app')
 @section('content')
@@ -7,7 +8,7 @@
   <!--end:バリテーションエラーの表示に使用-->
 
   <div class="gray-block">
-      <div class="flex-box">
+      <div class="flex-box non-flex">
         <div class="flex-item">
           <h2>{{ $lab_name }}の口コミの詳細</h2>
         </div>
