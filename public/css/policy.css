@@ -1,0 +1,124 @@
+/*横幅は1080px*/
+h3 {
+  font-weight: bold !important;
+}
+
+.main{
+  /*background-color: #f8f9fa;*/
+  min-height: 750px;
+  padding: 75 0 150 0;
+}
+
+.main-inbox{
+  width: 1080px;
+  margin: 0 auto 60 auto;
+}
+
+.tab-wrap {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  letter-spacing: .05em;
+}
+.tab-wrap h1, h2{
+  line-height: 2;
+  color: #555;
+}
+.tab-wrap h1{
+  font-size: 18px;
+}
+.tab-wrap h2{
+  font-size: 16px;
+}
+
+.tab-label {
+  width: 32%;
+  height: 45;
+  text-align: center;
+  font-weight: bold;
+  background: LightGray;
+  margin-right: 5px;
+  padding: 3px 12px;
+  order: -1;
+}
+.tab-content {
+    width: 100%;
+    padding: 50 0;
+    display: none;
+}
+
+/* アクティブなタブ */
+.tab-switch:checked+.tab-label {
+    background-color: #1D93E9;
+}
+.tab-switch:checked+.tab-label h1{
+  color: #FFF;
+}
+.tab-switch:checked+.tab-label+.tab-content {
+     display: block;
+}
+/* ラジオボタン非表示 */
+.tab-switch {
+    display: none;
+}
+
+.list-box{
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 1.5em;
+  text-indent: 0;
+  padding-left: 0;
+}
+::marker {
+  unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
+  text-transform: none;
+  text-indent: 0px !important;
+  text-align: start !important;
+  text-align-last: start !important;
+}
+
+.email-box{
+  height: 50px;
+  width: 50%;
+  margin: 25 0;
+  padding: 10;
+  font-size: 16px;
+  border: 1px solid #957D56;
+  color: #957D56;
+  text-align: center;
+}
+
+@media screen and (max-width:768px) {
+/*　画面サイズが768px以下はここを読み込む　*/
+h1, h2, h3, h4, h5, h6{
+  letter-spacing: 0;
+}
+
+.main{
+  width: 100%;
+  padding-bottom: 0;
+}
+
+.main-inbox{
+  width: 90%;
+}
+
+.tab-wrap {
+  justify-content: unset;
+}
+
+
+.tab-label{
+  width: 100%;
+  height: 40;
+}
+
+.email-box{
+  width: 100%;
+}
+
+
+}

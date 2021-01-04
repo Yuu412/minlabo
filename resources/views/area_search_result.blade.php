@@ -53,6 +53,9 @@
           @endforeach
         </div>
     @else
+
+      @include('components.nothing_data', ['keyword' => $prefecture_name ])
+      {{--
       <div>
         <h3>「{{ $prefecture_name }}」に一致する研究室情報は見つかりませんでした。</h3>
         <div>研究室の新規登録をご希望される場合は、下記のフォームから登録してください。</div>
@@ -63,5 +66,6 @@
         <a class="nav-link" href="{{ action('LinkController@to_add') }}">研究室の追加</a>
       </li>
       <!--↑↑ 研究室登録フォーム ↑↑-->
+      --}}
     @endif
   @endsection

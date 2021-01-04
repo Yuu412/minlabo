@@ -50,6 +50,13 @@
             <input type="hidden" name="token" value="{{ $user['token'] }}">
             <input type="hidden" name="prefecture_name" value="{{ $prefecture_name }}">
 
+              <p class="policy-check">
+                <label>
+                    <input type="checkbox" required>
+                    <a href="">利用規約</a>と<a href="">個人情報の取扱いについて</a>に同意する
+                </label>
+              </p>
+
             <div class="next-button">
               <!--次のページへ ボタン-->
               <button type="submit" class="btn btn-primary">本登録</button>
