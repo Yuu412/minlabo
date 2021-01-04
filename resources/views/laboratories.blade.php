@@ -43,7 +43,7 @@
         <div class="area">
           <h4>{{ $all_prefecture['category'] }}</h4>
           @foreach($all_prefecture['prefectures'] as $prefecture_name)
-            <a href="{{ url('area/'.$main_prefecture['name']) }}">
+            <a href="{{ url('area/'.$prefecture_name) }}">
                 <span>{{ $prefecture_name }}</span>
             </a>
           @endforeach

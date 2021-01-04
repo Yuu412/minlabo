@@ -5,7 +5,7 @@ h3 {
 }
 
 .gray-block{
-  height: 170px;
+  height: 100px;
   width: 100%;
   padding: 50 0 0 10%;
 }
@@ -13,7 +13,6 @@ h3 {
 .total-evaluation{
   background-color: #f8f9fa;
   padding: 75 0 150 0;
-
 }
 
 .search-result{

@@ -48,11 +48,14 @@ class ToLabDetailsController extends Controller
         ],
       ]);
     }
+    $hits = count($evaluations_collection);
+
     $flag = 1;
     return view('lab_details',[
       'evaluations_collection' => $evaluations_collection,
       'univ_name' => $univ_name,
       'lab_name' => $lab_name,
+      'hits' => $hits,
       'flag' => $flag,
     ]);
   }

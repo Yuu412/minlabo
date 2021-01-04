@@ -29,9 +29,8 @@
   width: 1080px;
   margin: 0 auto;
 }
-#f8f9fa
 .top-contents{
-  padding-left: : 10%;
+  padding-left: 10%;
   width: 60%;
 }
 .top-contents h1{
@@ -49,7 +48,7 @@
   height: 400;
   position: absolute;
   top: 15vw;
-  right: 10%;
+  right: 5%;
 }
 
 .button-box{
@@ -103,10 +102,10 @@
 }
 .iphone-screen{
   width: 40%;
-  margin: 50 0 0 -100;
+  margin: 50 0 0 -50;
 }
 .iphone-screen img{
-  width: 120%;
+  width: 125%;
 }
 
 .main{
@@ -347,6 +346,9 @@
   margin: 25 0 0 -50;
 }
 
+.iphone-screen img{
+  width: 120%;
+}
 #iphone-bubble{
   width: 30vw;
   height: 250;

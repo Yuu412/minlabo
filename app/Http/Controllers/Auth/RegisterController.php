@@ -55,8 +55,24 @@ class RegisterController extends Controller
 
     public function pre_check(Request $request)
     {
-        $this->validator($request->all())->validate();
-        //flash data
+        $rules = [
+          'password' => 'required|confirmed',
+          'password_confirmation' => 'required',
+        ];
+        $messages = [
+          'password.required' => '"パスワード"を入力してください。',
+          'password.confirmed' => '"パスワードの確認"はパスワードと同じものを入力してください。',
+          'password_confirmation.required' => '"パスワードの確認"を入力してください。"'
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect('/register')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $request->flashOnly('email');
 
         $email_flag = User::where('email', $request->email)->first();
@@ -75,10 +91,10 @@ class RegisterController extends Controller
                 ]);
             }
         } else {
-            $bridge_request = $request->all();
-            $bridge_request['password_mask'] = '*********';
+          $bridge_request = $request->all();
+          $bridge_request['password_mask'] = '*********';
 
-            return view('auth.register_check')->with($bridge_request);
+          return view('auth.register_check')->with($bridge_request);
         }
     }
 

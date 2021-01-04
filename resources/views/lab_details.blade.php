@@ -11,7 +11,7 @@
       @include('components.botton_add_reviews', ['flag' => $flag, 'lab_details_univ' => $univ_name, 'lab_details_lab' => $lab_name])
     </div>
     <div class="total-evaluation">
-      <h4 class="search-result">該当件数（〇件）</h4>
+      <h4 class="search-result">該当件数（{{$hits}}件）</h4>
       @foreach($evaluations_collection as $evaluation)
         @include('components.evaluation_category')
       @endforeach

@@ -4,7 +4,7 @@ h3 {
 }
 
 .gray-block{
-  height: 170px;
+  height: 100px;
   width: 100%;
   padding: 50 0 0 10%;
 }
@@ -43,6 +43,13 @@ h3 {
   padding:0 20 0 20;
 }
 
+.policy-check{
+  margin: 25 0;
+}
+.policy-check a{
+  color: #166c9d;
+}
+
 .next-button{
   text-align: center;
   padding-top: 150;
@@ -53,6 +60,7 @@ h3 {
   font-size: 18px;
   font-weight: bold;
 }
+
 
 @media screen and (max-width:768px) {
 /*　画面サイズが768px以下はここを読み込む　*/

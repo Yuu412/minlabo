@@ -83,8 +83,8 @@ Route::get('top', 'PreindexController@preindex')->name('top');
 
 Route::get('/home', 'IndexController@index')->name('home');
 
-Route::get('/welcome', function(){
-  return view('welcome');
+Route::get('/policy', function(){
+  return view('policy');
 });
 
 //QRコードから口コミ登録画面への遷移
