@@ -3,7 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Search Console -->
   <meta name="google-site-verification" content="0cl3OMCi_KHO8k1KSo8mU_B2AgRY6eeeK5zOYeGfack" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156021282-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-156021282-2');
+  </script>
+
 
   <!-- favicon -->
   <link rel="shortcut icon" href="{{ asset('img/minlabo_logo/favicon.ico') }}">
