@@ -6,8 +6,8 @@
     </div>
     <div class="total-evaluation-nd">
       <div class="each-evaluation-nd">
-          ”{{ $keyword }}”のキーワード含む研究室は見つかりませんでした。<br>
-          研究室の口コミ投稿をご希望される場合は、ページ上部の「研究室の口コミを登録する」ボタンから登録してください。
+          ”{{ $keyword }}”のキーワードを含む研究室は見つかりませんでした。<br>
+          口コミ投稿をご希望される場合は、ページ上部の「研究室の口コミを登録する」ボタンから登録してください。
       </div>
       <div class="return-button-nd">
         <a class="btn btn-primary" href="/">トップページに戻る</a>

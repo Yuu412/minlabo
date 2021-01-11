@@ -324,6 +324,10 @@
   overflow-x: hidden;
 }
 
+.main{
+  margin: -50 auto;
+}
+
 .top-contents-box{
   width: 100%;
 }
@@ -439,8 +443,8 @@
 }
 
 .dot-right{
-  margin-top: 0;
-  height: 100px;
+  margin-top: -40px;
+  height: 75px;
   z-index: 10;
   background-size: 20px 20px;
 }
