@@ -78,8 +78,7 @@
             <h3>ゼミ・研究室に入るために必要なＧＰＡや条件</h3>
             <div class="content-message">
               <label for="terms" class="control-label">
-                このゼミ・研究室に入るための基準となるＧＰＡや条件や目安などがあれば教えてください。<br>
-                ご自身のGPAなどを書いていただくと参考になります。
+                ご自身のGPAや、このゼミ・研究室に配属される際に必要な条件(GPA 2.8以上など)があれば教えて下さい。
               </label>
             </div>
             <input type="text" name="terms" id="form-terms" class="form-control @error('content') is-invalid @enderror">
@@ -90,7 +89,7 @@
           <div class="content-message">
             <label for="content" class="control-label">
               研究室についての口コミ情報を記入してください。<br>
-              内容は、上記で評価していただいた項目について説明していただく形でも構いませんし、追加情報などでも構いません。
+              内容は上記で評価していただいた項目について説明していただく形でも構いませんし、追加情報などでも構いません。
             </label>
           </div>
           <textarea name="content" class="form-content form-control @error('content') is-invalid @enderror" required autocomplete="content" placeholder="（例）〇〇研究室は体育会系が多いというイメージ通りの研究室でした。研究をがっつりする研究室で、 土日・祝日関係なく実験をする時期は毎日研究室に行っていました。 上の評価項目で言った通り、教授がとてもフレンドリーで親切な方なので、わからないことは気軽に質問できる雰囲気でした。就活に関しては、某大手テレビ企業への推薦や、某大手商社へのコネがあるといった話を聴いたことがあります。"></textarea>

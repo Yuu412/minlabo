@@ -89,10 +89,10 @@
     <!--研究室の名前-->
     <tr>
       <th width="30%" height="75px">
-        <label for="lab_name">口コミを投稿する研究室名</label>
+        <label for="lab_name">ゼミ・研究室名</label>
       </th>
       <th class="right-block">
-        <input type="text" name="lab_name" class="form-control">
+        <input type="text" name="lab_name" class="form-control" placeholder="(教授の苗字)＋(ゼミ or 研究室)の形で入力してください。">
       </th>
     </tr>
   </table>

@@ -114,7 +114,7 @@ class LabAdditionController extends Controller
           ];
           $jobhunt_array = [
               "大手に強いか" => "job_major",
-              "就活に対するサポート（面札対策とかes添削）" => "job_small",
+              "就活に対するサポート（面接対策・es添削）" => "job_small",
               "就活に十分な時間を充てられるか" => "job_jobhunt",
               "企業へのコネ・推薦" => "job_recommendation",
               "就活で活かせるスキルが身につくか" => "job_reserch"
@@ -123,13 +123,13 @@ class LabAdditionController extends Controller
               "拘束時間の満足度" => "lab_restraint",
               "課外活動の頻度" => "lab_free",
               "研究テーマの設定の自由度" => "lab_advice",
-              "ゼミのみの頻度" => "lab_event",
+              "ゼミ飲みの頻度" => "lab_event",
               "プライべートの交流" => "lab_communication",
               "ゼミ・研究室の人気度" => "lab_popularity"
           ];
           $other_array = [
               "英語を使用する頻度" => "other_skill",
-              "講義形式" => "other_fac",
+              "講義形式(1:授業, 5:ディスカッション)" => "other_fac",
               "ゼミ･研究室選択の満足度" => "other_regret",
               "国際的な活動の頻度" => "other_international",
               "男女比の割合" => "other_gender",
@@ -151,7 +151,7 @@ class LabAdditionController extends Controller
           ];
           $lab_array = [
               "拘束時間の満足度" => "lab_restraint",
-              "課外活動の頻度(例：勉強会・イベント)" => "lab_event",
+              "課外活動の頻度(例：勉強会)" => "lab_event",
               "研究テーマ設定の自由度" => "lab_free",
               "研究に関する上回生からのアドバイス" => "lab_advice",
               "メンバー間の仲の良さ" => "lab_communication",

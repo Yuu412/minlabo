@@ -28,7 +28,7 @@
       @foreach($main_prefectures as $key => $main_prefecture)
         <div class="main-prefectures-box">
           <a href="{{ url('area/'.$main_prefecture['name']) }}">
-            <img src="{{ asset('img/Prefecture_image/' .$main_prefecture['image']) }}" alt="{{ $main_prefecture['name'] }}">
+            <img src="{{ asset('img/prefecture_image/' .$main_prefecture['image']) }}" alt="{{ $main_prefecture['name'] }}">
             <span class="main-prefecture-name">
               {{ $main_prefecture['name'] }}
             </span>
@@ -82,7 +82,7 @@
                 <div>{{ $evaluation['lab_name'] }}</div>
               </div>
               <div class="black">
-                <img src="{{ asset('img/Prefecture_image/' .$evaluation['prefecture_image']) }}" alt="{{ $evaluation['univ_name'] }}" class="black-img" >
+                <img src="{{ asset('img/prefecture_image/' .$evaluation['prefecture_image']) }}" alt="{{ $evaluation['univ_name'] }}" class="black-img" >
               </div>
             </div>
             <div class="star-box">
@@ -117,7 +117,7 @@
                 <div>{{ $evaluation['lab_name'] }}</div>
               </div>
               <div class="black">
-                <img src="{{ asset('img/Prefecture_image/' .$evaluation['prefecture_image']) }}" alt="{{ $evaluation['univ_name'] }}" class="black-img" >
+                <img src="{{ asset('img/prefecture_image/' .$evaluation['prefecture_image']) }}" alt="{{ $evaluation['univ_name'] }}" class="black-img" >
               </div>
             </div>
             <div class="star-box">
