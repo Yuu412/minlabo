@@ -25,6 +25,7 @@
               <!--↓↓ 新着口コミの評価平均 部分 ↓↓-->
               @include('components.latest_review',['laboratory' => $laboratory])
           </div>
+
         </div>
       @endforeach
     </div>

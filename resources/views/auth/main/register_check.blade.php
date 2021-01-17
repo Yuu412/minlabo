@@ -53,7 +53,7 @@
               <p class="policy-check">
                 <label>
                     <input type="checkbox" required>
-                    <a href="">利用規約</a>と<a href="">個人情報の取扱いについて</a>に同意する
+                    <a href="{{ route('policy')}}" target="_blank">利用規約</a>と<a href="{{ route('policy')}}" target="_blank">個人情報の取扱いについて</a>に同意する
                 </label>
               </p>
 

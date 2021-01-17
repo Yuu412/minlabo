@@ -48,6 +48,7 @@ class LabAdditionController extends Controller
 
       $validator = Validator::make($request->all(), $rules, $messages);
 
+      //TODO :: roleが2だったときは、url('add/'.email_token)に移す。
       if ($validator->fails()) {
           return redirect('/add')
               ->withErrors($validator)
@@ -71,7 +72,15 @@ class LabAdditionController extends Controller
 
           $today = date("Y/m/d");  //現在時刻の取得
 
-          $user_token = User::where('token', $request->token)->first();
+          //未登録のユーザー（From:メール）の場合，$tokenにはemail_tokenが入っている.
+          $is_unregistered = User::where('email_verify_token', $request->token)->first();
+          if(isset($is_unregistered)){
+            $user_token = $is_unregistered;
+          }
+          else{
+            $user_token = User::where('token', $request->token)->first();
+          }
+
           if (isset($user_token)) {
               $token_flag = 1;
           } else {

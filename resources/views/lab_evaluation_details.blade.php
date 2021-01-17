@@ -85,6 +85,11 @@
           {{ $lab_evaluation->content }}
         </div>
       </div>
+
+      <a href="https://px.a8.net/svt/ejp?a8mat=3H3F8R+4TUNQI+4K88+601S1" rel="nofollow">
+        <img border="0" width="100%" alt="" src="https://www22.a8.net/svt/bgt?aid=210111723292&wid=004&eno=01&mid=s00000021284001008000&mc=1">
+      </a>
+      <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=3H3F8R+4TUNQI+4K88+601S1" alt="">
     </div>
   </div>
 

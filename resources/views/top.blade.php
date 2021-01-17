@@ -1,8 +1,8 @@
 <link href="{{ asset('css/top.css') }}" rel="stylesheet" type="text/css">
   <!-- JavaScript -->
-<script src="http://code.jquery.com/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85188/jquery.wavify.js"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+<script src="//s3-us-west-2.amazonaws.com/s.cdpn.io/85188/jquery.wavify.js"></script>
 <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
 
 @extends('layouts.app')
@@ -39,11 +39,10 @@
         </h2>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/aW8riWJxOMA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <p>
-          サービス紹介をここに書きます。<br>
-          サービスの紹介を<br>
-          ここに書きます。<br>
-          サービス紹介をここに<br>
-          書きます。
+          ホームページ・説明会だけじゃわからない、<br>
+          ゼミや研究室のリアル。<br>
+          学生側からの声を収集・分析し、<br
+          >あなたの選択をサポートします。
         </p>
       </div>
     </div>

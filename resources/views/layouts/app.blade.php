@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Goodle adsense -->
+  <script data-ad-client="ca-pub-4967925705019017" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <!-- Search Console -->
   <meta name="google-site-verification" content="0cl3OMCi_KHO8k1KSo8mU_B2AgRY6eeeK5zOYeGfack" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -45,12 +47,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-            <li>
-              <a class="nav-link" href="{{ action('LinkController@to_add') }}">
-                研究室の口コミを追加する
-              </a>
-            </li>
+
             @guest
+                <li>
+                  <a class="nav-link" href="{{ route('send.link.page')}}">
+                    研究室の口コミを投稿する
+                  </a>
+                </li>
               @if (Route::has('register'))
                 <li><a class="nav-link" href="{{ route('register') }}">ユーザー登録(1分)</a></li>
               @endif
@@ -59,6 +62,11 @@
               @php
                 $user = Auth::user();
               @endphp
+              <li>
+                <a class="nav-link" href="{{ action('LinkController@to_add') }}">
+                  研究室の口コミを投稿する
+                </a>
+              </li>
               <li>
                 <a class="nav-link" href="{{ url('/my-page')}} ">
                   {{ __('マイページ') }}
@@ -82,10 +90,10 @@
       <div class="upper">
         <img src="{{ asset('img/minlabo_logo/logo_1.png') }}" alt="みんラボ" />
         <ul class="footer-menu">
-         <li><a href="{{ url('/') }}">home</a> ｜</li>
-         <li><a href="{{ route('login') }}">ログイン</a> ｜</li>
-         <li><a href="/">プライバシーポリシー</a> ｜</li>
-         <li><a href="/">利用規約</a></li>
+         <li><a href="{{url('/')}}">home</a> ｜</li>
+         <li><a href="{{route('login')}}">ログイン</a> ｜</li>
+         <li><a href="{{route('policy')}}">プライバシーポリシー</a> ｜</li>
+         <li><a href="{{route('policy')}}">利用規約</a></li>
         </ul>
       </div>
       <div class="under">

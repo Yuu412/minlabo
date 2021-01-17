@@ -92,7 +92,7 @@
               内容は上記で評価していただいた項目について説明していただく形でも構いませんし、追加情報などでも構いません。
             </label>
           </div>
-          <textarea name="content" class="form-content form-control @error('content') is-invalid @enderror" required autocomplete="content" placeholder="（例）〇〇研究室は体育会系が多いというイメージ通りの研究室でした。研究をがっつりする研究室で、 土日・祝日関係なく実験をする時期は毎日研究室に行っていました。 上の評価項目で言った通り、教授がとてもフレンドリーで親切な方なので、わからないことは気軽に質問できる雰囲気でした。就活に関しては、某大手テレビ企業への推薦や、某大手商社へのコネがあるといった話を聴いたことがあります。"></textarea>
+          <textarea name="content" class="form-content form-control @error('content') is-invalid @enderror" required autocomplete="content" placeholder="※100文字以上（例）〇〇研究室は体育会系が多いというイメージ通りの研究室でした。研究をがっつりする研究室で、 土日・祝日関係なく実験をする時期は毎日研究室に行っていました。 上の評価項目で言った通り、教授がとてもフレンドリーで親切な方なので、わからないことは気軽に質問できる雰囲気でした。就活に関しては、某大手テレビ企業への推薦や、某大手商社へのコネがあるといった話を聴いたことがあります。"></textarea>
         </div>
 
           <!--研究室の評価 登録ボタン-->

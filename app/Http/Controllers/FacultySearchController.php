@@ -30,13 +30,14 @@ class FacultySearchController extends Controller
 
       //研究室のデータを一括してこの配列に入れる
       $laboratories_collection = collect([]);
+      $latest_collection = collect([]);
 
       foreach ($laboratories as $laboratory) {
         /*=====研究室ごとの平均評価計算部===========*/
         $univ_name = Univ_data::find($laboratory->univ_id)->univ_name;
         $department_name = Department::find($laboratory->department_id)->department_name;
         $lab_evaluations = lab_evaluation::where('lab_id', $laboratory->id)->where('univ_id', $laboratory->univ_id)->get();
-        $latest_evaluation = lab_evaluation::where('lab_id', $laboratory->id)->where('univ_id', $laboratory->univ_id)->first();
+        $latest_evaluation = lab_evaluation::where('lab_id', $laboratory->id)->where('univ_id', $laboratory->univ_id)->latest()->first();
 
         $laboratories_collection = $laboratories_collection->concat([
           [
@@ -54,6 +55,11 @@ class FacultySearchController extends Controller
             'other_average' => round($lab_evaluations->avg('other_average'), 2),
             'other_stars' => round($lab_evaluations->avg('other_average')*2, 0) / 2,
             'latest_evaluation' => $latest_evaluation,
+            'latest_all_stars' => round($latest_evaluation->all_average*2, 0) / 2,
+            'latest_prof_stars' => round($latest_evaluation->prof_average*2, 0) / 2,
+            'latest_job_stars' => round($latest_evaluation->job_average*2, 0) / 2,
+            'latest_lab_stars' => round($latest_evaluation->lab_average*2, 0) / 2,
+            'latest_other_stars' => round($latest_evaluation->other_average*2, 0) / 2,
           ],
         ]);
       }
@@ -63,7 +69,9 @@ class FacultySearchController extends Controller
         'faculty_name' => $faculty_name,
         'faculty_filename' => $faculty_data->faculty_filename,
         'laboratories_collection' => $laboratories_collection,
-        'hits' => $hits
+        'hits' => $hits,
+
+        'laboratories' => $laboratories,
       ]);
     }
 }

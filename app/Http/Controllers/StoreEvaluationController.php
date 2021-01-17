@@ -35,7 +35,14 @@ class StoreEvaluationController extends Controller
       $univ_id = Univ_data::where('univ_name', $request->lab_univ)->first();
       $lab_id  = Laboratory::where('lab_name', $request->lab_name)->where('univ_id', $univ_id->id)->first();
 
-      $user_token = User::where('token', $request->token)->first();
+      //未登録のユーザー（From:メール）の場合，$tokenにはemail_tokenが入っている.
+      $is_unregistered = User::where('email_verify_token', $request->token)->first();
+      if(isset($is_unregistered)){
+        $user_token = $is_unregistered;
+      } else{
+        $user_token = User::where('token', $request->token)->first();
+      }
+
       if (isset($user_token)) {
           $token_flag = 1;
       } else {
@@ -51,7 +58,7 @@ class StoreEvaluationController extends Controller
       //QRコードからの口コミ追加の場合Userテーブルからtokenが等しいものを検索してそのユーザーIDを登録
       //サイト内からの登録の場合その人自身のIDをユーザーIDとして登録
       if ($token_flag == 1) {
-          $lab_evaluation->user_id = User::where('token', $request->token)->first()->id;
+          $lab_evaluation->user_id = $user_token->id;
       } else {
           $lab_evaluation->user_id = Auth::user()->id;
       }
@@ -115,15 +122,17 @@ class StoreEvaluationController extends Controller
         /*口コミを投稿すると閲覧できる口コミ数を変更する処理*/
         /*登録されているデータの変更方法*/
         if ($token_flag == 1) {
-            $user_id = User::where('token', $request->token)->first()->id;
+            $user_id = $user_token->id;
         } else {
             $user_id = Auth::user()->id;
         }
 
-        \DB::table('users')->where('id', $user_id)->update([
-            'role' => 10,
-            'status' => config('const.USER_STATUS.REGISTER'),
-        ]);
+        if(!isset($is_unregistered)){
+          \DB::table('users')->where('id', $user_id)->update([
+              'role' => 10,
+              'status' => config('const.USER_STATUS.REGISTER'),
+          ]);
+        }
 
         $lab_details_univ = $request->lab_univ;
         $lab_details_lab = $request->lab_name;

@@ -138,6 +138,29 @@
         </div>
       @endforeach
     </div>
+
+    <!--↓↓ 広告 ↓↓-->
+    <h2>大学生にオススメのサービス</h2>
+    <div class="flex">
+      <div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=3H3F8R+4TUNQI+4K88+60H7L" rel="nofollow">
+          <img border="0" width="300" height="250" alt="" src="https://www21.a8.net/svt/bgt?aid=210111723292&wid=004&eno=01&mid=s00000021284001010000&mc=1">
+        </a>
+        <img border="0" width="1" height="1" src="https://www17.a8.net/0.gif?a8mat=3H3F8R+4TUNQI+4K88+60H7L" alt="">
+      </div>
+      <div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=3BMKII+FBWVBU+45EC+609HT" rel="nofollow">
+          <img border="0" width="300" height="250" alt="" src="https://www29.a8.net/svt/bgt?aid=200927322927&wid=002&eno=01&mid=s00000019362001009000&mc=1">
+        </a>
+        <img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=3BMKII+FBWVBU+45EC+609HT" alt="">
+      </div>
+      <div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=3BMKII+FBBH9M+42GS+60WN5" rel="nofollow">
+          <img border="0" width="300" height="250" alt="" src="https://www20.a8.net/svt/bgt?aid=200927322926&wid=004&eno=01&mid=s00000018982001012000&mc=1">
+        </a>
+        <img border="0" width="1" height="1" src="https://www17.a8.net/0.gif?a8mat=3BMKII+FBBH9M+42GS+60WN5" alt="">
+      </div>
+    </div>
   </div>
 
 @endsection

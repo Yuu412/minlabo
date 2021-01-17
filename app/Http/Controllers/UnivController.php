@@ -44,7 +44,12 @@ class UnivController extends Controller
             'lab_stars' => round($lab_evaluations->avg('lab_average')*2, 0) / 2,
             'other_average' => round($lab_evaluations->avg('other_average'), 2),
             'other_stars' => round($lab_evaluations->avg('other_average')*2, 0) / 2,
-            'latest_evaluation' => $latest_evaluation = lab_evaluation::latest()->first()
+            'latest_evaluation' => $latest_evaluation = lab_evaluation::latest()->first(),
+            'latest_all_stars' => round($latest_evaluation->all_average*2, 0) / 2,
+            'latest_prof_stars' => round($latest_evaluation->prof_average*2, 0) / 2,
+            'latest_job_stars' => round($latest_evaluation->job_average*2, 0) / 2,
+            'latest_lab_stars' => round($latest_evaluation->lab_average*2, 0) / 2,
+            'latest_other_stars' => round($latest_evaluation->other_average*2, 0) / 2,
           ],
         ]);
       }
