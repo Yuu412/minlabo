@@ -103,8 +103,7 @@ Route::post('/store/evaluation', 'StoreEvaluationController@store_evaluation');
 Route::POST('/add_evaluation', 'LabAdditionController@add_evaluation');
 
 //TO:研究室の評価追加ページ(リダイレクト)
-Route::GET('/add_evaluation',  function()
-{
+Route::GET('/add_evaluation',  function(){
     return view('add_evaluation');
 });
 
@@ -114,8 +113,16 @@ Route::get('/add_evaluation/{lab_details_univ}/{lab_details_lab}', 'LinkControll
 //TO:研究室の情報追加ページ
 Route::get('/add', 'LinkController@to_add');
 
-//利用規約ページ
-Route::get('term', [TermController::class, 'index'])->name('term');
+//TO:研究室の口コミ投稿リンクの送信先メールアドレス記入ページ
+Route::get('send_review_link',  function(){
+    return view('/send_review_link');
+})->name('send.link.page');
+//TO:送信先メールアドレスの確認ページ
+Route::POST('/send_check', 'SendReviewLinkController@to_send_check')->name('send.email.check');
+//TO:口コミ投稿フォーム送信完了ページ
+Route::POST('/sent', 'SendReviewLinkController@to_sent')->name('send');
+//From::メール, TO:口コミ投稿フォーム
+Route::get('add/{email_token}', 'SendReviewLinkController@to_add');
 
 //プライバシーポリシーページ
 Route::get('policy', [PolicyController::class, 'index'])->name('policy');

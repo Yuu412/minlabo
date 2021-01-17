@@ -121,24 +121,23 @@ class IndexController extends Controller
         $faculty_name = Faculty_logo::find($laboratory->faculty_id)->faculty_name;
         $lab_name = $laboratory->lab_name;
 
-
         $latest_evaluation_collection = $latest_evaluation_collection->concat([
           [
             'univ_name' => $univ_name,
             'prefecture_image' => $prefecture_image,
             'faculty_name' => $faculty_name,
             'lab_name' => $lab_name,
-            'prof_stars' => round($lab_evaluation->avg('prof_average')*2, 0) / 2,
-            'job_stars' => round($lab_evaluation->avg('job_average')*2, 0) / 2,
-            'lab_stars' => round($lab_evaluation->avg('lab_average')*2, 0) / 2,
-            'other_stars' => round($lab_evaluation->avg('other_average')*2, 0) / 2,
+            'prof_stars' => round($lab_evaluation->prof_average*2, 0) / 2,
+            'job_stars' => round($lab_evaluation->job_average*2, 0) / 2,
+            'lab_stars' => round($lab_evaluation->lab_average*2, 0) / 2,
+            'other_stars' => round($lab_evaluation->other_average*2, 0) / 2,
           ],
         ]);
       }
 
       /* ↓↓ 総合評価ランキング ↓↓ */
       $ranking_evaluation_collection = collect([]);
-      $ranking_evaluations = lab_evaluation::orderBy('all_average', 'desc')->take(5)->get();
+      $ranking_evaluations = lab_evaluation::groupby('lab_id')->orderBy('all_average', 'desc')->take(5)->get();
       foreach ($ranking_evaluations as $lab_evaluation) {
         $laboratory = Laboratory::find($lab_evaluation->lab_id);
         $university = Univ_data::find($lab_evaluation->univ_id);
@@ -154,10 +153,11 @@ class IndexController extends Controller
             'prefecture_image' => $prefecture_image,
             'faculty_name' => $faculty_name,
             'lab_name' => $lab_name,
-            'prof_stars' => round($lab_evaluation->avg('prof_average')*2, 0) / 2,
-            'job_stars' => round($lab_evaluation->avg('job_average')*2, 0) / 2,
-            'lab_stars' => round($lab_evaluation->avg('lab_average')*2, 0) / 2,
-            'other_stars' => round($lab_evaluation->avg('other_average')*2, 0) / 2,
+            'prof_stars' => round($lab_evaluation->where('lab_id', $lab_evaluation->lab_id)->avg('prof_average')*2, 0) / 2,
+            'job_stars' => round($lab_evaluation->where('lab_id', $lab_evaluation->lab_id)->avg('job_average')*2, 0) / 2,
+            'lab_stars' => round($lab_evaluation->where('lab_id', $lab_evaluation->lab_id)->avg('lab_average')*2, 0) / 2,
+            'other_stars' => round($lab_evaluation->where('lab_id', $lab_evaluation->lab_id)->avg('other_average')*2, 0) / 2,
+            'all_average' => round($lab_evaluation->where('lab_id', $lab_evaluation->lab_id)->avg('all_average')*2, 0) / 2,
           ],
         ]);
       }
