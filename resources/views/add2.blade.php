@@ -47,7 +47,7 @@
         <label class="faculty-group" for="lab_faculty">文系</label>
         <div class="faculty-name">
           @foreach($faculty_lib_array as $faculty_lib_item)
-            @if($faculty_lib_item == "文系その他")
+            @if($faculty_lib_item == "その他(文系)")
               <div class="choices">
                 <input type="radio" name="lab_faculty" value="{{ $faculty_lib_item }}">その他
               </div>
@@ -62,7 +62,7 @@
         <label class="faculty-group" for="lab_faculty">理系</label>
         <div class="faculty-name">
           @foreach($faculty_sci_array as $faculty_sci_item)
-            @if($faculty_sci_item == "理系その他")
+            @if($faculty_sci_item == "その他(理系)")
               <div class="choices">
                 <input type="radio" name="lab_faculty" value="{{ $faculty_sci_item }}">その他
               </div>
