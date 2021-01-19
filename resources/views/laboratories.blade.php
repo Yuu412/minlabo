@@ -1,5 +1,5 @@
 <link href="{{ asset('css/laboratories.css') }}" rel="stylesheet" type="text/css">
-<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
 @extends('layouts.app')
 @section('content')
 <!--バリテーションエラーの表示に使用-->
@@ -74,7 +74,7 @@
     <div class="flex scroll">
       @foreach($latest_evaluation_collection as $evaluation)
         <div class="evaluation-box">
-          <a href="{{ url('lab/'.$evaluation['univ_name'].'/'.$evaluation['lab_name']) }}">
+          <a href="{{ url('/lab-evaluation/'.$evaluation['review_id']) }}">
             <div class="lab-information-box">
               <div class="lab-information">
                 <div>{{ $evaluation['univ_name'] }}</div>
@@ -109,7 +109,7 @@
     <div class="flex scroll">
       @foreach($ranking_evaluation_collection as $evaluation)
         <div class="evaluation-box">
-          <a href="{{ url('lab/'.$evaluation['univ_name'].'/'.$evaluation['lab_name']) }}">
+          <a href="{{ url('/lab-evaluation/'.$evaluation['review_id']) }}">
             <div class="lab-information-box">
               <div class="lab-information">
                 <div>{{ $evaluation['univ_name'] }}</div>

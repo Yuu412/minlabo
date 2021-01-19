@@ -106,7 +106,7 @@ class StoreEvaluationController extends Controller
          $lab_evaluation->terms = $request->terms;
        }
        else{
-         $lab_evaluation->terms = "ありません。";
+         $lab_evaluation->terms = "該当条件なし。";
        }
        $lab_evaluation->content = $request->content;
        $lab_evaluation->token = $request->token;

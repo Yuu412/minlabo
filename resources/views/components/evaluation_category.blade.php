@@ -2,11 +2,11 @@
 
     <div class="each-evaluation-ec">
         <div class="average-evaluation-ec">
-          <div class="average-evaluation-block-ec">
+          <a class="average-evaluation-block-ec" href="{{ url('lab-evaluation/'.$evaluation['id']) }}">
             総合評価
             <img class="all_stars_img-ec" src="{{ asset('img/evaluation_star/star_'.$evaluation['all_stars'].'.png') }}" alt="star" width="100">
             {{ $evaluation['all_average'] }}
-          </div>
+          </a>
           <div class="add-time-ec">
             {{ $evaluation['created_at'] }}
           </div>

@@ -82,7 +82,7 @@ class IndexController extends Controller
                   ["name" => "文学部"],
                   ["name" => "教育学部"],
                   ["name" => "外国語学部"],
-                  ["name" => "その他"]
+                  ["name" => "その他(文系)"]
               ]
           ],
           [
@@ -93,7 +93,7 @@ class IndexController extends Controller
                   ["name" => "農学部"],
                   ["name" => "医学部"],
                   ["name" => "薬学部"],
-                  ["name" => "その他"]
+                  ["name" => "その他(理系)"]
               ]
           ],
       ];
@@ -123,6 +123,7 @@ class IndexController extends Controller
 
         $latest_evaluation_collection = $latest_evaluation_collection->concat([
           [
+            'review_id' => $lab_evaluation->id,
             'univ_name' => $univ_name,
             'prefecture_image' => $prefecture_image,
             'faculty_name' => $faculty_name,
@@ -149,6 +150,7 @@ class IndexController extends Controller
 
         $ranking_evaluation_collection = $ranking_evaluation_collection->concat([
           [
+            'review_id' => $lab_evaluation->id,
             'univ_name' => $univ_name,
             'prefecture_image' => $prefecture_image,
             'faculty_name' => $faculty_name,

@@ -69,19 +69,18 @@
       @endforeach
 
       <div class="part">
-        <h4>先輩の就職業界</h4>
+        <h4>OB･OGの就職先</h4>
         <span class="part-content">{{ $lab_evaluation->objobtype}}</span>
       </div>
 
       <div class="part">
-        <h4>備考欄</h4>
+        <h4>ゼミ・研究室に入るために必要なＧＰＡや条件（回答者のGPA）</h4>
         <span class="part-content">{{ $lab_evaluation->terms }}</span>
       </div>
 
       <div class="part">
         <h4>{{ $lab_name }}に関する口コミ</h4>
         <div class="content">
-          <h5>回答者：〇〇学部　〇〇学科</h5>　
           {{ $lab_evaluation->content }}
         </div>
       </div>

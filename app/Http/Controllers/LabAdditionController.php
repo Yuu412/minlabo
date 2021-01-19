@@ -141,7 +141,7 @@ class LabAdditionController extends Controller
               "講義形式(1:授業, 5:ディスカッション)" => "other_fac",
               "ゼミ･研究室選択の満足度" => "other_regret",
               "国際的な活動の頻度" => "other_international",
-              "男女比の割合" => "other_gender",
+              "女子の多さ(1:少, 5:多)" => "other_gender",
           ];
       } else {
           $prof_array = [
@@ -171,7 +171,7 @@ class LabAdditionController extends Controller
               "ゼミ・研究室の設備の充実度" => "other_fac",
               "ゼミ・研究室選択の後悔" => "other_regret",
               "国際的な活動の頻度" => "other_international",
-              "男女比の割合" => "other_gender"
+              "女子の多さ(1:少, 5:多)" => "other_gender"
           ];
       }
 
