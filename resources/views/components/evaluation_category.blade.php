@@ -14,26 +14,28 @@
 
         <div class="new-evaluation-ec">
               <div class="review-box-ec">
-                <div class="review-item-ec">
-                    教授
-                    <img src="{{ asset('img/evaluation_star/star_'.$evaluation['prof_stars'].'.png') }}" alt="star" width="100">
-                    <span class="evaluation_value-ec">{{ $evaluation['prof_average'] }}</span>
-                </div>
-                <div class="review-item-ec">
-                    就活
-                    <img src="{{ asset('img/evaluation_star/star_'.$evaluation['job_stars'].'.png') }}" alt="star" width="100">
-                    <span class="evaluation_value-ec">{{ $evaluation['job_average'] }}</span>
-                </div>
-                <div class="review-item-ec">
-                    雰囲気
-                    <img src="{{ asset('img/evaluation_star/star_'.$evaluation['lab_stars'].'.png') }}" alt="star" width="100">
-                    <span class="evaluation_value-ec">{{ $evaluation['lab_average'] }}</span>
-                </div>
-                <div class="review-item-ec">
-                    その他
-                    <img src="{{ asset('img/evaluation_star/star_'.$evaluation['other_stars'].'.png') }}" alt="star" width="100">
-                    <span class="evaluation_value-ec">{{ $evaluation['other_average'] }}</span>
-                </div>
+                <a class="average-evaluation-block-ec" href="{{ url('lab-evaluation/'.$evaluation['id']) }}">
+                  <div class="review-item-ec">
+                      教授
+                      <img src="{{ asset('img/evaluation_star/star_'.$evaluation['prof_stars'].'.png') }}" alt="star" width="100">
+                      <span class="evaluation_value-ec">{{ $evaluation['prof_average'] }}</span>
+                  </div>
+                  <div class="review-item-ec">
+                      就活
+                      <img src="{{ asset('img/evaluation_star/star_'.$evaluation['job_stars'].'.png') }}" alt="star" width="100">
+                      <span class="evaluation_value-ec">{{ $evaluation['job_average'] }}</span>
+                  </div>
+                  <div class="review-item-ec">
+                      雰囲気
+                      <img src="{{ asset('img/evaluation_star/star_'.$evaluation['lab_stars'].'.png') }}" alt="star" width="100">
+                      <span class="evaluation_value-ec">{{ $evaluation['lab_average'] }}</span>
+                  </div>
+                  <div class="review-item-ec">
+                      その他
+                      <img src="{{ asset('img/evaluation_star/star_'.$evaluation['other_stars'].'.png') }}" alt="star" width="100">
+                      <span class="evaluation_value-ec">{{ $evaluation['other_average'] }}</span>
+                  </div>
+                </a>
               </div>
               <div class="flex-box-ec non-flex-ec">
                 <div class="content-box-ec">

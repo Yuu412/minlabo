@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <link href="{{ asset('css/univ_name.css') }}" rel="stylesheet" type="text/css">
-<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
 
 @section('content')
   @if(count($laboratories) > 0)

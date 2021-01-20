@@ -1,10 +1,9 @@
 <link href="{{ asset('css/mypage.css') }}" rel="stylesheet" type="text/css">
-<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
 
 @extends('layouts.app')
 @section('content')
   @if(count($user_datas) > 0)
-
   <!--バリテーションエラーの表示に使用-->
   @include('common.errors')
   <div class="gray-block">
