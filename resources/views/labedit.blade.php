@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
 
 @section('content')
 <div class="row">

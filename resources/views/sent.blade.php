@@ -1,5 +1,5 @@
 <link href="{{ asset('css/sent.css') }}" rel="stylesheet" type="text/css">
-<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
 
 @extends('layouts.app')
 @section('content')

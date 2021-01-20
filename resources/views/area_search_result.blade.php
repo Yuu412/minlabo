@@ -1,5 +1,5 @@
 <link href="{{ asset('css/area_search_result.css') }}" rel="stylesheet" type="text/css">
-<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
 @extends('layouts.app')
 @section('content')
   @if(count($universities_collection))

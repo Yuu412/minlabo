@@ -24,16 +24,6 @@ class ToMypageController extends Controller
       $evaluations_collection = collect([]);   //研究室のデータを一括してこの配列に入れる
       $lab_evaluations = lab_evaluation::where('user_id', $userID)->get();
 
-/*
-      if ($faculty_name == "その他") {
-          $faculty_data = faculty_logo::where('faculty_filename', "other.png")->first();
-          $faculty_id = $faculty_data->id;
-      } else {
-          $faculty_data = faculty_logo::where('faculty_name', $faculty_name)->first();
-          $faculty_id = $faculty_data->id;
-      }
-*/
-
       foreach ($lab_evaluations as $lab_evaluation) {
         /*=====研究室ごとの平均評価計算部===========*/
         $lab_name = Laboratory::find($lab_evaluation->lab_id)->lab_name;
@@ -54,16 +44,17 @@ class ToMypageController extends Controller
             'id' => $lab_evaluation->id,
             'lab_name' => $lab_name,
             'univ_name' => $univ_name,
-            'all_average' => round($lab_evaluations->avg('all_average'), 2),
-            'all_stars' => round($lab_evaluations->avg('all_average')*2, 0) / 2,
-            'prof_average' => round($lab_evaluations->avg('prof_average'), 2),
-            'prof_stars' => round($lab_evaluations->avg('prof_average')*2, 0) / 2,
-            'job_average' => round($lab_evaluations->avg('job_average'), 2),
-            'job_stars' => round($lab_evaluations->avg('job_average')*2, 0) / 2,
-            'lab_average' => round($lab_evaluations->avg('lab_average'), 2),
-            'lab_stars' => round($lab_evaluations->avg('lab_average')*2, 0) / 2,
-            'other_average' => round($lab_evaluations->avg('other_average'), 2),
-            'other_stars' => round($lab_evaluations->avg('other_average')*2, 0) / 2,
+
+            'all_average' => round($lab_evaluation->all_average, 2),
+            'prof_average' => round($lab_evaluation->prof_average, 2),
+            'job_average' => round($lab_evaluation->job_average, 2),
+            'lab_average' => round($lab_evaluation->lab_average, 2),
+            'other_average' => round($lab_evaluation->other_average, 2),
+            'all_stars' => round($lab_evaluation->all_average*2, 0) / 2,
+            'prof_stars' => round($lab_evaluation->prof_average*2, 0) / 2,
+            'job_stars' => round($lab_evaluation->job_average*2, 0) / 2,
+            'lab_stars' => round($lab_evaluation->lab_average*2, 0) / 2,
+            'other_stars' => round($lab_evaluation->other_average*2, 0) / 2,
             'latest_evaluation' => $latest_evaluation,
             'comment' => $comment,
             'created_at' => $lab_evaluation->created_at,
@@ -76,6 +67,8 @@ class ToMypageController extends Controller
       return view('mypage', [
           'evaluations_collection' => $evaluations_collection,
           'user_datas' => $user_datas,
+
+          'tmp' => $lab_evaluations,
       ]);
   }
 }
