@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Univ_data;
+use App\Faculty_logo;
 use App\Prefecture_image;
 use Validator;
 
@@ -29,7 +30,7 @@ class RetunivController extends Controller
               ->withErrors($validator)
               ->withInput();
       }
-
+/*
       $faculty_lib_array = [
           "文学部", "教育学部", "経済学部", "経営学部", "商学部",
           "社会学部", "法学部", "外国語学部", "国際学部", "体育学部",
@@ -41,6 +42,10 @@ class RetunivController extends Controller
           "看護学部", "薬学部", "歯学部", "建築学部", "海洋学部",
           "スポーツ健康科学部", "芸術工学部", "生命科学部", "その他(理系)"
       ];
+*/
+
+      $faculty_lib_array = Faculty_logo::where("humanities_or_sciences", "文系")->get();
+      $faculty_sci_array = Faculty_logo::where("humanities_or_sciences", "理系")->get();
 
       $token = $request->input('token');
 
