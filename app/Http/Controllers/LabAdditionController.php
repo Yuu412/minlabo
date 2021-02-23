@@ -31,12 +31,11 @@ class LabAdditionController extends Controller
           'lab_department' => 'required|min:3|max:32',
           'lab_name' => 'required|min:3|max:32',
       ];
-
       $messages = [
           'lab_univ.required' => '大学名を選択してください。',
           'lab_univ.min' => '大学名を選択してください。',
           'lab_faculty.required' => '学部を入力して下さい。（例:工学部）',
-          'lab_faculty.min' => '学部を正しく入力してください。（例:工学部）',
+          'lab_faculty.min' => '1学部を正しく入力してください。（例:工学部）',
           'lab_faculty.max' => '名前は32文字以内で入力してください。',
           'lab_department.required' => '学科を入力してください。（例:情報系学科）',
           'lab_department.min' => '学科を正しく入力してください。（例:情報系学科）',
@@ -45,8 +44,58 @@ class LabAdditionController extends Controller
           'lab_name.min' => 'ゼミ・研究室名を正しく入力してください。（例:佐藤研究室）',
           'lab_name.max' => 'ゼミ・研究室名は32文字以内で入力してください。',
       ];
-
       $validator = Validator::make($request->all(), $rules, $messages);
+
+      if($request->lab_faculty == "その他(文系)" || $request->lab_faculty == "その他(理系)"){
+        if($request->lab_faculty == "その他(文系)"){
+          $rule_faculty = [
+            'new_lib_faculty' => 'required|min:3|max:32',
+          ];
+          $message_faculty = [
+            'new_lib_faculty.required' => '2学部を入力して下さい。（例:工学部）',
+            'new_lib_faculty.min' => '学部を正しく入力してください。（例:工学部）',
+            'new_lib_faculty.max' => '名前は32文字以内で入力してください。',
+          ];
+        }
+        else if($request->lab_faculty == "その他(理系)"){
+          $rule_faculty = [
+            'new_sci_faculty' => 'required|min:3|max:32',
+          ];
+          $message_faculty = [
+            'new_sci_faculty.required' => '3学部を入力して下さい。（例:工学部）',
+            'new_sci_faculty.min' => '学部を正しく入力してください。（例:工学部）',
+            'new_sci_faculty.max' => '名前は32文字以内で入力してください。',
+          ];
+        }
+        $validator = Validator::make($request->all(), $rule_faculty, $message_faculty);
+
+
+//TODO：文理それぞれのその他が入力されていたとき、それぞれの学部データを作成する
+//もし、既存のデータだったらそこに割当て次へ
+
+        if(!is_null($request->new_lib_faculty)){
+          if(Faculty_logo::where('faculty_name', $request->new_lib_faculty)->first() == NULL){
+            $faculty_logo = new Faculty_logo;
+            $faculty_logo->faculty_name = $request->new_lib_faculty;
+            $faculty_logo->humanities_or_sciences = "文系";
+            $faculty_logo->faculty_filename = "other.png";
+            $faculty_logo->save();
+          }
+          $selected_faculty = $request->new_lib_faculty;
+        }
+        else if(!is_null($request->new_sci_faculty)){
+          if(Faculty_logo::where('faculty_name', $request->new_sci_faculty)->first() == NULL){
+            $faculty_logo = new Faculty_logo;
+            $faculty_logo->faculty_name = $request->new_sci_faculty;
+            $faculty_logo->humanities_or_sciences = "理系";
+            $faculty_logo->faculty_filename = "other.png";
+            $faculty_logo->save();
+          }
+          $selected_faculty = $request->new_sci_faculty;
+        }
+      }else{
+        $selected_faculty = $request->faculty_name;
+      }
 
       //TODO :: roleが2だったときは、url('add/'.email_token)に移す。
       if ($validator->fails()) {
@@ -88,7 +137,6 @@ class LabAdditionController extends Controller
           }
 
           $laboratories = new Laboratory;
-
           $laboratories->lab_name = $request->lab_name;
           $laboratories->univ_id = $univ_id->id;
           $laboratories->faculty_id = $faculty_id->id;
@@ -169,7 +217,7 @@ class LabAdditionController extends Controller
           $other_array = [
               "スキル・専門性が身に付く" => "other_skill",
               "ゼミ・研究室の設備の充実度" => "other_fac",
-              "ゼミ・研究室選択の後悔" => "other_regret",
+              "ゼミ・研究室選択の満足度" => "other_regret",
               "国際的な活動の頻度" => "other_international",
               "女子の多さ(1:少, 5:多)" => "other_gender"
           ];

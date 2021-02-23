@@ -18,11 +18,11 @@ class StoreEvaluationController extends Controller
   public function store_evaluation(Request $request)
   {
       $rules = [
-          'content' => 'required|min:100',
+          'content' => 'required|min:50',
       ];
       $messages = [
           'content.required' => '口コミを入力してください。',
-          'content.min' => '口コミを100文字以上入力してください。',
+          'content.min' => '口コミを50文字以上入力してください。',
       ];
       $validator = Validator::make($request->all(), $rules, $messages);
 

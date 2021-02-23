@@ -47,13 +47,16 @@
         <label class="faculty-group" for="lab_faculty">文系</label>
         <div class="faculty-name">
           @foreach($faculty_lib_array as $faculty_lib_item)
-            @if($faculty_lib_item == "その他(文系)")
+            @if($faculty_lib_item->faculty_name == "その他(文系)")
               <div class="choices">
-                <input type="radio" name="lab_faculty" value="{{ $faculty_lib_item }}">その他
+                <input type="radio" name="lab_faculty" value="{{ $faculty_lib_item->faculty_name }}">その他
+                <div class="hide-input">
+                  <input type="text" name="new_lib_faculty" placeholder="〇〇学部">
+                </div>
               </div>
             @else
               <div class="choices">
-                <input type="radio" name="lab_faculty" value="{{ $faculty_lib_item }}">{{ $faculty_lib_item }}
+                <input type="radio" name="lab_faculty" value="{{ $faculty_lib_item->faculty_name }}">{{ $faculty_lib_item->faculty_name }}
               </div>
             @endif
           @endforeach
@@ -62,13 +65,16 @@
         <label class="faculty-group" for="lab_faculty">理系</label>
         <div class="faculty-name">
           @foreach($faculty_sci_array as $faculty_sci_item)
-            @if($faculty_sci_item == "その他(理系)")
+            @if($faculty_sci_item->faculty_name == "その他(理系)")
               <div class="choices">
-                <input type="radio" name="lab_faculty" value="{{ $faculty_sci_item }}">その他
+                <input type="radio" name="lab_faculty" value="{{ $faculty_sci_item->faculty_name }}">その他
+                <div class="hide-input">
+                  <input type="text" name="new_sci_faculty" placeholder="〇〇学部">
+                </div>
               </div>
             @else
               <div class="choices">
-                <input type="radio" name="lab_faculty" value="{{ $faculty_sci_item }}">{{ $faculty_sci_item }}
+                <input type="radio" name="lab_faculty" value="{{ $faculty_sci_item->faculty_name }}">{{ $faculty_sci_item->faculty_name }}
               </div>
             @endif
           @endforeach
@@ -82,7 +88,7 @@
         学科名
       </th>
       <th class="right-block">
-        <input type="text" name="lab_department" class="form-control">
+        <input type="text" name="lab_department" class="form-control" placeholder="〇〇学科">
       </th>
     </tr>
 
