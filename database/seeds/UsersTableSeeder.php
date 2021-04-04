@@ -7,6 +7,7 @@ class UsersTableSeeder extends Seeder
 
     public function run()
     {
+      /*
       $univ_array = [
           "旭川医科大学", "小樽商科大学", "帯広畜産大学", "北見工業大学", "北海道教育大学", "北海道大学", "室蘭工業大学", "釧路公立大学", "公立千歳科学技術大学", "公立はこだて未来大学", "札幌医科大学", "札幌市立大学", "名寄市立大学", "旭川大学", "札幌大谷大学", "札幌学院大学", "札幌国際大学", "札幌大学", "札幌保健医療大学", "天使大学",
           "星槎道都大学", "苫小牧駒澤大学", "日本医療大学", "日本赤十字北海道看護大学", "函館大学", "藤女子大学", "北翔大学", "北星学園大学", "北海学園大学", "北海商科大学", "北海道医療大学", "北海道科学大学", "北海道情報大学", "北海道千歳リハビリテーション大学", "北海道文教大学", "酪農学園大学", "稚内北星学園大学", "旭川大学短期大学部",
@@ -140,19 +141,20 @@ class UsersTableSeeder extends Seeder
               ],
           ]);
       }
+      */
       //テストユーザーの作成
       DB::table('users')->insert([
           [
-              'email'              => 'test@test.com',
-              'password'           => Hash::make('password'),
+              'email'              => 'yuu.yoshi12@outlook.jp',
+              'password'           => '$2y$10$y23JXTheLPt1497R6YPAUOnEb7W0CFgOnqL5vCSJwzxiDTxoRecta',
               'role'               => 10,
               'created_at'         => new DateTime(),
               'updated_at'         => new DateTime(),
               'token'              => str_random(15),
               'email_verify_token' => str_random(15),
-              'univ_name'          => $univ_array[rand(0,1094)],
-              'faculty_name'       => $faculty_array[rand(0,31)],
-              'department_name'    => $department_array[rand(0,29)],
+              'univ_name'          => '岡山大学',
+              'faculty_name'       => '工学部',
+              'department_name'    => '情報系学科',
               'status'             => 1,
           ],
       ]);

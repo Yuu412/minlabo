@@ -105,8 +105,12 @@ class LabAdditionController extends Controller
       }
 
       $univ_id = Univ_data::where('univ_name', $request->lab_univ)->first();
-      $already_data = Laboratory::where('univ_id', $univ_id->id)->where('lab_name', $request->lab_name)->exists();
-
+      if(!is_null($univ_id)){
+        $already_data = Laboratory::where('univ_id', $univ_id->id)->where('lab_name', $request->lab_name)->exists();
+      }
+      else{
+        $already_data = FALSE;
+      }
       //対象の研究室が登録されていなかった場合
       if ($already_data == FALSE) {
           $faculty_id = Faculty_logo::where('faculty_name', $request->lab_faculty)->first();

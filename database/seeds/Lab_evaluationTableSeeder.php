@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Univ_data;
+
 class Lab_evaluationTableSeeder extends Seeder
 {
     /**
@@ -41,35 +43,42 @@ class Lab_evaluationTableSeeder extends Seeder
 
           $data = [
             'lab_id'       => $count+1,
-            'univ_id'       => $univ_id,
-            'user_id'        =>  rand(1, 300),
+
+            'univ_id'       => Univ_data::where('univ_name', '岡山大学')->first()->id,
+            'user_id'        =>  1,
+
             'prof_care' => rand(1.0, 5.0),
             'prof_friendly' => rand(1.0, 5.0),
             'prof_jobhunt' => rand(1.0, 5.0),
             'prof_network' => rand(1.0, 5.0),
             'prof_experience' => rand(1.0, 5.0),
+
             'job_major' => rand(1.0, 5.0),
             'job_small' => rand(1.0, 5.0),
             'job_jobhunt' => rand(1.0, 5.0),
             'job_recommendation' => rand(1.0, 5.0),
             'job_reserch' => rand(1.0, 5.0),
+            'objobtype' => "1、4、18",
+
             'lab_restraint' => rand(1.0, 5.0),
             'lab_event' => rand(1.0, 5.0),
             'lab_free' => rand(1.0, 5.0),
             'lab_advice' => rand(1.0, 5.0),
             'lab_communication' => rand(1.0, 5.0),
             'lab_popularity' => rand(1.0, 5.0),
+
             'other_skill' => rand(1.0, 5.0),
             'other_fac' => rand(1.0, 5.0),
             'other_regret' => rand(1.0, 5.0),
             'other_international' => rand(1.0, 5.0),
             'other_gender' => rand(1.0, 5.0),
+
             'terms' => "",
             'content' => $content_array[rand(0,6)],
-            'objobtype' => "1、4、18",
-            'token' => str_random(15),
+
             'created_at'     => new DateTime($random_date[0].'-'.$random_date[1].'-'.$random_date[2]),
             'updated_at'     => new DateTime($random_date[0].'-'.$random_date[1].'-'.$random_date[2]),
+            'token' => str_random(15),
           ];
           // その数値を元に計算をして追加する
           $data['prof_average'] = (
