@@ -146,7 +146,8 @@ class UsersTableSeeder extends Seeder
       DB::table('users')->insert([
           [
               'email'              => 'yuu.yoshi12@outlook.jp',
-              'password'           => '$2y$10$y23JXTheLPt1497R6YPAUOnEb7W0CFgOnqL5vCSJwzxiDTxoRecta',
+//              'password'           => '$2y$10$y23JXTheLPt1497R6YPAUOnEb7W0CFgOnqL5vCSJwzxiDTxoRecta',
+              'password'           => Hash::make('password'),
               'role'               => 10,
               'created_at'         => new DateTime(),
               'updated_at'         => new DateTime(),

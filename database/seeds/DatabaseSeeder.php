@@ -13,11 +13,11 @@ class DatabaseSeeder extends Seeder
         DepartmentTableSeeder::class,
         UsersTableSeeder::class,
 */
-        UsersTableSeeder::class,  
+        UsersTableSeeder::class,
         Univ_dataTableSeeder::class,
         Prefecture_imagesTableSeeder::class,
         Faculty_logosTableSeeder::class,
-        Lab_evaluationTableSeeder::class,
+        //Lab_evaluationTableSeeder::class,
      ]);
     }
 }

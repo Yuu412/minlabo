@@ -66,9 +66,10 @@ class LinkController extends Controller
     public function to_add_evaluation($lab_details_univ, $lab_details_lab)
     {
         $lab_details = [$lab_details_univ, $lab_details_lab];
+        $univ_id = Univ_data::where('univ_name', $lab_details_univ)->first()->id;
 
         $lab_evaluation = lab_evaluation::find($lab_details[0]);
-        $laboratory = Laboratory::where('lab_univ', $lab_details[0])->where('lab_name', $lab_details[1])->first();
+        $laboratory = Laboratory::where('univ_id', $univ_id)->where('lab_name', $lab_details[1])->first();
 
         $token = uniqid(rand(100, 999));
 
@@ -149,6 +150,35 @@ class LinkController extends Controller
             ];
         }
 
+        $jobtype_array = [
+          "メーカー" => [
+            "食品", "農林・水産", "住宅・建設", "インテリア", "繊維・化学・薬品", "化粧品",
+            "鉄鋼・金属", "電子・電気機器", "自動車", "印刷", "スポーツ", "その他メーカー"
+          ],
+          "商社" => [
+            "総合商社", "専門商社"
+          ],
+          "小売" => [
+            "百貨店・スーパー", "コンビニ", "その他小売"
+          ],
+          "広告・出版・マスコミ" => [
+            "放送", "新聞・出版", "広告"
+          ],
+          "サービス・インフラ" => [
+            "不動産", "鉄道・航空・運輸・物流", "電力・ガス・エネルギー",
+            "旅行・ホテル", "医療", "アミューズメント", "人材・教育", "その他サービス"
+          ],
+          "金融" => [
+            "銀行・証券", "クレジット", "保険", "その他金融"
+          ],
+          "ソフトウェア・通信" => [
+            "ソフトウェア", "インターネット", "通信"
+          ],
+          "官公庁" => [
+            "官公庁", "公社・団体"
+          ],
+        ];
+
         //各配列をまとめる配列
         $evaluation_array = [
             '教授について' => $prof_array,
@@ -165,7 +195,8 @@ class LinkController extends Controller
             'lab_details' => $lab_details,
             'lab_evaluation' => $lab_evaluation,
             'evaluation_array' => $evaluation_array,
-            'eachtitle_array' => $eachtitle_array
+            'eachtitle_array' => $eachtitle_array,
+            'jobtype_array' => $jobtype_array
         ]);
     }
 
