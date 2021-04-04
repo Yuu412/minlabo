@@ -11,6 +11,7 @@ class LaboratoriesTableSeeder extends Seeder
      */
     public function run()
     {
+      /*
       $lab_array = [
         "佐藤研究室","谷口研究室","田中研究室","神戸研究室","中田研究室",
         "斎藤研究室","神谷研究室","見城研究室","南波研究室","梶崎研究室",
@@ -18,6 +19,7 @@ class LaboratoriesTableSeeder extends Seeder
         "新見研究室","南澤研究室","東山研究室","手塚研究室","多田研究室",
         "古賀研究室","六条研究室","灰田研究室","馬場研究室","田中研究室",
       ];
+      */
 
       for ($i = 0; $i < 25; $i++)
       {
