@@ -1,3 +1,4 @@
+@section('title', 'ゼミ・研究室口コミサイト')
 <link href="{{ asset('css/laboratories.css') }}" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 @extends('layouts.app')

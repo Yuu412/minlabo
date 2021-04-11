@@ -1,3 +1,4 @@
+@section('title', '口コミ投稿フォームの送信')
 <link href="{{ asset('css/send_review_link.css') }}" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 

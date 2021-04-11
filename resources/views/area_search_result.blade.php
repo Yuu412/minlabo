@@ -1,3 +1,4 @@
+@section('title', "$prefecture_name.にある大学一覧")
 <link href="{{ asset('css/area_search_result.css') }}" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 @extends('layouts.app')

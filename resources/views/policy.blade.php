@@ -1,3 +1,4 @@
+@section('title', 'プライバシーポリシー')
 <link href="{{ asset('css/policy.css') }}" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 

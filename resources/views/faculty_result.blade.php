@@ -1,3 +1,4 @@
+@section('title', "$faculty_name.の研究室一覧")
 <link href="{{ asset('css/faculty_result.css') }}" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 

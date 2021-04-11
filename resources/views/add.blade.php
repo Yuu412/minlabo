@@ -1,3 +1,4 @@
+@section('title', '口コミの追加')
 <link href="{{ asset('css/add.css') }}" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 

@@ -1,3 +1,5 @@
+@section('title', 'ログイン')
+@section('description', 'Laravel個別ページです。')
 <link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery.min.js"></script>
 

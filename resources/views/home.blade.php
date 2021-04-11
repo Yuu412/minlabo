@@ -1,3 +1,4 @@
+@section('title', 'トップページ')
 @extends('layouts.app')
 
 @section('content')

@@ -1,3 +1,4 @@
+@section('title', '会員登録完了')
 <link href="{{ asset('css/auth/registered.css') }}" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery.min.js"></script>
 

@@ -1,3 +1,4 @@
+@section('title', '登録内容の確認')
 <link href="{{ asset('css/auth/register_check.css') }}" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery.min.js"></script>
 @extends('layouts.app')
