@@ -24,7 +24,13 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>ゼミ・研究室の口コミサイト「みんラボ」</title>
+  <title>@yield('title') | {{ config('app.name') }}</title>
+  @hasSection('description')
+    <meta name="description" itemprop="description" content="@yield('description')">
+  @else
+    <meta name="description" itemprop="description" content="ゼミ・研究室口コミサイト|みんラボ">
+  @endif
+
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -32,7 +38,7 @@
   <!-- Styles -->
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/app_origin.css') }}" rel="stylesheet">
-  
+
 </head>
 <body>
   <div id="app">

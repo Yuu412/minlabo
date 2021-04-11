@@ -1,3 +1,4 @@
+@section('title', "$lab_name.の口コミ一覧")
 <link href="{{ asset('css/lab_details.css') }}" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 

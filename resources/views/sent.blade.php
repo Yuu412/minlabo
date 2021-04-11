@@ -1,3 +1,4 @@
+@section('title', 'メール送信完了')
 <link href="{{ asset('css/sent.css') }}" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 

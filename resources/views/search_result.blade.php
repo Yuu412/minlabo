@@ -1,3 +1,4 @@
+@section('title', "$keyword.の検索結果")
 <link href="{{ asset('css/search_result.css') }}" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 

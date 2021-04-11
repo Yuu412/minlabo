@@ -1,3 +1,4 @@
+@section('title', "マイページ")
 <link href="{{ asset('css/mypage.css') }}" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 

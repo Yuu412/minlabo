@@ -23,6 +23,7 @@ class SearchController extends Controller
     $keyword = $request->input('keyword');
     $laboratories = Laboratory::latest()->where('lab_name', 'like', '%' . $keyword . '%')->get();
 
+
     if(empty($laboratories[0])){
       return view('search_result', [
           'keyword' => $keyword,
@@ -37,13 +38,16 @@ class SearchController extends Controller
     $univ_data = Univ_data::get();
     $department_data = Department::get();
     foreach ($laboratories as $laboratory) {
+      //echo $laboratory;
       $faculty_data = $faculty_logos[$laboratory->faculty_id - 1];
+
       $univ_name = $univ_data[$laboratory->univ_id - 1]->univ_name;
       $department_name = $department_data[$laboratory->department_id - 1]->department_name;
 
       /*=====研究室ごとの平均評価計算部===========*/
       $lab_evaluations = lab_evaluation::where('lab_id', $laboratory->id)->where('univ_id', $laboratory->univ_id)->get();
       $latest_evaluation = lab_evaluation::where('lab_id', $laboratory->id)->where('univ_id', $laboratory->univ_id)->latest()->first();
+      echo $latest_evaluation;
       $laboratories_collection = $laboratories_collection->concat([
         [
           'lab_name' => $laboratory->lab_name,

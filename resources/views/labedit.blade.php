@@ -1,3 +1,4 @@
+@section('title', "登録内容の修正")
 @extends('layouts.app')
 <script src="//code.jquery.com/jquery.min.js"></script>
 

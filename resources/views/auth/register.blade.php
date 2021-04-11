@@ -1,3 +1,4 @@
+@section('title', '無料ユーザー登録')
 <link href="{{ asset('css/auth/register.css') }}" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery.min.js"></script>
 

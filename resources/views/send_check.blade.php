@@ -1,3 +1,4 @@
+@section('title', "無料新規会員登録")
 <link href="{{ asset('css/send_check.css') }}" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 @extends('layouts.app')

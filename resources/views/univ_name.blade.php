@@ -1,3 +1,4 @@
+@section('title', "$univ_name.の研究室一覧")
 @extends('layouts.app')
 <link href="{{ asset('css/univ_name.css') }}" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery.min.js"></script>
